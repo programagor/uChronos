@@ -1,0 +1,20 @@
+===== Power supply =====
+
+The whole system runs on 3.5V
+This is done by the RT8059 Buck converter
+To set the output voltage, choose R2 and R3:
+ - Vout= 0.6*(1+R2/R3)
+ - 350 kΩ < R2+R3 < 1.75 MΩ
+ - 60 kΩ < R3 < 300 kΩ
+I picked R2 as 1.33 MΩ
+Therefore, R3 = 275 kΩ
+This could be achieved by a 250 kΩ resistor + 50 kΩ potentiometer
+Then the range would be 3.28V to 3.79V
+
+
+===== LEDs =====
+
+The system uses blue LEDs with 3.2V @ 20 mA, produces 90 mcd
+The maximum duty cycle is 1/6 because of refreshing
+This requires 15 Ω resistor.
+I picked a 12 Ω, which should increase the brightness under refreshing.
