@@ -1,11 +1,11 @@
 
-AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm Wed Aug 16 08:58:35 2017
+AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm Thu Aug 17 18:27:54 2017
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m88padef.inc'
-D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm(66): Including file 'D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm'
+D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm(134): Including file 'D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm'
 D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): Including file 'D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\incrementors.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m88padef.inc'
-D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm(66): Including file 'D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm'
+D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm(134): Including file 'D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm'
 D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): Including file 'D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\incrementors.asm'
                                  
                                  ;
@@ -997,21 +997,21 @@ D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): I
                                  
                                  ; Interrupt Vector Table
                                  .ORG $000
-000000 c01d                      rjmp RESET			; Reset Handler
+000000 c01c                      rjmp RESET			; Reset Handler
 000001 c018                      rjmp EXT_INT0		; IRQ0 Handler
 000002 c017                      rjmp EXT_INT1		; IRQ1 Handler
 000003 c016                      rjmp PC_INT0
 000004 c015                      rjmp PC_INT1
 000005 c014                      rjmp PC_INT2
 000006 c013                      rjmp WDT
-000007 c012                      rjmp TIM2_COMPA		; Timer2 Compare Handler
+000007 c013                      rjmp TIM2_COMPA		; Timer2 Compare Handler
 000008 c011                      rjmp TIM2_COMPB
 000009 c010                      rjmp TIM2_OVF		; Timer2 Overflow Handler
 00000a c00f                      rjmp TIM1_CAPT		; Timer1 Capture Handler
-00000b c00f                      rjmp TIM1_COMPA		; Timer1 CompareA Handler
+00000b c00e                      rjmp TIM1_COMPA		; Timer1 CompareA Handler
 00000c c00d                      rjmp TIM1_COMPB		; Timer1 CompareB Handler
 00000d c00c                      rjmp TIM1_OVF		; Timer1 Overflow Handler
-00000e c00f                      rjmp TIM0_COMPA
+00000e c00e                      rjmp TIM0_COMPA
 00000f c00a                      rjmp TIM0_COMPB
 000010 c009                      rjmp TIM0_OVF		; Timer0 Overflow Handler
 000011 c008                      rjmp SPI_STC			; SPI Transfer Complete Handler
@@ -1031,10 +1031,10 @@ D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): I
                                  PC_INT1:
                                  PC_INT2:
                                  WDT:
-                                 TIM2_COMPA:
                                  TIM2_COMPB:
                                  TIM2_OVF:
                                  TIM1_CAPT:
+                                 TIM1_COMPA:
                                  TIM1_COMPB:
                                  TIM1_OVF:
                                  TIM0_COMPB:
@@ -1051,7 +1051,75 @@ D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): I
 00001a 9518                      reti
                                  
                                  ; =============== 1 second timer ===============
-                                 TIM1_COMPA:
+                                 TIM2_COMPA:
+00001b d02b                      rcall pendulum
+00001c 9518                      reti
+                                 
+                                 ; =============== Refresh timer ===============
+                                 TIM0_COMPA:
+                                 ;TODO: insert refresher
+                                 
+                                 ; =============== Initialisation routine here ===============
+                                 RESET:
+                                 ;TODO: insert initialisator
+                                 ;Need to initialise outputs immediately to stop FETs from floating
+00001d e30f                      ldi R16,0b00111111 ;port C has only 6 pins, we want all as outputs, and initially high (disabled)
+00001e b908                      out PORTC,R16
+00001f b907                      out DDRC,R16
+                                 
+000020 e000                      ldi R16,0b00000000
+000021 b90b                      out PORTD,R16
+000022 ef0f                      ldi R16,0b11111111
+000023 b90a                      out DDRD,R16
+                                 
+                                 ;Initialise stack
+000024 ef0f                      ldi R16,LOW(RAMEND)
+000025 bf0d                      out SPL,R16
+000026 e004                      ldi R16,HIGH(RAMEND)
+000027 bf0e                      out SPH,R16
+                                 
+                                 ;Configure RTC
+000028 e200                      ldi R16,1<<AS2 ;enable asynchronous operation (32.768 kHz crystal)
+000029 9300 00b6                 sts ASSR,R16
+                                 
+                                 tbusy1:
+00002b 9100 00b6                 lds R16,ASSR
+00002d fd03                      sbrc R16,OCR2AUB
+00002e cffc                      rjmp tbusy1
+                                 
+00002f e70f                      ldi R16,127 ;trigger 4 times per second
+000030 9300 00b3                 sts OCR2A,R16
+                                 
+000032 e002                      ldi R16,1<<OCIE2A ;enable compare interrupt
+000033 9300 0070                 sts TIMSK2,R16
+                                 
+                                 tbusy2:
+000035 9100 00b6                 lds R16,ASSR
+000037 fd01                      sbrc R16,TCR2AUB
+000038 cffc                      rjmp tbusy2
+                                  
+000039 e002                      ldi R16,1<<WGM21 ;CTC mode
+00003a 9300 00b0                 sts TCCR2A,R16
+                                  
+                                 tbusy3:
+00003c 9100 00b6                 lds R16,ASSR
+00003e fd00                      sbrc R16,TCR2BUB
+00003f cffc                      rjmp tbusy3
+                                 
+000040 e004                      ldi R16,1<<CS22 ;start clock (64 prescaler)
+000041 9300 00b1                 sts TCCR2B,R16
+                                 
+                                 
+                                 ;All set up, ready to go.
+000043 9478                       sei
+                                 ; =============== Sleeper loop ===============
+                                 LOOP:
+000044 9588                      sleep
+000045 cffe                      rjmp LOOP
+                                 
+                                 
+                                 ; =============== Includes ===============
+                                 
                                  #include "pendulum.asm"
                                  
                                  ; main.asm
@@ -1059,7 +1127,7 @@ D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): I
                                  ; Created: 16/08/2017 08:32:27
                                  ; Author : pmg
                                  ;
-                                 ; This file contains the code that is to be executed every 1 second
+                                 ; This file contains the code that is to be executed every 0.25 second
                                  
                                  #include "incrementors.asm"
                                  
@@ -1076,27 +1144,18 @@ D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm(9): I
                                  
                                  inc1sec:
                                  ;TODO: code
-00001b 9508                      ret
+000046 9508                      ret
                                  
                                  #endif
                                  
-00001c dffe
-00001d 9518                      reti
+                                 pendulum:
+                                 ;TODO: Every fourth execution, do this:
+000047 dffe                      rcall inc1sec
                                  
-                                 ; =============== Refresh timer ===============
-                                 TIM0_COMPA:
-                                 ;TODO: insert refresher
+                                 ;TODO: If refresher isn't running, do this
+                                 ;Read buttons. If pressed, start refresher.
                                  
-                                 ; =============== Initialisation routine here ===============
-                                 RESET:
-                                 ;TODO: insert initialisator
-                                 
-                                 ; =============== Sleeper loop ===============
-                                 LOOP:
-00001e 9588                      sleep
-00001f cffe                      rjmp LOOP
-                                 
-                                 
+000048 9508                      
                                  ; =============== Global variables ===============
 
 
@@ -1117,10 +1176,10 @@ counted separately from r26..r31 here.
 "ATmega88PA" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   0 r17:   0 r18:   0 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  27 r17:   0 r18:   0 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 0 out of 35 (0.0%)
+Registers used: 1 out of 35 (2.9%)
 
 "ATmega88PA" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
@@ -1133,21 +1192,21 @@ clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 clt   :   0
 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 cpi   :   0 
 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 
 icall :   0 ijmp  :   0 in    :   0 inc   :   0 ld    :   0 ldd   :   0 
-ldi   :   0 lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 
+ldi   :  10 lds   :   3 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 
 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 
-or    :   0 ori   :   0 out   :   0 pop   :   0 push  :   0 rcall :   1 
-ret   :   1 reti  :   2 rjmp  :  27 rol   :   0 ror   :   0 sbc   :   0 
+or    :   0 ori   :   0 out   :   6 pop   :   0 push  :   0 rcall :   2 
+ret   :   2 reti  :   2 rjmp  :  30 rol   :   0 ror   :   0 sbc   :   0 
 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 sbiw  :   0 sbr   :   0 
-sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 sen   :   0 
+sbrc  :   3 sbrs  :   0 sec   :   0 seh   :   0 sei   :   1 sen   :   0 
 ser   :   0 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   1 
-spm   :   0 st    :   0 std   :   0 sts   :   0 sub   :   0 subi  :   0 
+spm   :   0 st    :   0 std   :   0 sts   :   5 sub   :   0 subi  :   0 
 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 5 out of 111 (4.5%)
+Instructions used: 11 out of 111 (9.9%)
 
 "ATmega88PA" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000040     64      0     64    8192   0.8%
+[.cseg] 0x000000 0x000092    146      0    146    8192   1.8%
 [.dseg] 0x000100 0x000100      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

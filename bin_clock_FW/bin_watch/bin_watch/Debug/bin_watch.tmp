@@ -31,11 +31,11 @@
   <PC_INT1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>42</LINE></PC_INT1>
   <PC_INT2><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>43</LINE></PC_INT2>
   <WDT><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>44</LINE></WDT>
-  <TIM2_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>45</LINE></TIM2_COMPA>
-  <TIM2_COMPB><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>46</LINE></TIM2_COMPB>
-  <TIM2_OVF><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>47</LINE></TIM2_OVF>
-  <TIM1_CAPT><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>48</LINE></TIM1_CAPT>
-  <TIM1_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>65</LINE></TIM1_COMPA>
+  <TIM2_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>65</LINE></TIM2_COMPA>
+  <TIM2_COMPB><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>45</LINE></TIM2_COMPB>
+  <TIM2_OVF><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>46</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>47</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>48</LINE></TIM1_COMPA>
   <TIM1_COMPB><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>49</LINE></TIM1_COMPB>
   <TIM1_OVF><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>50</LINE></TIM1_OVF>
   <TIM0_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>70</LINE></TIM0_COMPA>
@@ -50,7 +50,11 @@
   <ANA_COMP><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>59</LINE></ANA_COMP>
   <TWSI><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>60</LINE></TWSI>
   <SPM_RDY><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>61</LINE></SPM_RDY>
+  <pendulum><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\pendulum.asm</FILE><LINE>11</LINE></pendulum>
+  <tbusy1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>96</LINE></tbusy1>
+  <tbusy2><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>107</LINE></tbusy2>
+  <tbusy3><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>115</LINE></tbusy3>
+  <LOOP><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>127</LINE></LOOP>
   <inc1sec><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\incrementors.asm</FILE><LINE>13</LINE></inc1sec>
-  <LOOP><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\bin_watch\bin_watch\main.asm</FILE><LINE>78</LINE></LOOP>
  </LABELS>
 </ASSEMBLER_INFO>
