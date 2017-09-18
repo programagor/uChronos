@@ -17769,17 +17769,20 @@ at 30/07/2012 14:27:46</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.16" drill="0">
+<class number="0" name="default" width="0.16" drill="0.3">
 <clearance class="0" value="0.16"/>
 </class>
-<class number="1" name="supply" width="0.2" drill="0">
+<class number="1" name="supply" width="0.2" drill="0.35">
 <clearance class="1" value="0.2"/>
 </class>
-<class number="2" name="clock" width="0.16" drill="0">
+<class number="2" name="clock" width="0.16" drill="0.3">
 <clearance class="2" value="0.2"/>
 </class>
-<class number="3" name="pwr" width="0.2" drill="0">
+<class number="3" name="pwr" width="0.2" drill="0.35">
 <clearance class="3" value="0.2"/>
+</class>
+<class number="4" name="signal" width="0.127" drill="0.254">
+<clearance class="4" value="0.127"/>
 </class>
 </classes>
 <parts>
@@ -17787,7 +17790,7 @@ at 30/07/2012 14:27:46</description>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="10pF"/>
 <part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="JP1" library="avr-5" deviceset="AVR-ISP-6" device=""/>
-<part name="IC1" library="avr-5" deviceset="MEGA48/88/168" device="-AU"/>
+<part name="IC1" library="avr-5" deviceset="MEGA48/88/168" device="-MU" value="MEGA48/88/168-MU"/>
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="D5" library="standardparts" deviceset="LED" device=".0603" value="RG"/>
 <part name="D6" library="standardparts" deviceset="LED" device=".0603" value="RG"/>
@@ -18051,7 +18054,7 @@ at 30/07/2012 14:27:46</description>
 <wire x1="63.5" y1="78.74" x2="27.94" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="GND" class="1">
+<net name="GND" class="4">
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
@@ -18204,7 +18207,7 @@ at 30/07/2012 14:27:46</description>
 <junction x="43.18" y="22.86"/>
 </segment>
 </net>
-<net name="RST" class="0">
+<net name="RST" class="4">
 <segment>
 <pinref part="JP1" gate="G$1" pin="5"/>
 <wire x1="93.98" y1="111.76" x2="60.96" y2="111.76" width="0.1524" layer="91"/>
@@ -18213,7 +18216,7 @@ at 30/07/2012 14:27:46</description>
 <wire x1="60.96" y1="93.98" x2="63.5" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SCK" class="0">
+<net name="SCK" class="4">
 <segment>
 <pinref part="JP1" gate="G$1" pin="3"/>
 <wire x1="104.14" y1="109.22" x2="129.54" y2="109.22" width="0.1524" layer="91"/>
@@ -18222,7 +18225,7 @@ at 30/07/2012 14:27:46</description>
 <wire x1="129.54" y1="35.56" x2="124.46" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="MOSI" class="0">
+<net name="MOSI" class="4">
 <segment>
 <pinref part="JP1" gate="G$1" pin="4"/>
 <wire x1="104.14" y1="111.76" x2="132.08" y2="111.76" width="0.1524" layer="91"/>
@@ -18231,7 +18234,7 @@ at 30/07/2012 14:27:46</description>
 <wire x1="132.08" y1="40.64" x2="124.46" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="MISO" class="0">
+<net name="MISO" class="4">
 <segment>
 <pinref part="JP1" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="114.3" x2="134.62" y2="114.3" width="0.1524" layer="91"/>
@@ -18704,7 +18707,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="R8" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="PB0" class="0">
+<net name="PB0" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PB0(ICP1/CLKO/PCINT0)"/>
 <wire x1="124.46" y1="48.26" x2="139.7" y2="48.26" width="0.1524" layer="91"/>
@@ -18715,7 +18718,7 @@ at 30/07/2012 14:27:46</description>
 <junction x="139.7" y="15.24"/>
 </segment>
 </net>
-<net name="PB1" class="0">
+<net name="PB1" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PB1(OC1A/PCINT1)"/>
 <pinref part="S2" gate="G$1" pin="1"/>
@@ -18726,7 +18729,7 @@ at 30/07/2012 14:27:46</description>
 <junction x="157.48" y="15.24"/>
 </segment>
 </net>
-<net name="PB2" class="0">
+<net name="PB2" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PB2(SS/OC1B/PCINT2)"/>
 <pinref part="S3" gate="G$1" pin="1"/>
@@ -18804,7 +18807,7 @@ at 30/07/2012 14:27:46</description>
 <wire x1="228.6" y1="248.92" x2="228.6" y2="281.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC0" class="0">
+<net name="PC0" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PC0(ADC0/PCINT8)"/>
 <wire x1="124.46" y1="93.98" x2="139.7" y2="93.98" width="0.1524" layer="91"/>
@@ -18812,7 +18815,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T5" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PC1" class="0">
+<net name="PC1" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PC1(ADC1/PCINT9)"/>
 <wire x1="124.46" y1="91.44" x2="152.4" y2="91.44" width="0.1524" layer="91"/>
@@ -18820,7 +18823,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T6" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PC2" class="0">
+<net name="PC2" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PC2(ADC2/PCINT10)"/>
 <wire x1="124.46" y1="88.9" x2="165.1" y2="88.9" width="0.1524" layer="91"/>
@@ -18828,7 +18831,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T7" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PC3" class="0">
+<net name="PC3" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PC3(ADC3/PCINT11)"/>
 <wire x1="124.46" y1="86.36" x2="177.8" y2="86.36" width="0.1524" layer="91"/>
@@ -18836,7 +18839,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T5" gate="-2" pin="G"/>
 </segment>
 </net>
-<net name="PC4" class="0">
+<net name="PC4" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PC4(ADC4/SDA/PCINT12)"/>
 <wire x1="124.46" y1="83.82" x2="190.5" y2="83.82" width="0.1524" layer="91"/>
@@ -18844,7 +18847,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T6" gate="-2" pin="G"/>
 </segment>
 </net>
-<net name="PC5" class="0">
+<net name="PC5" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PC5(ADC5/SCL/PCINT13)"/>
 <wire x1="124.46" y1="81.28" x2="203.2" y2="81.28" width="0.1524" layer="91"/>
@@ -18852,7 +18855,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T7" gate="-2" pin="G"/>
 </segment>
 </net>
-<net name="PD0" class="0">
+<net name="PD0" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD0(RXD/PCINT16)"/>
 <wire x1="124.46" y1="71.12" x2="177.8" y2="71.12" width="0.1524" layer="91"/>
@@ -18860,7 +18863,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T1" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PD1" class="0">
+<net name="PD1" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD1(TXD/PCINT17)"/>
 <wire x1="124.46" y1="68.58" x2="187.96" y2="68.58" width="0.1524" layer="91"/>
@@ -18868,7 +18871,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T1" gate="-2" pin="G"/>
 </segment>
 </net>
-<net name="PD2" class="0">
+<net name="PD2" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD2(INT0/PCINT18)"/>
 <wire x1="124.46" y1="66.04" x2="198.12" y2="66.04" width="0.1524" layer="91"/>
@@ -18876,7 +18879,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T2" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PD3" class="0">
+<net name="PD3" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD3(INT1/OC2B/PCINT19)"/>
 <wire x1="124.46" y1="63.5" x2="208.28" y2="63.5" width="0.1524" layer="91"/>
@@ -18884,7 +18887,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T2" gate="-2" pin="G"/>
 </segment>
 </net>
-<net name="PD4" class="0">
+<net name="PD4" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD4(T0/XCK/PCINT20)"/>
 <wire x1="124.46" y1="60.96" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
@@ -18892,7 +18895,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T3" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PD5" class="0">
+<net name="PD5" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD5(T1/OC0B/PCINT21)"/>
 <wire x1="124.46" y1="58.42" x2="228.6" y2="58.42" width="0.1524" layer="91"/>
@@ -18900,7 +18903,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T3" gate="-2" pin="G"/>
 </segment>
 </net>
-<net name="PD6" class="0">
+<net name="PD6" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD6(AIN0/OC0A/PCINT22)"/>
 <wire x1="124.46" y1="55.88" x2="238.76" y2="55.88" width="0.1524" layer="91"/>
@@ -18908,7 +18911,7 @@ at 30/07/2012 14:27:46</description>
 <pinref part="T4" gate="-1" pin="G"/>
 </segment>
 </net>
-<net name="PD7" class="0">
+<net name="PD7" class="4">
 <segment>
 <pinref part="IC1" gate="1" pin="PD7(AIN1/PCINT23)"/>
 <wire x1="124.46" y1="53.34" x2="248.92" y2="53.34" width="0.1524" layer="91"/>
@@ -18965,7 +18968,7 @@ at 30/07/2012 14:27:46</description>
 <junction x="215.9" y="259.08"/>
 </segment>
 </net>
-<net name="PROG" class="0">
+<net name="PROG" class="4">
 <segment>
 <pinref part="U1" gate="A" pin="PROG"/>
 <pinref part="R1" gate="G$1" pin="2"/>
