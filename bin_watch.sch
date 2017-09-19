@@ -19388,7 +19388,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="T6" gate="-2" pin="D"/>
 </segment>
 </net>
-<net name="BLOCK" class="3">
+<net name="BLOCK5" class="3">
 <segment>
 <pinref part="D41" gate="G$1" pin="1"/>
 <pinref part="D45" gate="G$1" pin="1"/>
@@ -19689,7 +19689,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="228.6" y1="248.92" x2="228.6" y2="281.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC0" class="4">
+<net name="G_BLOCK0" class="4">
 <segment>
 <wire x1="139.7" y1="93.98" x2="139.7" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="T5" gate="-1" pin="G"/>
@@ -19698,7 +19698,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="45.72" x2="88.9" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC1" class="4">
+<net name="G_BLOCK1" class="4">
 <segment>
 <wire x1="152.4" y1="119.38" x2="152.4" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="T6" gate="-1" pin="G"/>
@@ -19706,7 +19706,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="91.44" x2="152.4" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC2" class="4">
+<net name="G_BLOCK2" class="4">
 <segment>
 <wire x1="165.1" y1="106.68" x2="165.1" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="T7" gate="-1" pin="G"/>
@@ -19715,7 +19715,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="83.82" x2="88.9" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC3" class="4">
+<net name="G_BLOCK3" class="4">
 <segment>
 <wire x1="177.8" y1="119.38" x2="177.8" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="T5" gate="-2" pin="G"/>
@@ -19724,7 +19724,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="93.98" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC4" class="4">
+<net name="G_BLOCK4" class="4">
 <segment>
 <wire x1="190.5" y1="106.68" x2="190.5" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="T6" gate="-2" pin="G"/>
@@ -19733,7 +19733,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="86.36" x2="88.9" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PC5" class="4">
+<net name="G_BLOCK5" class="4">
 <segment>
 <wire x1="203.2" y1="119.38" x2="203.2" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="T7" gate="-2" pin="G"/>
@@ -19742,7 +19742,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="71.12" x2="88.9" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PD0" class="4">
+<net name="G_LIGHT0" class="4">
 <segment>
 <wire x1="177.8" y1="71.12" x2="177.8" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="T1" gate="-1" pin="G"/>
@@ -19755,7 +19755,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="137.16" y="71.12"/>
 </segment>
 </net>
-<net name="PD1" class="4">
+<net name="G_LIGHT1" class="4">
 <segment>
 <wire x1="187.96" y1="68.58" x2="187.96" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="T1" gate="-2" pin="G"/>
@@ -19768,7 +19768,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="142.24" y="68.58"/>
 </segment>
 </net>
-<net name="PD2" class="4">
+<net name="G_LIGHT2" class="4">
 <segment>
 <wire x1="198.12" y1="66.04" x2="198.12" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="T2" gate="-1" pin="G"/>
@@ -19781,7 +19781,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="147.32" y="66.04"/>
 </segment>
 </net>
-<net name="PD3" class="4">
+<net name="G_LIGHT3" class="4">
 <segment>
 <wire x1="208.28" y1="63.5" x2="208.28" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="T2" gate="-2" pin="G"/>
@@ -19794,7 +19794,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="152.4" y="63.5"/>
 </segment>
 </net>
-<net name="PD4" class="4">
+<net name="G_LIGHT4" class="4">
 <segment>
 <wire x1="218.44" y1="60.96" x2="218.44" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="T3" gate="-1" pin="G"/>
@@ -19807,7 +19807,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="157.48" y="60.96"/>
 </segment>
 </net>
-<net name="PD5" class="4">
+<net name="G_LIGHT5" class="4">
 <segment>
 <wire x1="228.6" y1="58.42" x2="228.6" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="T3" gate="-2" pin="G"/>
@@ -19819,7 +19819,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="162.56" y="58.42"/>
 </segment>
 </net>
-<net name="PD6" class="4">
+<net name="G_LIGHT6" class="4">
 <segment>
 <wire x1="238.76" y1="55.88" x2="238.76" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="T4" gate="-1" pin="G"/>
@@ -19832,7 +19832,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="167.64" y="55.88"/>
 </segment>
 </net>
-<net name="PD7" class="4">
+<net name="G_LIGHT7" class="4">
 <segment>
 <wire x1="248.92" y1="53.34" x2="248.92" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="T4" gate="-2" pin="G"/>
@@ -19921,7 +19921,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="R_LIGHT5" class="0">
 <segment>
 <wire x1="276.86" y1="58.42" x2="233.68" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="33.02" x2="233.68" y2="58.42" width="0.1524" layer="91"/>
@@ -19929,7 +19929,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R10" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="R_LIGHT6" class="0">
 <segment>
 <wire x1="261.62" y1="55.88" x2="243.84" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="50.8" x2="243.84" y2="55.88" width="0.1524" layer="91"/>
@@ -19937,7 +19937,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R11" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="R_LIGHT7" class="0">
 <segment>
 <wire x1="254" y1="33.02" x2="254" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="T4" gate="-2" pin="D"/>
@@ -19945,7 +19945,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="254" y1="53.34" x2="269.24" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="R_LIGHT4" class="0">
 <segment>
 <wire x1="223.52" y1="60.96" x2="269.24" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="50.8" x2="223.52" y2="60.96" width="0.1524" layer="91"/>
@@ -19953,7 +19953,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R9" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="R_LIGHT0" class="0">
 <segment>
 <pinref part="T1" gate="-1" pin="D"/>
 <wire x1="182.88" y1="50.8" x2="182.88" y2="71.12" width="0.1524" layer="91"/>
@@ -19961,7 +19961,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R5" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="R_LIGHT1" class="0">
 <segment>
 <pinref part="T1" gate="-2" pin="D"/>
 <wire x1="193.04" y1="33.02" x2="193.04" y2="68.58" width="0.1524" layer="91"/>
@@ -19969,7 +19969,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="269.24" y1="68.58" x2="193.04" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="R_LIGHT2" class="0">
 <segment>
 <wire x1="203.2" y1="66.04" x2="276.86" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="203.2" y1="50.8" x2="203.2" y2="66.04" width="0.1524" layer="91"/>
@@ -19977,7 +19977,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R7" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="R_LIGHT3" class="0">
 <segment>
 <pinref part="T2" gate="-2" pin="D"/>
 <wire x1="213.36" y1="33.02" x2="213.36" y2="63.5" width="0.1524" layer="91"/>
@@ -20011,6 +20011,18 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="STAT_LED" gate="G$1" pin="1"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="127" y1="266.7" x2="137.16" y2="266.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="D_N" class="4">
+<segment>
+<pinref part="J1" gate="G$1" pin="D-"/>
+<wire x1="60.96" y1="274.32" x2="68.58" y2="274.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="D_P" class="4">
+<segment>
+<pinref part="J1" gate="G$1" pin="D+"/>
+<wire x1="60.96" y1="271.78" x2="68.58" y2="271.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
