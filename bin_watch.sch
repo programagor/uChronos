@@ -18820,8 +18820,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="SUPPLY18" gate="GND" x="71.12" y="223.52"/>
 <instance part="R1" gate="G$1" x="104.14" y="246.38"/>
 <instance part="SUPPLY19" gate="GND" x="99.06" y="223.52"/>
-<instance part="STAT_LED" gate="G$1" x="129.54" y="266.7"/>
-<instance part="R4" gate="G$1" x="137.16" y="266.7"/>
+<instance part="STAT_LED" gate="G$1" x="139.7" y="266.7"/>
+<instance part="R4" gate="G$1" x="121.92" y="266.7"/>
 <instance part="C3" gate="G$1" x="154.94" y="243.84"/>
 <instance part="SUPPLY20" gate="GND" x="154.94" y="223.52"/>
 <instance part="C2" gate="G$1" x="86.36" y="248.92"/>
@@ -18860,7 +18860,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <busses>
 </busses>
 <nets>
-<net name="XTAL_P" class="0">
+<net name="XTAL_P" class="4">
 <segment>
 <wire x1="-7.62" y1="78.74" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="1"/>
@@ -19010,7 +19010,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="215.9" y1="226.06" x2="215.9" y2="238.76" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="XTAL_N" class="0">
+<net name="XTAL_N" class="4">
 <segment>
 <pinref part="Q1" gate="G$1" pin="2"/>
 <pinref part="C1" gate="G$1" pin="1"/>
@@ -19756,9 +19756,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="86.36" y1="251.46" x2="109.22" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="251.46" x2="111.76" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="251.46" x2="109.22" y2="266.7" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="266.7" x2="116.84" y2="266.7" width="0.1524" layer="91"/>
 <junction x="109.22" y="251.46"/>
-<pinref part="STAT_LED" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="266.7" x2="127" y2="266.7" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <junction x="86.36" y="251.46"/>
 <pinref part="J1" gate="G$1" pin="VBUS"/>
@@ -19770,6 +19769,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="215.9" y1="276.86" x2="215.9" y2="274.32" width="0.1524" layer="91"/>
 <junction x="210.82" y="276.86"/>
 <junction x="86.36" y="276.86"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="VIN" class="1">
@@ -19804,19 +19804,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="109.22" y1="246.38" x2="111.76" y2="246.38" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="STAT_LED" gate="G$1" pin="2"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="STAT" class="0">
 <segment>
-<pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="142.24" y1="266.7" x2="149.86" y2="266.7" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="266.7" x2="149.86" y2="251.46" width="0.1524" layer="91"/>
 <pinref part="U1" gate="A" pin="STAT"/>
 <wire x1="149.86" y1="251.46" x2="147.32" y2="251.46" width="0.1524" layer="91"/>
+<pinref part="STAT_LED" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="ADC6" class="0">
@@ -19914,6 +19908,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U1" gate="A" pin="VBAT"/>
 <wire x1="147.32" y1="246.38" x2="154.94" y2="246.38" width="0.1524" layer="91"/>
 <junction x="172.72" y="246.38"/>
+</segment>
+</net>
+<net name="STAT_R" class="0">
+<segment>
+<pinref part="STAT_LED" gate="G$1" pin="1"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="127" y1="266.7" x2="137.16" y2="266.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
