@@ -1,22 +1,22 @@
 
-AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm Thu Sep 28 04:00:25 2017
+AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm Sat Sep 23 20:19:23 2017
 
-[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m328pdef.inc'
-[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m328pdef.inc'
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m48padef.inc'
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m48padef.inc'
                                  
-                                 ;
+                                 ; Interrupt Vector Table
                                  
-                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega328P.xml **********
+                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega48PA.xml **********
                                  ;*************************************************************************
                                  ;* A P P L I C A T I O N   N O T E   F O R   T H E   A V R   F A M I L Y
                                  ;* 
                                  ;* Number            : AVR000
-                                 ;* File Name         : "m328Pdef.inc"
-                                 ;* Title             : Register/Bit Definitions for the ATmega328P
+                                 ;* File Name         : "m48PAdef.inc"
+                                 ;* Title             : Register/Bit Definitions for the ATmega48PA
                                  ;* Date              : 2011-02-09
                                  ;* Version           : 2.35
                                  ;* Support E-mail    : avr@atmel.com
-                                 ;* Target MCU        : ATmega328P
+                                 ;* Target MCU        : ATmega48PA
                                  ;* 
                                  ;* DESCRIPTION
                                  ;* When including this file in the assembly program file, all I/O register 
@@ -44,18 +44,18 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  ;* ...                         ;otherwise do something else
                                  ;*************************************************************************
                                  
-                                 #ifndef _M328PDEF_INC_
-                                 #define _M328PDEF_INC_
+                                 #ifndef _M48PADEF_INC_
+                                 #define _M48PADEF_INC_
                                  
                                  
                                  #pragma partinc 0
                                  
                                  ; ***** SPECIFY DEVICE ***************************************************
-                                 .device ATmega328P
-                                 #pragma AVRPART ADMIN PART_NAME ATmega328P
+                                 .device ATmega48PA
+                                 #pragma AVRPART ADMIN PART_NAME ATmega48PA
                                  .equ	SIGNATURE_000	= 0x1e
-                                 .equ	SIGNATURE_001	= 0x95
-                                 .equ	SIGNATURE_002	= 0x0f
+                                 .equ	SIGNATURE_001	= 0x92
+                                 .equ	SIGNATURE_002	= 0x0a
                                  
                                  #pragma AVRPART CORE CORE_VERSION V2E
                                  
@@ -131,7 +131,7 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  .equ	TCCR0B	= 0x25
                                  .equ	TCCR0A	= 0x24
                                  .equ	GTCCR	= 0x23
-                                 .equ	EEARH	= 0x22
+                                 .equ    EEARH   = 0x22
                                  .equ	EEARL	= 0x21
                                  .equ	EEDR	= 0x20
                                  .equ	EECR	= 0x1f
@@ -739,6 +739,46 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  .equ	WDIF	= 7	; Watchdog Timeout Interrupt Flag
                                  
                                  
+                                 ; ***** EEPROM ***********************
+                                 ; EEARL - EEPROM Address Register Low Byte
+                                 .equ	EEAR0	= 0	; EEPROM Read/Write Access Bit 0
+                                 .equ	EEAR1	= 1	; EEPROM Read/Write Access Bit 1
+                                 .equ	EEAR2	= 2	; EEPROM Read/Write Access Bit 2
+                                 .equ	EEAR3	= 3	; EEPROM Read/Write Access Bit 3
+                                 .equ	EEAR4	= 4	; EEPROM Read/Write Access Bit 4
+                                 .equ	EEAR5	= 5	; EEPROM Read/Write Access Bit 5
+                                 .equ	EEAR6	= 6	; EEPROM Read/Write Access Bit 6
+                                 .equ	EEAR7	= 7	; EEPROM Read/Write Access Bit 7
+                                 
+                                 ; EEARH - EEPROM Address Register High Byte
+                                 .equ	EEAR8	= 0	; EEPROM Read/Write Access Bit 8, 
+                                 .equ	EEAR9	= 1	; EEPROM Read/Write Access Bit 9
+                                  
+                                 ; Even though EEARH is not used by the mega48, the EEAR8 bit in the register
+                                 ; must be written to 0, according to the datasheet, hence the EEARH register
+                                 ; must be defined for the mega48.
+                                 
+                                 ; EEDR - EEPROM Data Register
+                                 .equ	EEDR0	= 0	; EEPROM Data Register bit 0
+                                 .equ	EEDR1	= 1	; EEPROM Data Register bit 1
+                                 .equ	EEDR2	= 2	; EEPROM Data Register bit 2
+                                 .equ	EEDR3	= 3	; EEPROM Data Register bit 3
+                                 .equ	EEDR4	= 4	; EEPROM Data Register bit 4
+                                 .equ	EEDR5	= 5	; EEPROM Data Register bit 5
+                                 .equ	EEDR6	= 6	; EEPROM Data Register bit 6
+                                 .equ	EEDR7	= 7	; EEPROM Data Register bit 7
+                                 
+                                 ; EECR - EEPROM Control Register
+                                 .equ	EERE	= 0	; EEPROM Read Enable
+                                 .equ	EEPE	= 1	; EEPROM Write Enable
+                                 .equ	EEWE	= EEPE	; For compatibility
+                                 .equ	EEMPE	= 2	; EEPROM Master Write Enable
+                                 .equ	EEMWE	= EEMPE	; For compatibility
+                                 .equ	EERIE	= 3	; EEPROM Ready Interrupt Enable
+                                 .equ	EEPM0	= 4	; EEPROM Programming Mode Bit 0
+                                 .equ	EEPM1	= 5	; EEPROM Programming Mode Bit 1
+                                 
+                                 
                                  ; ***** CPU **************************
                                  ; SREG - Status Register
                                  .equ	SREG_C	= 0	; Carry Flag
@@ -768,20 +808,20 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  .equ	CLKPCE	= 7	; Clock Prescaler Change Enable
                                  
                                  ; SPMCSR - Store Program Memory Control and Status Register
-                                 .equ    SELFPRGEN = 0; Added for backwards compatibility
+                                 .equ	SELFPRGEN = 0; Added for backwards compatibility
                                  .equ	SPMEN	= 0	; Store Program Memory
                                  .equ	PGERS	= 1	; Page Erase
                                  .equ	PGWRT	= 2	; Page Write
                                  .equ	BLBSET	= 3	; Boot Lock Bit Set
                                  .equ	RWWSRE	= 4	; Read-While-Write section read enable
-                                 .equ    SIGRD   = 5 ; Signature Row Read
+                                 .equ	SIGRD	= 5 ; Signature Row Read
                                  .equ	RWWSB	= 6	; Read-While-Write Section Busy
                                  .equ	SPMIE	= 7	; SPM Interrupt Enable
                                  
                                  ; MCUCR - MCU Control Register
-                                 .equ	IVCE	= 0	; 
-                                 .equ	IVSEL	= 1	; 
-                                 .equ	PUD	= 4	; 
+                                 .equ IVCE = 0 ; Interrupt Vector Change Enable
+                                 .equ IVSEL = 1 ; Interrupt Vector Select
+                                 .equ	PUD	= 4	; Pull-Up Disable
                                  .equ	BODSE	= 5	; BOD Sleep Enable
                                  .equ	BODS	= 6	; BOD Sleep
                                  
@@ -838,48 +878,10 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  .equ	PRTWI	= 7	; Power Reduction TWI
                                  
                                  
-                                 ; ***** EEPROM ***********************
-                                 ; EEARL - EEPROM Address Register Low Byte
-                                 .equ	EEAR0	= 0	; EEPROM Read/Write Access Bit 0
-                                 .equ	EEAR1	= 1	; EEPROM Read/Write Access Bit 1
-                                 .equ	EEAR2	= 2	; EEPROM Read/Write Access Bit 2
-                                 .equ	EEAR3	= 3	; EEPROM Read/Write Access Bit 3
-                                 .equ	EEAR4	= 4	; EEPROM Read/Write Access Bit 4
-                                 .equ	EEAR5	= 5	; EEPROM Read/Write Access Bit 5
-                                 .equ	EEAR6	= 6	; EEPROM Read/Write Access Bit 6
-                                 .equ	EEAR7	= 7	; EEPROM Read/Write Access Bit 7
-                                 
-                                 ; EEARH - EEPROM Address Register High Byte
-                                 .equ	EEAR8	= 0	; EEPROM Read/Write Access Bit 8
-                                 .equ	EEAR9	= 1	; EEPROM Read/Write Access Bit 9
-                                 
-                                 ; EEDR - EEPROM Data Register
-                                 .equ	EEDR0	= 0	; EEPROM Data Register bit 0
-                                 .equ	EEDR1	= 1	; EEPROM Data Register bit 1
-                                 .equ	EEDR2	= 2	; EEPROM Data Register bit 2
-                                 .equ	EEDR3	= 3	; EEPROM Data Register bit 3
-                                 .equ	EEDR4	= 4	; EEPROM Data Register bit 4
-                                 .equ	EEDR5	= 5	; EEPROM Data Register bit 5
-                                 .equ	EEDR6	= 6	; EEPROM Data Register bit 6
-                                 .equ	EEDR7	= 7	; EEPROM Data Register bit 7
-                                 
-                                 ; EECR - EEPROM Control Register
-                                 .equ	EERE	= 0	; EEPROM Read Enable
-                                 .equ	EEPE	= 1	; EEPROM Write Enable
-                                 .equ	EEMPE	= 2	; EEPROM Master Write Enable
-                                 .equ	EERIE	= 3	; EEPROM Ready Interrupt Enable
-                                 .equ	EEPM0	= 4	; EEPROM Programming Mode Bit 0
-                                 .equ	EEPM1	= 5	; EEPROM Programming Mode Bit 1
-                                 
-                                 
                                  
                                  ; ***** LOCKSBITS ********************************************************
-                                 .equ	LB1	= 0	; Lock bit
-                                 .equ	LB2	= 1	; Lock bit
-                                 .equ	BLB01	= 2	; Boot Lock bit
-                                 .equ	BLB02	= 3	; Boot Lock bit
-                                 .equ	BLB11	= 4	; Boot lock bit
-                                 .equ	BLB12	= 5	; Boot lock bit
+                                 .equ	LB1	= 0	; Lockbit
+                                 .equ	LB2	= 1	; Lockbit
                                  
                                  
                                  ; ***** FUSES ************************************************************
@@ -894,9 +896,9 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  .equ	CKDIV8	= 7	; Divide clock by 8
                                  
                                  ; HIGH fuse bits
-                                 .equ	BOOTRST	= 0	; Select reset vector
-                                 .equ	BOOTSZ0	= 1	; Select boot size
-                                 .equ	BOOTSZ1	= 2	; Select boot size
+                                 .equ	BODLEVEL0	= 0	; Brown-out Detector trigger level
+                                 .equ	BODLEVEL1	= 1	; Brown-out Detector trigger level
+                                 .equ	BODLEVEL2	= 2	; Brown-out Detector trigger level
                                  .equ	EESAVE	= 3	; EEPROM memory is preserved through chip erase
                                  .equ	WDTON	= 4	; Watchdog Timer Always On
                                  .equ	SPIEN	= 5	; Enable Serial programming and Data Downloading
@@ -904,9 +906,7 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  .equ	RSTDISBL	= 7	; External reset disable
                                  
                                  ; EXTENDED fuse bits
-                                 .equ	BODLEVEL0	= 0	; Brown-out Detector trigger level
-                                 .equ	BODLEVEL1	= 1	; Brown-out Detector trigger level
-                                 .equ	BODLEVEL2	= 2	; Brown-out Detector trigger level
+                                 ;.equ	SELFPRGEN	= 0	; Self Programming Enable
                                  
                                  
                                  
@@ -921,118 +921,91 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  
                                  
                                  ; ***** DATA MEMORY DECLARATIONS *****************************************
-                                 .equ	FLASHEND	= 0x3fff	; Note: Word address
+                                 .equ	FLASHEND	= 0x07ff	; Note: Word address
                                  .equ	IOEND	= 0x00ff
                                  .equ	SRAM_START	= 0x0100
-                                 .equ	SRAM_SIZE	= 2048
-                                 .equ	RAMEND	= 0x08ff
+                                 .equ	SRAM_SIZE	= 512
+                                 .equ	RAMEND	= 0x02ff
                                  .equ	XRAMEND	= 0x0000
-                                 .equ	E2END	= 0x03ff
-                                 .equ	EEPROMEND	= 0x03ff
-                                 .equ	EEADRBITS	= 10
-                                 #pragma AVRPART MEMORY PROG_FLASH 32768
-                                 #pragma AVRPART MEMORY EEPROM 1024
-                                 #pragma AVRPART MEMORY INT_SRAM SIZE 2048
+                                 .equ	E2END	= 0x00ff
+                                 .equ	EEPROMEND	= 0x00ff
+                                 .equ	EEADRBITS	= 8
+                                 #pragma AVRPART MEMORY PROG_FLASH 4096
+                                 #pragma AVRPART MEMORY EEPROM 256
+                                 #pragma AVRPART MEMORY INT_SRAM SIZE 512
                                  #pragma AVRPART MEMORY INT_SRAM START_ADDR 0x100
                                  
                                  
                                  
                                  ; ***** BOOTLOADER DECLARATIONS ******************************************
-                                 .equ	NRWW_START_ADDR	= 0x3800
-                                 .equ	NRWW_STOP_ADDR	= 0x3fff
+                                 .equ	NRWW_START_ADDR	= 0x0
+                                 .equ	NRWW_STOP_ADDR	= 0x7ff
                                  .equ	RWW_START_ADDR	= 0x0
-                                 .equ	RWW_STOP_ADDR	= 0x37ff
-                                 .equ	PAGESIZE	= 64
-                                 .equ	FIRSTBOOTSTART	= 0x3f00
-                                 .equ	SECONDBOOTSTART	= 0x3e00
-                                 .equ	THIRDBOOTSTART	= 0x3c00
-                                 .equ	FOURTHBOOTSTART	= 0x3800
-                                 .equ	SMALLBOOTSTART	= FIRSTBOOTSTART
-                                 .equ	LARGEBOOTSTART	= FOURTHBOOTSTART
+                                 .equ	RWW_STOP_ADDR	= 0x0
+                                 .equ	PAGESIZE	= 32
                                  
                                  
                                  
                                  ; ***** INTERRUPT VECTORS ************************************************
-                                 .equ	INT0addr	= 0x0002	; External Interrupt Request 0
-                                 .equ	INT1addr	= 0x0004	; External Interrupt Request 1
-                                 .equ	PCI0addr	= 0x0006	; Pin Change Interrupt Request 0
-                                 .equ	PCI1addr	= 0x0008	; Pin Change Interrupt Request 0
-                                 .equ	PCI2addr	= 0x000a	; Pin Change Interrupt Request 1
-                                 .equ	WDTaddr	= 0x000c	; Watchdog Time-out Interrupt
-                                 .equ	OC2Aaddr	= 0x000e	; Timer/Counter2 Compare Match A
-                                 .equ	OC2Baddr	= 0x0010	; Timer/Counter2 Compare Match A
-                                 .equ	OVF2addr	= 0x0012	; Timer/Counter2 Overflow
-                                 .equ	ICP1addr	= 0x0014	; Timer/Counter1 Capture Event
-                                 .equ	OC1Aaddr	= 0x0016	; Timer/Counter1 Compare Match A
-                                 .equ	OC1Baddr	= 0x0018	; Timer/Counter1 Compare Match B
-                                 .equ	OVF1addr	= 0x001a	; Timer/Counter1 Overflow
-                                 .equ	OC0Aaddr	= 0x001c	; TimerCounter0 Compare Match A
-                                 .equ	OC0Baddr	= 0x001e	; TimerCounter0 Compare Match B
-                                 .equ	OVF0addr	= 0x0020	; Timer/Couner0 Overflow
-                                 .equ	SPIaddr	= 0x0022	; SPI Serial Transfer Complete
-                                 .equ	URXCaddr	= 0x0024	; USART Rx Complete
-                                 .equ	UDREaddr	= 0x0026	; USART, Data Register Empty
-                                 .equ	UTXCaddr	= 0x0028	; USART Tx Complete
-                                 .equ	ADCCaddr	= 0x002a	; ADC Conversion Complete
-                                 .equ	ERDYaddr	= 0x002c	; EEPROM Ready
-                                 .equ	ACIaddr	= 0x002e	; Analog Comparator
-                                 .equ	TWIaddr	= 0x0030	; Two-wire Serial Interface
-                                 .equ	SPMRaddr	= 0x0032	; Store Program Memory Read
+                                 .equ	INT0addr	= 0x0001	; External Interrupt Request 0
+                                 .equ	INT1addr	= 0x0002	; External Interrupt Request 1
+                                 .equ	PCI0addr	= 0x0003	; Pin Change Interrupt Request 0
+                                 .equ	PCI1addr	= 0x0004	; Pin Change Interrupt Request 0
+                                 .equ	PCI2addr	= 0x0005	; Pin Change Interrupt Request 1
+                                 .equ	WDTaddr	= 0x0006	; Watchdog Time-out Interrupt
+                                 .equ	OC2Aaddr	= 0x0007	; Timer/Counter2 Compare Match A
+                                 .equ	OC2Baddr	= 0x0008	; Timer/Counter2 Compare Match A
+                                 .equ	OVF2addr	= 0x0009	; Timer/Counter2 Overflow
+                                 .equ	ICP1addr	= 0x000a	; Timer/Counter1 Capture Event
+                                 .equ	OC1Aaddr	= 0x000b	; Timer/Counter1 Compare Match A
+                                 .equ	OC1Baddr	= 0x000c	; Timer/Counter1 Compare Match B
+                                 .equ	OVF1addr	= 0x000d	; Timer/Counter1 Overflow
+                                 .equ	OC0Aaddr	= 0x000e	; TimerCounter0 Compare Match A
+                                 .equ	OC0Baddr	= 0x000f	; TimerCounter0 Compare Match B
+                                 .equ	OVF0addr	= 0x0010	; Timer/Couner0 Overflow
+                                 .equ	SPIaddr	= 0x0011	; SPI Serial Transfer Complete
+                                 .equ	URXCaddr	= 0x0012	; USART Rx Complete
+                                 .equ	UDREaddr	= 0x0013	; USART, Data Register Empty
+                                 .equ	UTXCaddr	= 0x0014	; USART Tx Complete
+                                 .equ	ADCCaddr	= 0x0015	; ADC Conversion Complete
+                                 .equ	ERDYaddr	= 0x0016	; EEPROM Ready
+                                 .equ	ACIaddr	= 0x0017	; Analog Comparator
+                                 .equ	TWIaddr	= 0x0018	; Two-wire Serial Interface
+                                 .equ	SPMRaddr	= 0x0019	; Store Program Memory Read
                                  
-                                 .equ	INT_VECTORS_SIZE	= 52	; size in words
+                                 .equ	INT_VECTORS_SIZE	= 26	; size in words
                                  
-                                 #endif  /* _M328PDEF_INC_ */
+                                 #endif  /* _M48PADEF_INC_ */
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ; bin_clock.asm
-                                 ;
-                                 ; Created: 20/07/2017 10:17:14
-                                 ; Author : pmg
-                                 ;
-                                 
-                                 
-                                 .def RSEC = R2
-                                 .def RMIN = R3
-                                 .def RHR  = R4
-                                 .def RDAY = R5
-                                 .def RMTH = R6
-                                 .def RYR  = R7
-                                 
-                                 .def RLINE = R19
-                                 .def RSET  = R20
-                                 ;bit 7 means SELECT is pressed
-                                 ;bit 6 means INCREMENT is pressed
-                                 ;bit 0-4 selects which digit is being modified (0x0 = running)
-                                 
-                                 ; Interrupt Vector Table
                                  .ORG $000
-000000 940c 016c                 jmp RESET			; Reset Handler
-000002 940c 0034                 jmp EXT_INT0		; IRQ0 Handler
-000004 940c 0034                 jmp EXT_INT1		; IRQ1 Handler
-000006 940c 0034                 jmp PC_INT0
-000008 940c 0034                 jmp PC_INT1
-00000a 940c 0034                 jmp PC_INT2
-00000c 940c 0034                 jmp WDT
-00000e 940c 0034                 jmp TIM2_COMPA		; Timer2 Compare Handler
-000010 940c 0034                 jmp TIM2_COMPB
-000012 940c 0034                 jmp TIM2_OVF		; Timer2 Overflow Handler
-000014 940c 0034                 jmp TIM1_CAPT		; Timer1 Capture Handler
-000016 940c 0035                 jmp TIM1_COMPA		; Timer1 CompareA Handler
-000018 940c 0034                 jmp TIM1_COMPB		; Timer1 CompareB Handler
-00001a 940c 0034                 jmp TIM1_OVF		; Timer1 Overflow Handler
-00001c 940c 00c9                 jmp TIM0_COMPA
-00001e 940c 0034                 jmp TIM0_COMPB
-000020 940c 0034                 jmp TIM0_OVF		; Timer0 Overflow Handler
-000022 940c 0034                 jmp SPI_STC			; SPI Transfer Complete Handler
-000024 940c 0034                 jmp USART_RXC		; USART RX Complete Handler
-000026 940c 0034                 jmp USART_UDRE		; UDR Empty Handler
-000028 940c 0034                 jmp USART_TXC		; USART TX Complete Handler
-00002a 940c 0034                 jmp ADCC			; ADC Conversion Complete Handler
-00002c 940c 0034                 jmp EE_RDY			; EEPROM Ready Handler
-00002e 940c 0034                 jmp ANA_COMP		; Analog Comparator Handler
-000030 940c 0034                 jmp TWSI			; Two-wire Serial Interface Handler
-000032 940c 0034                 jmp SPM_RDY		; Store Program Memory Ready Handler
+000000 c01c                      rjmp RESET			; Reset Handler
+000001 c018                      rjmp EXT_INT0		; IRQ0 Handler
+000002 c017                      rjmp EXT_INT1		; IRQ1 Handler
+000003 c016                      rjmp PC_INT0
+000004 c015                      rjmp PC_INT1
+000005 c014                      rjmp PC_INT2
+000006 c013                      rjmp WDT
+000007 c013                      rjmp TIM2_COMPA		; Timer2 Compare Handler
+000008 c011                      rjmp TIM2_COMPB
+000009 c010                      rjmp TIM2_OVF		; Timer2 Overflow Handler
+00000a c00f                      rjmp TIM1_CAPT		; Timer1 Capture Handler
+00000b c00e                      rjmp TIM1_COMPA		; Timer1 CompareA Handler
+00000c c00d                      rjmp TIM1_COMPB		; Timer1 CompareB Handler
+00000d c00c                      rjmp TIM1_OVF		; Timer1 Overflow Handler
+00000e c00d                      rjmp TIM0_COMPA
+00000f c00a                      rjmp TIM0_COMPB
+000010 c009                      rjmp TIM0_OVF		; Timer0 Overflow Handler
+000011 c008                      rjmp SPI_STC			; SPI Transfer Complete Handler
+000012 c007                      rjmp USART_RXC		; USART RX Complete Handler
+000013 c006                      rjmp USART_UDRE		; UDR Empty Handler
+000014 c005                      rjmp USART_TXC		; USART TX Complete Handler
+000015 c004                      rjmp ADCC			; ADC Conversion Complete Handler
+000016 c003                      rjmp EE_RDY			; EEPROM Ready Handler
+000017 c002                      rjmp ANA_COMP		; Analog Comparator Handler
+000018 c001                      rjmp TWSI			; Two-wire Serial Interface Handler
+000019 c000                      rjmp SPM_RDY		; Store Program Memory Ready Handler
                                  
                                  ; Unused interrupts
                                  EXT_INT0:
@@ -1041,10 +1014,10 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  PC_INT1:
                                  PC_INT2:
                                  WDT:
-                                 TIM2_COMPA:
                                  TIM2_COMPB:
                                  TIM2_OVF:
                                  TIM1_CAPT:
+                                 TIM1_COMPA:
                                  TIM1_COMPB:
                                  TIM1_OVF:
                                  TIM0_COMPB:
@@ -1058,493 +1031,366 @@ AVRASM ver. 2.2.6  D:\Documents\GitHub\uChronos\bin_clock_FW\bin_clock\main.asm 
                                  ANA_COMP:
                                  TWSI:
                                  SPM_RDY:
-000034 9518                      reti
-                                 
+00001a 9518                      reti
                                  
                                  ; =============== 1 second timer ===============
-                                 TIM1_COMPA:
-000035 940e 0038                 call inc_secl
-000037 9518                      reti
-                                 
-                                 ;increment lower digit of seconds
-                                 inc_secl:
-000038 2d02                      mov R16,RSEC
-000039 700f                      andi R16,0x0F
-00003a 2d12                      mov R17,RSEC
-00003b 7f10                      andi R17,0xF0 ;split seconds into lower digit (R16) and upper (R17)
-00003c 3009                      cpi R16,9 ;if lower digit at 9
-00003d f021                      breq inc_sech ;branch to tens increment
-00003e 9503                      inc R16
-00003f 2b01                      or R16,R17
-000040 2e20                      mov RSEC,R16
-000041 9508                      ret
-                                 
-                                 ;increment upper digit of seconds
-                                 inc_sech:
-000042 3510                      cpi R17,0x50 ;if upper digit at 5
-000043 f021                      breq inc_minl ;branch to minutes increment
-000044 e100                      ldi R16,0x10
-000045 0f10                      add R17,R16 ;otherwise increment the upper digit
-000046 2e21                      mov RSEC,R17 ;and save the thing (R17 contains 0 for lower digit)
-000047 9508                      ret
-                                 
-                                 
-                                 ;increment lower digit of minutes
-                                 inc_minl:
-000048 2422                      clr RSEC ;move 0 to seconds
-                                 
-000049 2d03                      mov R16,RMIN
-00004a 700f                      andi R16,0x0F
-00004b 2d13                      mov R17,RMIN
-00004c 7f10                      andi R17,0xF0 ;split minutes into lower digit (R16) and upper (R17)
-00004d 3009                      cpi R16,9 ;if lower digit at 9
-00004e f021                      breq inc_minh ;branch to tens increment
-00004f 9503                      inc R16
-000050 2b01                      or R16,R17
-000051 2e30                      mov RMIN,R16
-000052 9508                      ret
-                                 
-                                 ;increment upper digit of minutes
-                                 inc_minh:
-000053 3510                      cpi R17,0x50 ;if upper digit at 5
-000054 f021                      breq inc_hrl ;branch to hours increment
-000055 e100                      ldi R16,0x10
-000056 0f10                      add R17,R16 ;otherwise increment the upper digit
-000057 2e31                      mov RMIN,R17 ;and save the thing (R17 contains 0 for lower digit)
-000058 9508                      ret
-                                 
-                                 
-                                 ;increment lower digit of hours
-                                 inc_hrl:
-000059 2433                      clr RMIN ;move 0 to seconds
-                                 
-00005a 2d04                      mov R16,RHR
-00005b 3203                      cpi R16,0x23 ;if 23 hours
-00005c f069                      breq inc_dayl ;increment day
-00005d 700f                      andi R16,0x0F
-00005e 2d14                      mov R17,RHR
-00005f 7f10                      andi R17,0xF0 ;split hours into lower digit (R16) and upper (R17)
-000060 3009                      cpi R16,9 ;if lower digit at 9
-000061 f021                      breq inc_hrh ;branch to tens increment
-000062 9503                      inc R16
-000063 2b01                      or R16,R17
-000064 2e40                      mov RHR,R16
-000065 9508                      ret
-                                 
-                                 ;increment upper digit of hours
-                                 inc_hrh:
-000066 e100                      ldi R16,0x10
-000067 0f10                      add R17,R16 ;otherwise increment the upper digit
-000068 2e41                      mov RHR,R17 ;and save the thing (R17 contains 0 for lower digit)
-000069 9508                      ret
-                                 
-                                 
-                                 ;increment lower digit of day
-                                 inc_dayl:
-00006a 2444                      clr RHR ;clear hours
-                                 ;TODO: days
-                                 
-                                 ;need a strategy here. First, let's see if month has 31 days
-00006b 2d06                      mov R16,RMTH
-00006c 3001                      cpi R16,0x01
-00006d f0c1                      breq mth31
-00006e 3003                      cpi R16,0x03
-00006f f0b1                      breq mth31
-000070 3005                      cpi R16,0x05
-000071 f0a1                      breq mth31
-000072 3007                      cpi R16,0x07
-000073 f091                      breq mth31
-000074 3008                      cpi R16,0x08
-000075 f081                      breq mth31
-000076 3100                      cpi R16,0x10
-000077 f071                      breq mth31
-000078 3102                      cpi R16,0x12
-000079 f061                      breq mth31
-                                 ;Or if it has 30
-00007a 3004                      cpi R16,0x04
-00007b f071                      breq mth30
-00007c 3006                      cpi R16,0x06
-00007d f061                      breq mth30
-00007e 3009                      cpi R16,0x09
-00007f f051                      breq mth30
-000080 3101                      cpi R16,0x11
-000081 f041                      breq mth30
-                                 ;otherwise it's february
-                                 ;is it a leap year?
-000082 2d07                      mov R16,RYR
-000083 7003                      andi R16,0b11 ;divisible by 4?
-000084 f469                      brne mth28
-000085 c008                      rjmp mth29
-                                 
-                                 mth31:
-000086 2d05                      mov R16,RDAY
-000087 3301                      cpi R16,0x31 ;if last day of month
-000088 f0d1                      breq inc_mthl ;increment month
-000089 c00c                      rjmp mth_cont
-                                 
-                                 mth30:
-00008a 2d05                      mov R16,RDAY
-00008b 3300                      cpi R16,0x30 ;if last day of month
-00008c f0b1                      breq inc_mthl ;increment month
-00008d c008                      rjmp mth_cont
-                                 
-                                 mth29:
-00008e 2d05                      mov R16,RDAY
-00008f 3209                      cpi R16,0x29 ;if last day of month
-000090 f091                      breq inc_mthl ;increment month
-000091 c004                      rjmp mth_cont
-                                 
-                                 mth28:
-000092 2d05                      mov R16,RDAY
-000093 3208                      cpi R16,0x28 ;if last day of month
-000094 f071                      breq inc_mthl ;increment month
-000095 c000                      rjmp mth_cont
-                                 
-                                 mth_cont:
-000096 700f                      andi R16,0x0F
-000097 2d15                      mov R17,RDAY
-000098 7f10                      andi R17,0xF0 ;split days into lower digit (R16) and upper (R17)
-000099 3009                      cpi R16,9 ;if lower digit at 9
-00009a f021                      breq inc_dayh ;branch to tens increment
-00009b 9503                      inc R16
-00009c 2b01                      or R16,R17
-00009d 2e50                      mov RDAY,R16
-00009e 9508                      ret
-                                 
-                                 ;increment upper digit of days
-                                 inc_dayh:
-00009f e100                      ldi R16,0x10
-0000a0 0f10                      add R17,R16 ;otherwise increment the upper digit
-0000a1 2e51                      mov RDAY,R17 ;and save the thing (R17 contains 0 for lower digit)
-0000a2 9508                      ret
-                                 
-                                 ;increment month
-                                 inc_mthl:
-0000a3 e001                      ldi R16,0x01
-0000a4 2e50                      mov RDAY,R16
-                                 
-0000a5 2d06                      mov R16,RMTH
-0000a6 3102                      cpi R16,0x12 ;if december
-0000a7 f069                      breq inc_yrl ;increment day
-0000a8 700f                      andi R16,0x0F
-0000a9 2d16                      mov R17,RMTH
-0000aa 7f10                      andi R17,0xF0 ;split hours into lower digit (R16) and upper (R17)
-0000ab 3009                      cpi R16,9 ;if lower digit at 9
-0000ac f021                      breq inc_mthh ;branch to tens increment
-0000ad 9503                      inc R16
-0000ae 2b01                      or R16,R17
-0000af 2e60                      mov RMTH,R16
-0000b0 9508                      ret
-                                 
-                                 ;increment upper digit of month
-                                 inc_mthh:
-0000b1 e100                      ldi R16,0x10
-0000b2 0f10                      add R17,R16 ;otherwise increment the upper digit
-0000b3 2e61                      mov RMTH,R17 ;and save the thing (R17 contains 0 for lower digit)
-0000b4 9508                      ret
-                                 
-                                 inc_yrl:
-0000b5 e001                      ldi R16,0x01
-0000b6 2e60                      mov RMTH,R16
-                                 
-0000b7 2d07                      mov R16,RYR
-0000b8 3909                      cpi R16,0x99 ;last year (xx99)
-0000b9 f069                      breq yXk ;wrap around
-0000ba 700f                      andi R16,0x0F
-0000bb 2d17                      mov R17,RYR
-0000bc 7f10                      andi R17,0xF0 ;split hours into lower digit (R16) and upper (R17)
-0000bd 3009                      cpi R16,9 ;if lower digit at 9
-0000be f021                      breq inc_yrh ;branch to tens increment
-0000bf 9503                      inc R16
-0000c0 2b01                      or R16,R17
-0000c1 2e70                      mov RYR,R16
-0000c2 9508                      ret
-                                 
-                                 ;increment upper digit of month
-                                 inc_yrh:
-0000c3 e100                      ldi R16,0x10
-0000c4 0f10                      add R17,R16 ;otherwise increment the upper digit
-0000c5 2e71                      mov RYR,R17 ;and save the thing (R17 contains 0 for lower digit)
-0000c6 9508                      ret
-                                 
-                                 yXk: ;like Y2K all over again, except reallistically this is going to be Y2K1
-0000c7 2477                      clr RYR
-                                 
-0000c8 9508                      ret
+                                 TIM2_COMPA:
+                                 ;rcall pendulum
+00001b 9518                      reti
                                  
                                  ; =============== Refresh timer ===============
                                  TIM0_COMPA:
-0000c9 9533                      inc RLINE
-0000ca 3034                      cpi RLINE,4
-0000cb f409                      brne ref_nozero
-0000cc e030                      ldi RLINE,0
-                                 ref_nozero:
-0000cd e000                      ldi R16,0
-0000ce 2d14                      mov R17,RHR
-0000cf 9512                      swap R17
-0000d0 2f23                      mov R18,RLINE
-                                 rot_hrh:
-0000d1 2322                      tst R18
-0000d2 f019                      breq rot_hrl0
-0000d3 9516                      lsr R17
-0000d4 952a                      dec R18
-0000d5 cffb                      rjmp rot_hrh
-                                 rot_hrl0:
-0000d6 fb10                      bst R17,0
-0000d7 f900                      bld R16,0
-0000d8 2d14                      mov R17,RHR
-0000d9 2f23                      mov R18,RLINE
-                                 rot_hrl:
-0000da 2322                      tst R18
-0000db f019                      breq rot_minh0
-0000dc 9516                      lsr R17
-0000dd 952a                      dec R18
-0000de cffb                      rjmp rot_hrl
-                                 rot_minh0:
-0000df fb10                      bst R17,0
-0000e0 f901                      bld R16,1
-                                 
-0000e1 2d13                      mov R17,RMIN
-0000e2 9512                      swap R17
-0000e3 2f23                      mov R18,RLINE
-                                 rot_minh:
-0000e4 2322                      tst R18
-0000e5 f019                      breq rot_minl0
-0000e6 9516                      lsr R17
-0000e7 952a                      dec R18
-0000e8 cffb                      rjmp rot_minh
-                                 rot_minl0:
-0000e9 fb10                      bst R17,0
-0000ea f902                      bld R16,2
-0000eb 2d13                      mov R17,RMIN
-0000ec 2f23                      mov R18,RLINE
-                                 rot_minl:
-0000ed 2322                      tst R18
-0000ee f019                      breq rot_sech0
-0000ef 9516                      lsr R17
-0000f0 952a                      dec R18
-0000f1 cffb                      rjmp rot_minl
-                                 rot_sech0:
-0000f2 fb10                      bst R17,0
-0000f3 f903                      bld R16,3
-                                 
-0000f4 2d12                      mov R17,RSEC
-0000f5 9512                      swap R17
-0000f6 2f23                      mov R18,RLINE
-                                 rot_sech:
-0000f7 2322                      tst R18
-0000f8 f019                      breq rot_secl0
-0000f9 9516                      lsr R17
-0000fa 952a                      dec R18
-0000fb cffb                      rjmp rot_sech
-                                 rot_secl0:
-0000fc fb10                      bst R17,0
-0000fd f904                      bld R16,4
-0000fe 2d12                      mov R17,RSEC
-0000ff 2f23                      mov R18,RLINE
-                                 rot_secl:
-000100 2322                      tst R18
-000101 f019                      breq rot_end0
-000102 9516                      lsr R17
-000103 952a                      dec R18
-000104 cffb                      rjmp rot_secl
-                                 rot_end0:
-000105 fb10                      bst R17,0
-000106 f905                      bld R16,5
-                                 
-000107 9500                      com R16
-000108 730f                      andi R16,0b00111111
-                                 
-000109 e011                      ldi R17,1
-00010a 2f23                      mov R18,RLINE
-                                 rot_line:
-00010b 2322                      tst R18
-00010c f019                      breq rot_end
-00010d 0f11                      lsl R17
-00010e 952a                      dec R18
-00010f cffb                      rjmp rot_line
-                                 rot_end:
-000110 6310                      ori R17,0b110000
-                                 
-000111 e320                      ldi R18,0b110000
-000112 b928                      out PORTC,R18
-000113 b90b                      out PORTD,R16
-000114 b918                      out PORTC,R17
-                                 
-                                 ;todo:we could also read the buttons while we're refreshing
-                                 
-                                 ;if RSET & 0b11000000 (buttons were pressed previously)
-000115 2f14                      mov R17,RSET
-000116 7c10                      andi R17,0b11000000
-000117 b106                      in R16,PINC
-000118 9500                      com R16
-000119 fb04                      bst R16,4
-00011a f946                      bld RSET,6
-00011b fb05                      bst R16,5
-00011c f947                      bld RSET,7
-00011d 2311                      tst R17
-00011e f009                      breq nopress
-                                 ;Buttons were pressed previously. see if they are released
-                                 
-00011f 9518                      reti ;do nothing on falling edge
-                                 
-                                 nopress: ;Buttons were not pressed, see if they are
-000120 7300                      andi R16,0b00110000
-000121 f409                      brne rising
-000122 9518                      reti
-                                 rising:
-000123 ff04                      sbrs R16,4
-000124 940c 014f                 jmp select
-                                 ;increment
-000126 2f04                      mov R16,RSET
-000127 700f                      andi R16,0b00001111
-000128 3001                      cpi R16,1
-000129 f431                      brne inc1
-00012a e02a                      ldi R18,10
-                                 loop0:
-00012b 940e 0059                 call inc_hrl
-00012d 952a                      dec R18
-00012e f7e1                      brne loop0
-00012f 9518                      reti
-                                 inc1:
-000130 3002                      cpi R16,2
-000131 f419                      brne inc2
-000132 940e 0059                 call inc_hrl
-000134 9518                      reti
-                                 inc2:
-000135 3003                      cpi R16,3
-000136 f431                      brne inc3
-000137 e02a                      ldi R18,10 ;add 10 minutes
-                                 loop2:
-000138 940e 0048                 call inc_minl
-00013a 952a                      dec R18
-00013b f7e1                      brne loop2
-00013c 9518                      reti
-                                 inc3:
-00013d 3004                      cpi R16,4
-00013e f419                      brne inc4
-00013f 940e 0048                 call inc_minl
-000141 9518                      reti
-                                 inc4:
-000142 3005                      cpi R16,5
-000143 f431                      brne inc5
-000144 e02a                      ldi R18,10
-                                 loop4:
-000145 940e 0038                 call inc_secl
-000147 952a                      dec R18
-000148 f7e1                      brne loop4
-000149 9518                      reti
-                                 inc5:
-00014a 3006                      cpi R16,6
-00014b f411                      brne inc6
-00014c 940e 0038                 call inc_secl
-                                 inc6:
-00014e 9518                      reti
-                                 
-                                 select:
-00014f 9543                      inc RSET
-000150 2f04                      mov R16,RSET
-000151 700f                      andi R16,0b00001111
-000152 3007                      cpi R16,7
-000153 f099                      breq fullset
-000154 3001                      cpi R16,1
-000155 f009                      breq nullset
-                                 
-000156 9518                      reti
-                                 
-                                 nullset:
-000157 e008                      LDI R16,0b00001000 ;stop time
-000158 9300 0081                 STS TCCR1B,R16
-                                 
-                                 ;Default time (reset to this)
-00015a e000                      ldi R16,0x00
-00015b 2e70                      mov RYR,R16
-00015c e001                      ldi R16,0x01
-00015d 2e60                      mov RMTH,R16
-00015e e001                      ldi R16,0x01
-00015f 2e50                      mov RDAY,R16
-000160 e000                      ldi R16,0x00
-000161 2e40                      mov RHR,R16
-000162 e000                      ldi R16,0x00
-000163 2e30                      mov RMIN,R16
-000164 e000                      ldi R16,0x00
-000165 2e20                      mov RSEC,R16
-                                 
-000166 9518                      reti
-                                 
-                                 fullset:
-000167 7f40                      andi RSET,0b11110000
-000168 e00b                      LDI R16,0b00001011
-000169 9300 0081                 STS TCCR1B,R16 ;start time again
-                                 
-00016b 9518                      reti
+                                 ;TODO: insert refresher
+00001c 9518                      reti
                                  
                                  ; =============== Initialisation routine here ===============
                                  RESET:
+                                 ;TODO: insert initialisator
+                                 ;Need to initialise outputs immediately to stop FETs from floating
+00001d e30f                      ldi R16,0b00111111 ;port C has only 6 pins, we want all as outputs, and initially high (disabled)
+00001e b908                      out PORTC,R16
+00001f b907                      out DDRC,R16
                                  
-                                 ;init stack pointer
-00016c ef0f                      LDI    R16, low(RAMEND)
-00016d bf0d                      OUT    SPL, R16
-00016e e008                      LDI    R16, high(RAMEND)
-00016f bf0e                      OUT    SPH, R16
+000020 e000                      ldi R16,0b00000000
+000021 b90b                      out PORTD,R16
+000022 ef0f                      ldi R16,0b11111111
+000023 b90a                      out DDRD,R16
                                  
-                                 ;init sleep mode
-000170 e001                      LDI R16,0b00000001 ;IDLE, sleep enabled
-000171 bf03                      OUT SMCR,R16
+                                 ;Initialise stack
+000024 ef0f                      ldi R16,LOW(RAMEND)
+000025 bf0d                      out SPL,R16
+000026 e002                      ldi R16,HIGH(RAMEND)
+000027 bf0e                      out SPH,R16
                                  
-                                 ;init clock
-000172 e31d                      LDI R17,0x3D
-000173 e008                      LDI R16,0x08
-000174 9310 0089                 STS OCR1AH,R17
-000176 9300 0088                 STS OCR1AL,R16
-000178 e002                      LDI R16,0b10
-000179 9300 006f                 STS TIMSK1,R16
-00017b e00b                      LDI R16,0b00001011
-00017c 9300 0081                 STS TCCR1B,R16
+                                 ;Configure RTC
+                                 ;ldi R16,1<<AS2 ;enable asynchronous operation (32.768 kHz crystal)
+                                 ;sts ASSR,R16
                                  
-                                 ;init refresh timer
-00017e e033                      ldi RLINE,3
-00017f ec08                      ldi R16,200
-000180 bd07                      out OCR0A,R16
-000181 e002                      ldi R16,0b010
-000182 9300 006e                 sts TIMSK0,R16
-000184 e002                      ldi R16,0b10
-000185 bd04                      out TCCR0A,R16
-000186 e002                      ldi R16,0b10
-000187 bd05                      out TCCR0B,R16
+                                 tbusy1:
+                                 ;lds R16,ASSR
+                                 ;sbrc R16,OCR2AUB
+                                 ;rjmp tbusy1
                                  
-                                 ;init pins
-000188 e300                      LDI R16,0b110000
-000189 b908                      OUT PORTC,R16
-00018a e00f                      LDI R16,0b001111
-00018b b907                      OUT DDRC,R16
+                                 ;ldi R16,127 ;trigger 4 times per second
+                                 ;sts OCR2A,R16
                                  
-00018c ef0f                      LDI R16,0b11111111
-00018d b90a                      OUT DDRD,R16
-00018e e000                      LDI R16,0b00000000
-00018f b90b                      OUT PORTD,R16
+                                 ;ldi R16,1<<OCIE2A ;enable compare interrupt
+                                 ;sts TIMSK2,R16
                                  
-                                 ;Default time (reset to this)
-000190 e107                      ldi R16,0x17
-000191 2e70                      mov RYR,R16
-000192 e101                      ldi R16,0x11
-000193 2e60                      mov RMTH,R16
-000194 e001                      ldi R16,0x01
-000195 2e50                      mov RDAY,R16
-000196 e102                      ldi R16,0x12
-000197 2e40                      mov RHR,R16
-000198 e304                      ldi R16,0x34
-000199 2e30                      mov RMIN,R16
-00019a e506                      ldi R16,0x56
-00019b 2e20                      mov RSEC,R16
+                                 tbusy2:
+                                 ;lds R16,ASSR
+                                 ;sbrc R16,TCR2AUB
+                                 ;rjmp tbusy2
+                                  
+                                 ;ldi R16,1<<WGM21 ;CTC mode
+                                 ;sts TCCR2A,R16
+                                  
+                                 tbusy3:
+                                 ;lds R16,ASSR
+                                 ;sbrc R16,TCR2BUB
+                                 ;rjmp tbusy3
                                  
-                                 ;enable interrupts
-00019c 9478                      sei
+                                 ;ldi R16,1<<CS22 ;start clock (64 prescaler)
+                                 ;sts TCCR2B,R16
                                  
                                  
+                                 ;All set up, ready to go.
+000028 9478                       sei
                                  ; =============== Sleeper loop ===============
                                  LOOP:
-00019d 9588                      sleep
+                                 ;sleep
+                                 
+000029 e020                      ldi R18,0
+                                 
+00002a eb1f                      ldi R17,0b10111111
+00002b b918                      out PORTC,R17
+00002c e050                      ldi R21,0
+                                 colsloop:
+00002d 9408                      sec
+00002e 9517                      ror R17
+00002f b918                      out PORTC,R17
+                                 
+                                 
+000030 e001                      ldi R16,0b00000001
+                                 ;out PORTD,R16
+000031 e040                      ldi R20,0
+                                 rowsloop:
+000032 e075                      ldi R23,5
+                                 reploop0:
+000033 ef6f                      ldi R22,255
+                                 reploop1:
+000034 efbf                      ldi R27,0b11111111
+000035 b9bb                      out PORTD,R27
+000036 d00f                      rcall wait0
+000037 b92b                      out PORTD,R18
+000038 d01e                      rcall wait1
+000039 956a                      dec R22
+00003a f7c9                      brne reploop1
+00003b 957a                      dec R23
+00003c f7b1                      brne reploop0
+00003d 9488                      clc
+00003e 1f00                      rol R16
+                                 
+                                 
+                                 
+                                 
+00003f 9543                      inc R20
+000040 3048                      cpi R20,8
+000041 f781                      brne rowsloop
+                                 
+000042 9553                      inc R21
+000043 3056                      cpi R21,6
+000044 f741                      brne colsloop
+                                 
+                                 
+000045 cfe3                      rjmp LOOP
+                                 
+                                 wait0:
+000046 0000                      nop
+000047 0000                      nop
+000048 0000                      nop
+000049 0000                      nop
+00004a 0000                      nop
+00004b 0000                      nop
+00004c 0000                      nop
+00004d 0000                      nop
+00004e 0000                      nop
+00004f 0000                      nop
+000050 0000                      nop
+000051 0000                      nop
+000052 0000                      nop
+000053 0000                      nop
+000054 0000                      nop
+000055 0000                      nop
+                                 
+000056 9508                      ret
+                                 
+                                 
+                                 wait1:
+000057 0000                      nop
+000058 0000                      nop
+000059 0000                      nop
+00005a 0000                      nop
+00005b 0000                      nop
+00005c 0000                      nop
+00005d 0000                      nop
+00005e 0000                      nop
+00005f 0000                      nop
+000060 0000                      nop
+000061 0000                      nop
+000062 0000                      nop
+000063 0000                      nop
+000064 0000                      nop
+000065 0000                      nop
+000066 0000                      nop
+000067 0000                      nop
+000068 0000                      nop
+000069 0000                      nop
+00006a 0000                      nop
+00006b 0000                      nop
+00006c 0000                      nop
+00006d 0000                      nop
+00006e 0000                      nop
+00006f 0000                      nop
+000070 0000                      nop
+000071 0000                      nop
+000072 0000                      nop
+000073 0000                      nop
+000074 0000                      nop
+000075 0000                      nop
+000076 0000                      nop
+000077 0000                      nop
+000078 0000                      nop
+000079 0000                      nop
+00007a 0000                      nop
+00007b 0000                      nop
+00007c 0000                      nop
+00007d 0000                      nop
+00007e 0000                      nop
+00007f 0000                      nop
+000080 0000                      nop
+000081 0000                      nop
+000082 0000                      nop
+000083 0000                      nop
+000084 0000                      nop
+000085 0000                      nop
+000086 0000                      nop
+000087 0000                      nop
+000088 0000                      nop
+000089 0000                      nop
+00008a 0000                      nop
+00008b 0000                      nop
+00008c 0000                      nop
+00008d 0000                      nop
+00008e 0000                      nop
+00008f 0000                      nop
+000090 0000                      nop
+000091 0000                      nop
+000092 0000                      nop
+000093 0000                      nop
+000094 0000                      nop
+000095 0000                      nop
+000096 0000                      nop
+000097 0000                      nop
+000098 0000                      nop
+000099 0000                      nop
+00009a 0000                      nop
+00009b 0000                      nop
+00009c 0000                      nop
+00009d 0000                      nop
+00009e 0000                      nop
+00009f 0000                      nop
+0000a0 0000                      nop
+0000a1 0000                      nop
+0000a2 0000                      nop
+0000a3 0000                      nop
+0000a4 0000                      nop
+0000a5 0000                      nop
+0000a6 0000                      nop
+0000a7 0000                      nop
+0000a8 0000                      nop
+0000a9 0000                      nop
+0000aa 0000                      nop
+0000ab 0000                      nop
+0000ac 0000                      nop
+0000ad 0000                      nop
+0000ae 0000                      nop
+0000af 0000                      nop
+0000b0 0000                      nop
+0000b1 0000                      nop
+0000b2 0000                      nop
+0000b3 0000                      nop
+0000b4 0000                      nop
+0000b5 0000                      nop
+0000b6 0000                      nop
+0000b7 0000                      nop
+0000b8 0000                      nop
+0000b9 0000                      nop
+0000ba 0000                      nop
+0000bb 0000                      nop
+0000bc 0000                      nop
+0000bd 0000                      nop
+0000be 0000                      nop
+0000bf 0000                      nop
+0000c0 0000                      nop
+0000c1 0000                      nop
+0000c2 0000                      nop
+0000c3 0000                      nop
+0000c4 0000                      nop
+0000c5 0000                      nop
+0000c6 0000                      nop
+0000c7 0000                      nop
+0000c8 0000                      nop
+0000c9 0000                      nop
+0000ca 0000                      nop
+0000cb 0000                      nop
+0000cc 0000                      nop
+0000cd 0000                      nop
+0000ce 0000                      nop
+0000cf 0000                      nop
+0000d0 0000                      nop
+0000d1 0000                      nop
+0000d2 0000                      nop
+0000d3 0000                      nop
+0000d4 0000                      nop
+0000d5 0000                      nop
+0000d6 0000                      nop
+0000d7 0000                      nop
+0000d8 0000                      nop
+0000d9 0000                      nop
+0000da 0000                      nop
+0000db 0000                      nop
+0000dc 0000                      nop
+0000dd 0000                      nop
+0000de 0000                      nop
+0000df 0000                      nop
+0000e0 0000                      nop
+0000e1 0000                      nop
+0000e2 0000                      nop
+0000e3 0000                      nop
+0000e4 0000                      nop
+0000e5 0000                      nop
+0000e6 0000                      nop
+0000e7 0000                      nop
+0000e8 0000                      nop
+0000e9 0000                      nop
+0000ea 0000                      nop
+0000eb 0000                      nop
+0000ec 0000                      nop
+0000ed 0000                      nop
+0000ee 0000                      nop
+0000ef 0000                      nop
+0000f0 0000                      nop
+0000f1 0000                      nop
+0000f2 0000                      nop
+0000f3 0000                      nop
+0000f4 0000                      nop
+0000f5 0000                      nop
+0000f6 0000                      nop
+                                 
+0000f7 9508                      ret
+                                 
+                                 wait2:
+0000f8 df5e                      rcall wait1
+0000f9 df5d                      rcall wait1
+0000fa df5c                      rcall wait1
+0000fb df5b                      rcall wait1
+0000fc df5a                      rcall wait1
+0000fd df59                      rcall wait1
+0000fe df58                      rcall wait1
+0000ff df57                      rcall wait1
+000100 df56                      rcall wait1
+000101 df55                      rcall wait1
+000102 df54                      rcall wait1
+000103 df53                      rcall wait1
+000104 df52                      rcall wait1
+000105 df51                      rcall wait1
+000106 df50                      rcall wait1
+000107 df4f                      rcall wait1
+000108 df4e                      rcall wait1
+000109 df4d                      rcall wait1
+00010a df4c                      rcall wait1
+00010b df4b                      rcall wait1
+00010c df4a                      rcall wait1
+00010d df49                      rcall wait1
+00010e df48                      rcall wait1
+00010f df47                      rcall wait1
+000110 df46                      rcall wait1
+000111 df45                      rcall wait1
+000112 df44                      rcall wait1
+000113 df43                      rcall wait1
+000114 df42                      rcall wait1
+000115 df41                      rcall wait1
+000116 df40                      rcall wait1
+000117 df3f                      rcall wait1
+                                 
+000118 9508                      ret
+                                 
+                                 wait3:
+000119 dfde                      rcall wait2
+00011a dfdd                      rcall wait2
+00011b dfdc                      rcall wait2
+00011c dfdb                      rcall wait2
+00011d dfda                      rcall wait2
+00011e dfd9                      rcall wait2
+00011f dfd8                      rcall wait2
+000120 dfd7                      rcall wait2
+000121 dfd6                      rcall wait2
+000122 dfd5                      rcall wait2
+000123 dfd4                      rcall wait2
+000124 dfd3                      rcall wait2
+000125 dfd2                      rcall wait2
+000126 dfd1                      rcall wait2
+000127 dfd0                      rcall wait2
+000128 dfcf                      rcall wait2
+                                 
+000129 9508                      ret
+                                 
+                                 ; =============== Includes ===============
+                                 
+                                 ;#include "pendulum.asm"
+                                 
+                                 ; =============== Global variables ===============
 
 
 RESOURCE USE INFORMATION
@@ -1561,41 +1407,41 @@ counted separately from r26..r31 here.
 
 .dseg memory usage only counts static data declared with .byte
 
-"ATmega328P" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   9 r3 :   9 r4 :   9 
-r5 :  10 r6 :   8 r7 :   8 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16: 160 r17:  62 r18:  29 r19:  11 r20:   7 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+"ATmega48PA" register use summary:
+x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  13 r17:   4 r18:   2 r19:   0 r20:   3 
+r21:   3 r22:   2 r23:   2 r24:   0 r25:   0 r26:   0 r27:   2 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 11 out of 35 (31.4%)
+Registers used: 8 out of 35 (22.9%)
 
-"ATmega328P" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   6 adiw  :   0 and   :   0 
-andi  :  19 asr   :   0 bclr  :   0 bld   :   8 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :  36 brge  :   0 brhc  :   0 
+"ATmega48PA" instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
+andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :  12 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   8 call  :   7 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   4 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   0 cpc   :   0 
-cpi   :  35 cpse  :   0 dec   :  10 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   8 jmp   :  27 
-ld    :   0 ldd   :   0 ldi   :  45 lds   :   0 lpm   :   0 lsl   :   1 
-lsr   :   6 mov   :  59 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   6 ori   :   1 out   :  13 pop   :   0 
-push  :   0 rcall :   0 ret   :  13 reti  :  13 rjmp  :  13 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
-sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   1 sec   :   0 seh   :   0 
-sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   1 spm   :   0 st    :   0 std   :   0 sts   :   7 
-sub   :   0 subi  :   0 swap  :   3 tst   :   8 wdr   :   0 
-Instructions used: 30 out of 113 (26.5%)
+brne  :   4 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 cbi   :   0 cbr   :   0 clc   :   1 
+clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 clt   :   0 
+clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 cpi   :   2 
+cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 
+icall :   0 ijmp  :   0 in    :   0 inc   :   2 ld    :   0 ldd   :   0 
+ldi   :  13 lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 
+movw  :   0 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   : 176 
+or    :   0 ori   :   0 out   :  10 pop   :   0 push  :   0 rcall :  50 
+ret   :   4 reti  :   3 rjmp  :  27 rol   :   1 ror   :   1 sbc   :   0 
+sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 sbiw  :   0 sbr   :   0 
+sbrc  :   0 sbrs  :   0 sec   :   1 seh   :   0 sei   :   1 sen   :   0 
+ser   :   0 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 
+spm   :   0 st    :   0 std   :   0 sts   :   0 sub   :   0 subi  :   0 
+swap  :   0 tst   :   0 wdr   :   0 
+Instructions used: 16 out of 111 (14.4%)
 
-"ATmega328P" memory use summary [bytes]:
+"ATmega48PA" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00033e    830      0    830   32768   2.5%
-[.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
-[.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
+[.cseg] 0x000000 0x000254    596      0    596    4096  14.6%
+[.dseg] 0x000100 0x000100      0      0      0     512   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     256   0.0%
 
 Assembly complete, 0 errors, 0 warnings
