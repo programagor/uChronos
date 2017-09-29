@@ -6,25 +6,23 @@
  * Author : pmg
  */ 
 
+/* Includes */
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+#include "bin_utils.h"
+#include "disp_utils.h"
 
+/* Definitions */
+#define USE_ASYNC 0
 
 
 /* This is used in the refresher routine. No buffering */
-uint8_t disp_mem[6]=
-{
-	0b11111111,
-	0b11111111,
-	0b11111111,
-	0b10101110,
-	0b10100100,
-	0b10100010
-};
+extern uint8_t disp_mem[];
+
 
 /* Here, the time is stored */
-uint8_t t_yr,t_mth,t_d,t_h,t_min,t_s;
+uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
 
 
 int main(void)
@@ -37,8 +35,11 @@ int main(void)
 	PORTD=0b00000000;
 	DDRD =0b11111111;
 	
+	//Default display memory
+	clear_disp();
+	
 	//Default time
-	t_yr=17;
+	t_y=17;
 	t_mth=9;
 	t_d=29;
 	t_h=2;
@@ -48,16 +49,26 @@ int main(void)
 	SMCR=SMCR|1<<SE;
 	
 	//Now, set up the 1s timer
-	if(useAsync)
+	if(USE_ASYNC)
 	{
 		
 		OCR2A=220;
 		TIMSK2=TIMSK2|1<<OCIE2A;
 		TCCR2A=TCCR2A|1<<WGM21;
 		TCCR2B=TCCR2B|1<<CS22|1<<CS21|1<<CS20;
-		sei();
 		
 	}
+	else
+	{
+		OCR2A=220;
+		TIMSK2=TIMSK2|1<<OCIE2A;
+		TCCR2A=TCCR2A|1<<WGM21;
+		TCCR2B=TCCR2B|1<<CS22|1<<CS21|1<<CS20;
+	}
+	
+	
+	//All is ready, let's go!
+	sei();
 	
     while (1) 
     {
@@ -74,10 +85,13 @@ int main(void)
 			for(uint16_t i=5*4*1;--i;);
 		}
 		
-		/* main() must never end! */
+		
+		
+/* main() must never end! */
     }
 }
-		/* Keep these two brackets together */
+/* Keep these two brackets together */
+
 
 
 
@@ -96,7 +110,5 @@ ISR(TIMER2_COMPA_vect)
 			}
 		}
 }
-disp_mem[5]=(t_s%10)|(t_s/10)<<4;
-disp_mem[4]=(t_min%10)|(t_min/10)<<4;
-disp_mem[3]=(t_h%10)|(t_h/10)<<4;
+disp_time((uint8_t)0b000111);
 }
