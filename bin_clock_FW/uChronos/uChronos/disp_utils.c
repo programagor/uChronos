@@ -3,21 +3,21 @@
 #include "bin_utils.h"
 
 uint8_t disp_mem[6]={0};
-extern uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
+uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
 
-void fill_disp()
+void disp_fill(uint8_t mask)
 {
 	for (uint8_t i=0;i<6;i++)
 	{
-		disp_mem[i]=0xff;
+		if(mask&(1<<i)) disp_mem[i]=0xff;
 	}
 }
 
-void clear_disp()
+void disp_clear(uint8_t mask)
 {
 	for (uint8_t i=0;i<6;i++)
 	{
-		disp_mem[i]=0x00;
+		if(mask&(1<<i)) disp_mem[i]=0x00;
 	}
 }
 

@@ -12,13 +12,13 @@
 
 #include "bin_utils.h"
 #include "disp_utils.h"
+#include "btn_utils.h"
+#include "state_machine.h"
 
 /* Definitions */
 #define USE_ASYNC 0
 
 
-/* This is used in the refresher routine. No buffering */
-extern uint8_t disp_mem[];
 
 
 /* Here, the time is stored */
@@ -35,8 +35,11 @@ int main(void)
 	PORTD=0b00000000;
 	DDRD =0b11111111;
 	
+	PORTB=0b11111111;
+	DDRB =0b11111111;
+	
 	//Default display memory
-	clear_disp();
+	disp_clear(0b00111111);
 	
 	//Default time
 	t_y=17;
@@ -83,7 +86,11 @@ int main(void)
 			PORTD=0b00000000;
 			PORTC=0b00111111;
 			for(uint16_t i=5*4*1;--i;);
+			
+			btn_read();
+			disp_mem[2]=btn_mem[0];
 		}
+		
 		
 		
 		
@@ -109,6 +116,17 @@ ISR(TIMER2_COMPA_vect)
 				
 			}
 		}
-}
-disp_time((uint8_t)0b000111);
+	}
+
+	switch(state)
+	{
+		case FULL_TIME:
+			disp_time((uint8_t)0b111111);
+			break;
+		case MINIMAL_TIME:
+			disp_time((uint8_t)0b00000110);
+			break;
+		default:
+			break;
+	}
 }

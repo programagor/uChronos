@@ -38,8 +38,10 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../bin_utils.c \
+../btn_utils.c \
 ../disp_utils.c \
-../main.c
+../main.c \
+../state_machine.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,23 +52,31 @@ ASM_SRCS +=
 
 OBJS +=  \
 bin_utils.o \
+btn_utils.o \
 disp_utils.o \
-main.o
+main.o \
+state_machine.o
 
 OBJS_AS_ARGS +=  \
 bin_utils.o \
+btn_utils.o \
 disp_utils.o \
-main.o
+main.o \
+state_machine.o
 
 C_DEPS +=  \
 bin_utils.d \
+btn_utils.d \
 disp_utils.d \
-main.d
+main.d \
+state_machine.d
 
 C_DEPS_AS_ARGS +=  \
 bin_utils.d \
+btn_utils.d \
 disp_utils.d \
-main.d
+main.d \
+state_machine.d
 
 OUTPUT_FILE_PATH +=uChronos.elf
 
@@ -82,6 +92,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

@@ -139,6 +139,14 @@
       <SubType>compile</SubType>
       <Link>bin_utils.h</Link>
     </Compile>
+    <Compile Include="btn_utils.c">
+      <SubType>compile</SubType>
+      <Link>btn_utils.c</Link>
+    </Compile>
+    <Compile Include="btn_utils.h">
+      <SubType>compile</SubType>
+      <Link>btn_utils.h</Link>
+    </Compile>
     <Compile Include="disp_utils.c">
       <SubType>compile</SubType>
       <Link>disp_utils.c</Link>
@@ -149,6 +157,14 @@
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state_machine.c">
+      <SubType>compile</SubType>
+      <Link>state_machine.c</Link>
+    </Compile>
+    <Compile Include="state_machine.h">
+      <SubType>compile</SubType>
+      <Link>state_machine.h</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
