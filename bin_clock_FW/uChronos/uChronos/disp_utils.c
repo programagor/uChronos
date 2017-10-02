@@ -5,6 +5,8 @@
 uint8_t disp_mem[6]={0};
 uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
 
+uint8_t time_mask=0b111111;
+
 void disp_fill(uint8_t mask)
 {
 	for (uint8_t i=0;i<6;i++)

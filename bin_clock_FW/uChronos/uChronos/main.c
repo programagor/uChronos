@@ -21,8 +21,7 @@
 
 
 
-/* Here, the time is stored */
-uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
+
 
 
 int main(void)
@@ -71,10 +70,13 @@ int main(void)
 	
 	
 	//All is ready, let's go!
+	init_states();
+	state_goto(1);
 	sei();
 	
     while (1) 
     {
+		
 		for(int c=0;c<6;c++)
 		{
 			PORTC=0b00111111&~(1<<c);
@@ -87,9 +89,9 @@ int main(void)
 			PORTC=0b00111111;
 			for(uint16_t i=5*4*1;--i;);
 			
-			btn_read();
-			disp_mem[2]=btn_mem[0];
+			
 		}
+		btn_read();
 		
 		
 		
@@ -118,15 +120,5 @@ ISR(TIMER2_COMPA_vect)
 		}
 	}
 
-	switch(state)
-	{
-		case FULL_TIME:
-			disp_time((uint8_t)0b111111);
-			break;
-		case MINIMAL_TIME:
-			disp_time((uint8_t)0b00000110);
-			break;
-		default:
-			break;
-	}
+	disp_time(time_mask);
 }
