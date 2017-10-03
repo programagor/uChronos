@@ -9,5 +9,6 @@ extern uint8_t time_mask;
 void disp_fill(uint8_t mask);
 void disp_clear(uint8_t mask);
 void disp_time(uint8_t mask);
+void disp_text(char str[]);
 
 #endif
