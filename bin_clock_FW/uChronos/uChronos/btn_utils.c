@@ -11,18 +11,21 @@ void btn_read()
 	if(p)
 	{
 		uint8_t i;
-		for(i=0;!(p&(1<<i));i++);
+		for(i=0;!(p&(1<<i));i++); //Find the button that changed
 		btn_mem[0]=btns;
 		
-		
+		uint8_t next_state;
 		if(btn_mem[0]&(1<<i))
 		{
-			states[state].btn_down_fcn[i](states[state].btn_down_arg[i]);
+			next_state=states[state].btn_down_arg[i];
 		}
 		else
 		{
-			states[state].btn_up_fcn[i](states[state].btn_up_arg[i]);
+			
+			next_state=states[state].btn_up_arg[i];
 		}
+		
+		state_goto(next_state);
 		
 	}
 }
