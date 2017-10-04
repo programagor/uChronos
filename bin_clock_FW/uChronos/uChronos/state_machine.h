@@ -10,8 +10,9 @@ void init_states();
 typedef struct
 {
 	void (*init)();
-	uint8_t btn_down_arg[3];
-	uint8_t btn_up_arg[3];
+	char* init_arg;
+	uint8_t btn_down_next[3];
+	uint8_t btn_up_next[3];
 } States;
 
 

@@ -17,12 +17,12 @@ void btn_read()
 		uint8_t next_state;
 		if(btn_mem[0]&(1<<i))
 		{
-			next_state=states[state].btn_down_arg[i];
+			next_state=states[state].btn_down_next[i];
 		}
 		else
 		{
 			
-			next_state=states[state].btn_up_arg[i];
+			next_state=states[state].btn_up_next[i];
 		}
 		
 		state_goto(next_state);

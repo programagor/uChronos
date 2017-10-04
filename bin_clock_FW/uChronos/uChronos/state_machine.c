@@ -51,6 +51,12 @@ void init6()
 	disp_clear(0b00111111);
 	disp_text("other");
 }
+void init_text(char str[])
+{
+	time_mask=0b000000;
+	disp_clear(0b00111111);
+	disp_text(str);
+}
 
 
 
@@ -80,46 +86,46 @@ void init_states()
 	{
 		states[i].init=&init_nothing;
 		
-		states[i].btn_down_arg[0]=0xff;
-		states[i].btn_down_arg[1]=0xff;
-		states[i].btn_down_arg[2]=0xff;
+		states[i].btn_down_next[0]=0xff;
+		states[i].btn_down_next[1]=0xff;
+		states[i].btn_down_next[2]=0xff;
 		
-		states[i].btn_up_arg[0]=0xff;
-		states[i].btn_up_arg[1]=0xff;
-		states[i].btn_up_arg[2]=0xff;
+		states[i].btn_up_next[0]=0xff;
+		states[i].btn_up_next[1]=0xff;
+		states[i].btn_up_next[2]=0xff;
 	}
 	/* State 0 */
 	states[0].init=&init0;
 	
-	states[0].btn_down_arg[2]=1;
+	states[0].btn_down_next[2]=1;
 	
 	
 	/* State 1 */
 	states[1].init=&init1;
 	
-	states[1].btn_down_arg[0]=0;
-	states[1].btn_down_arg[2]=2;
+	states[1].btn_down_next[0]=0;
+	states[1].btn_down_next[2]=2;
 	
 	
 	/* State 2 */
 	states[2].init=&init2;
 	
-	states[2].btn_down_arg[0]=1;
-	states[2].btn_down_arg[2]=3;
+	states[2].btn_down_next[0]=1;
+	states[2].btn_down_next[2]=3;
 	
 	
 	/* State 3 */
 	states[3].init=&init3;
 	
-	states[3].btn_down_arg[0]=2;
-	states[3].btn_down_arg[1]=5;
-	states[3].btn_down_arg[2]=4;
+	states[3].btn_down_next[0]=2;
+	states[3].btn_down_next[1]=5;
+	states[3].btn_down_next[2]=4;
 	
 	
 	/* State 4 */
 	states[4].init=&init4;
 	
-	states[4].btn_down_arg[0]=3;
+	states[4].btn_down_next[0]=3;
 	//states[4].btn_down_arg[1]=4;
 	//states[4].btn_down_arg[2]=4;
 	
@@ -127,16 +133,17 @@ void init_states()
 	/* State 5 */
 	states[5].init=&init5;
 	
-	states[5].btn_down_arg[0]=3;
-	states[5].btn_down_arg[1]=7;
-	states[5].btn_down_arg[2]=6;
+	states[5].btn_down_next[0]=3;
+	states[5].btn_down_next[1]=7;
+	states[5].btn_down_next[2]=6;
 	
 	/* State 6 */
 	states[6].init=&init6;
 	
-	states[6].btn_down_arg[0]=5;
+	states[6].btn_down_next[0]=5;
 	//states[6].btn_down_arg[1]=6;
-	//states[6].btn_down_arg[2]=6;
+	//states[6].btn_down_arg[2]=6;		
+	
 		
 }
 
