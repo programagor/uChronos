@@ -10184,7 +10184,7 @@ at 30/07/2012 14:27:46</description>
 <part name="PAD13" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD14" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="47u"/>
-<part name="R25" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/1" value="470R"/>
+<part name="R25" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/1" value="1M"/>
 <part name="SUPPLY32" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -10307,7 +10307,7 @@ at 30/07/2012 14:27:46</description>
 <instance part="C4" gate="G$1" x="281.94" y="251.46"/>
 <instance part="SUPPLY23" gate="GND" x="281.94" y="243.84"/>
 <instance part="C6" gate="G$1" x="215.9" y="243.84"/>
-<instance part="L1" gate="G$1" x="233.68" y="243.84"/>
+<instance part="L1" gate="G$1" x="231.14" y="243.84"/>
 <instance part="SUPPLY24" gate="GND" x="215.9" y="223.52"/>
 <instance part="U3" gate="A" x="193.04" y="264.16" rot="MR0"/>
 <instance part="D49" gate="G$1" x="215.9" y="271.78" rot="R270"/>
@@ -11412,7 +11412,7 @@ at 30/07/2012 14:27:46</description>
 <junction x="233.68" y="254"/>
 <pinref part="L1" gate="G$1" pin="1"/>
 <wire x1="226.06" y1="254" x2="233.68" y2="254" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="243.84" x2="226.06" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="243.84" x2="226.06" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="243.84" x2="226.06" y2="254" width="0.1524" layer="91"/>
 <junction x="226.06" y="254"/>
 <pinref part="U3" gate="A" pin="S"/>
@@ -11520,6 +11520,7 @@ at 30/07/2012 14:27:46</description>
 <segment>
 <pinref part="U2" gate="A" pin="L"/>
 <pinref part="L1" gate="G$1" pin="2"/>
+<wire x1="233.68" y1="243.84" x2="236.22" y2="243.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VBATT" class="1">

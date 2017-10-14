@@ -3,31 +3,31 @@ uChronos.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000016  00800100  000004be  00000552  2**0
+  0 .data         0000001a  00800100  000004d2  00000566  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000004be  00000000  00000000  00000094  2**1
+  1 .text         000004d2  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000116  00800116  00800116  00000568  2**0
+  2 .bss          00000116  0080011a  0080011a  00000580  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000568  2**0
+  3 .comment      00000030  00000000  00000000  00000580  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000598  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000005b0  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000118  00000000  00000000  000005d4  2**0
+  5 .debug_aranges 00000120  00000000  00000000  000005ec  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000010fb  00000000  00000000  000006ec  2**0
+  6 .debug_info   00001141  00000000  00000000  0000070c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000aac  00000000  00000000  000017e7  2**0
+  7 .debug_abbrev 00000aac  00000000  00000000  0000184d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000009f0  00000000  00000000  00002293  2**0
+  8 .debug_line   00000a12  00000000  00000000  000022f9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000020c  00000000  00000000  00002c84  2**2
+  9 .debug_frame  0000021c  00000000  00000000  00002d0c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000004d7  00000000  00000000  00002e90  2**0
+ 10 .debug_str    000004dd  00000000  00000000  00002f28  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000472  00000000  00000000  00003367  2**0
+ 11 .debug_loc    00000472  00000000  00000000  00003405  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000c8  00000000  00000000  000037d9  2**0
+ 12 .debug_ranges 000000d0  00000000  00000000  00003877  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -64,7 +64,7 @@ Disassembly of section .text:
   34:	80 c0       	rjmp	.+256    	; 0x136 <disp_clear+0x8>
   36:	88 8c       	ldd	r8, Y+24	; 0x18
   38:	84 c8       	rjmp	.-3832   	; 0xfffff142 <__eeprom_end+0xff7ef142>
-  3a:	cc c4       	rjmp	.+2456   	; 0x9d4 <__data_load_end+0x500>
+  3a:	cc c4       	rjmp	.+2456   	; 0x9d4 <__data_load_end+0x4e8>
   3c:	48 4c       	sbci	r20, 0xC8	; 200
   3e:	a0 e0       	ldi	r26, 0x00	; 0
   40:	a8 ac       	ldd	r10, Y+56	; 0x38
@@ -87,18 +87,18 @@ Disassembly of section .text:
   5a:	11 e0       	ldi	r17, 0x01	; 1
   5c:	a0 e0       	ldi	r26, 0x00	; 0
   5e:	b1 e0       	ldi	r27, 0x01	; 1
-  60:	ee eb       	ldi	r30, 0xBE	; 190
+  60:	e2 ed       	ldi	r30, 0xD2	; 210
   62:	f4 e0       	ldi	r31, 0x04	; 4
   64:	02 c0       	rjmp	.+4      	; 0x6a <__do_copy_data+0x10>
   66:	05 90       	lpm	r0, Z+
   68:	0d 92       	st	X+, r0
-  6a:	a6 31       	cpi	r26, 0x16	; 22
+  6a:	aa 31       	cpi	r26, 0x1A	; 26
   6c:	b1 07       	cpc	r27, r17
   6e:	d9 f7       	brne	.-10     	; 0x66 <__do_copy_data+0xc>
 
 00000070 <__do_clear_bss>:
   70:	22 e0       	ldi	r18, 0x02	; 2
-  72:	a6 e1       	ldi	r26, 0x16	; 22
+  72:	aa e1       	ldi	r26, 0x1A	; 26
   74:	b1 e0       	ldi	r27, 0x01	; 1
   76:	01 c0       	rjmp	.+2      	; 0x7a <.do_clear_bss_start>
 
@@ -106,11 +106,11 @@ Disassembly of section .text:
   78:	1d 92       	st	X+, r1
 
 0000007a <.do_clear_bss_start>:
-  7a:	ac 32       	cpi	r26, 0x2C	; 44
+  7a:	a0 33       	cpi	r26, 0x30	; 48
   7c:	b2 07       	cpc	r27, r18
   7e:	e1 f7       	brne	.-8      	; 0x78 <.do_clear_bss_loop>
   80:	ba d0       	rcall	.+372    	; 0x1f6 <main>
-  82:	1b c2       	rjmp	.+1078   	; 0x4ba <_exit>
+  82:	25 c2       	rjmp	.+1098   	; 0x4ce <_exit>
 
 00000084 <__bad_interrupt>:
   84:	bd cf       	rjmp	.-134    	; 0x0 <__vectors>
@@ -154,7 +154,7 @@ void btn_read()
   b0:	98 2f       	mov	r25, r24
   b2:	97 70       	andi	r25, 0x07	; 7
 	uint8_t p=btns^btn_mem[0];
-  b4:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <__data_end>
+  b4:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <__data_end>
   b8:	89 27       	eor	r24, r25
 	if(p)
   ba:	c1 f1       	breq	.+112    	; 0x12c <btn_read+0x80>
@@ -182,7 +182,7 @@ void btn_read()
   e0:	40 e0       	ldi	r20, 0x00	; 0
   e2:	50 e0       	ldi	r21, 0x00	; 0
 		btn_mem[0]=btns;
-  e4:	90 93 16 01 	sts	0x0116, r25	; 0x800116 <__data_end>
+  e4:	90 93 1a 01 	sts	0x011A, r25	; 0x80011a <__data_end>
 		
 		uint8_t next_state;
 		if(btn_mem[0]&(1<<i))
@@ -198,14 +198,14 @@ void btn_read()
   fa:	0c c0       	rjmp	.+24     	; 0x114 <btn_read+0x68>
 		{
 			next_state=states[state].btn_down_next[i];
-  fc:	80 91 1d 01 	lds	r24, 0x011D	; 0x80011d <state>
+  fc:	80 91 21 01 	lds	r24, 0x0121	; 0x800121 <state>
  100:	9b e0       	ldi	r25, 0x0B	; 11
  102:	89 9f       	mul	r24, r25
  104:	40 0d       	add	r20, r0
  106:	51 1d       	adc	r21, r1
  108:	11 24       	eor	r1, r1
  10a:	fa 01       	movw	r30, r20
- 10c:	ec 5d       	subi	r30, 0xDC	; 220
+ 10c:	e8 5d       	subi	r30, 0xD8	; 216
  10e:	fe 4f       	sbci	r31, 0xFE	; 254
  110:	85 81       	ldd	r24, Z+5	; 0x05
  112:	0b c0       	rjmp	.+22     	; 0x12a <btn_read+0x7e>
@@ -214,20 +214,20 @@ void btn_read()
 		{
 			
 			next_state=states[state].btn_up_next[i];
- 114:	80 91 1d 01 	lds	r24, 0x011D	; 0x80011d <state>
+ 114:	80 91 21 01 	lds	r24, 0x0121	; 0x800121 <state>
  118:	9b e0       	ldi	r25, 0x0B	; 11
  11a:	89 9f       	mul	r24, r25
  11c:	40 0d       	add	r20, r0
  11e:	51 1d       	adc	r21, r1
  120:	11 24       	eor	r1, r1
  122:	fa 01       	movw	r30, r20
- 124:	ec 5d       	subi	r30, 0xDC	; 220
+ 124:	e8 5d       	subi	r30, 0xD8	; 216
  126:	fe 4f       	sbci	r31, 0xFE	; 254
  128:	80 85       	ldd	r24, Z+8	; 0x08
 		}
 		
 		state_goto(next_state);
- 12a:	38 d1       	rcall	.+624    	; 0x39c <state_goto>
+ 12a:	40 d1       	rcall	.+640    	; 0x3ac <state_goto>
  12c:	08 95       	ret
 
 0000012e <disp_clear>:
@@ -237,7 +237,7 @@ void btn_read()
 
 void disp_clear(uint8_t mask)
 {
- 12e:	e7 e1       	ldi	r30, 0x17	; 23
+ 12e:	eb e1       	ldi	r30, 0x1B	; 27
  130:	f1 e0       	ldi	r31, 0x01	; 1
  132:	20 e0       	ldi	r18, 0x00	; 0
  134:	30 e0       	ldi	r19, 0x00	; 0
@@ -281,39 +281,39 @@ void disp_time(uint8_t mask)
 	if(mask&(1<<0)) disp_mem[5]=bin2bcd(t_s);
  15c:	80 ff       	sbrs	r24, 0
  15e:	05 c0       	rjmp	.+10     	; 0x16a <disp_time+0x12>
- 160:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <t_s>
+ 160:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <t_s>
  164:	90 df       	rcall	.-224    	; 0x86 <bin2bcd>
- 166:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <disp_mem+0x5>
+ 166:	80 93 20 01 	sts	0x0120, r24	; 0x800120 <disp_mem+0x5>
 	if(mask&(1<<1)) disp_mem[4]=bin2bcd(t_min);
  16a:	c1 ff       	sbrs	r28, 1
  16c:	05 c0       	rjmp	.+10     	; 0x178 <disp_time+0x20>
- 16e:	80 91 20 01 	lds	r24, 0x0120	; 0x800120 <t_min>
+ 16e:	80 91 24 01 	lds	r24, 0x0124	; 0x800124 <t_min>
  172:	89 df       	rcall	.-238    	; 0x86 <bin2bcd>
- 174:	80 93 1b 01 	sts	0x011B, r24	; 0x80011b <disp_mem+0x4>
+ 174:	80 93 1f 01 	sts	0x011F, r24	; 0x80011f <disp_mem+0x4>
 	if(mask&(1<<2)) disp_mem[3]=bin2bcd(t_h);
  178:	c2 ff       	sbrs	r28, 2
  17a:	05 c0       	rjmp	.+10     	; 0x186 <disp_time+0x2e>
- 17c:	80 91 23 01 	lds	r24, 0x0123	; 0x800123 <t_h>
+ 17c:	80 91 27 01 	lds	r24, 0x0127	; 0x800127 <t_h>
  180:	82 df       	rcall	.-252    	; 0x86 <bin2bcd>
- 182:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <disp_mem+0x3>
+ 182:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <disp_mem+0x3>
 	if(mask&(1<<3)) disp_mem[2]=bin2bcd(t_d);
  186:	c3 ff       	sbrs	r28, 3
  188:	05 c0       	rjmp	.+10     	; 0x194 <disp_time+0x3c>
- 18a:	80 91 21 01 	lds	r24, 0x0121	; 0x800121 <t_d>
+ 18a:	80 91 25 01 	lds	r24, 0x0125	; 0x800125 <t_d>
  18e:	7b df       	rcall	.-266    	; 0x86 <bin2bcd>
- 190:	80 93 19 01 	sts	0x0119, r24	; 0x800119 <disp_mem+0x2>
+ 190:	80 93 1d 01 	sts	0x011D, r24	; 0x80011d <disp_mem+0x2>
 	if(mask&(1<<4)) disp_mem[1]=bin2bcd(t_mth);
  194:	c4 ff       	sbrs	r28, 4
  196:	05 c0       	rjmp	.+10     	; 0x1a2 <disp_time+0x4a>
- 198:	80 91 1f 01 	lds	r24, 0x011F	; 0x80011f <t_mth>
+ 198:	80 91 23 01 	lds	r24, 0x0123	; 0x800123 <t_mth>
  19c:	74 df       	rcall	.-280    	; 0x86 <bin2bcd>
- 19e:	80 93 18 01 	sts	0x0118, r24	; 0x800118 <disp_mem+0x1>
+ 19e:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <disp_mem+0x1>
 	if(mask&(1<<5)) disp_mem[0]=bin2bcd(t_y);
  1a2:	c5 ff       	sbrs	r28, 5
  1a4:	05 c0       	rjmp	.+10     	; 0x1b0 <disp_time+0x58>
- 1a6:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <t_y>
+ 1a6:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <t_y>
  1aa:	6d df       	rcall	.-294    	; 0x86 <bin2bcd>
- 1ac:	80 93 17 01 	sts	0x0117, r24	; 0x800117 <disp_mem>
+ 1ac:	80 93 1b 01 	sts	0x011B, r24	; 0x80011b <disp_mem>
 }
  1b0:	cf 91       	pop	r28
  1b2:	08 95       	ret
@@ -339,7 +339,7 @@ void disp_text(char str[])
  1ca:	ee 23       	and	r30, r30
  1cc:	89 f0       	breq	.+34     	; 0x1f0 <disp_text+0x3c>
  1ce:	dc 01       	movw	r26, r24
- 1d0:	c7 e1       	ldi	r28, 0x17	; 23
+ 1d0:	cb e1       	ldi	r28, 0x1B	; 27
  1d2:	d1 e0       	ldi	r29, 0x01	; 1
  1d4:	e1 50       	subi	r30, 0x01	; 1
  1d6:	f0 e0       	ldi	r31, 0x00	; 0
@@ -403,22 +403,22 @@ int main(void)
 	//Default time
 	t_y=17;
  20a:	81 e1       	ldi	r24, 0x11	; 17
- 20c:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <t_y>
+ 20c:	80 93 22 01 	sts	0x0122, r24	; 0x800122 <t_y>
 	t_mth=9;
  210:	89 e0       	ldi	r24, 0x09	; 9
- 212:	80 93 1f 01 	sts	0x011F, r24	; 0x80011f <t_mth>
+ 212:	80 93 23 01 	sts	0x0123, r24	; 0x800123 <t_mth>
 	t_d=29;
  216:	8d e1       	ldi	r24, 0x1D	; 29
- 218:	80 93 21 01 	sts	0x0121, r24	; 0x800121 <t_d>
+ 218:	80 93 25 01 	sts	0x0125, r24	; 0x800125 <t_d>
 	t_h=2;
  21c:	82 e0       	ldi	r24, 0x02	; 2
- 21e:	80 93 23 01 	sts	0x0123, r24	; 0x800123 <t_h>
+ 21e:	80 93 27 01 	sts	0x0127, r24	; 0x800127 <t_h>
 	t_min=27;
  222:	8b e1       	ldi	r24, 0x1B	; 27
- 224:	80 93 20 01 	sts	0x0120, r24	; 0x800120 <t_min>
+ 224:	80 93 24 01 	sts	0x0124, r24	; 0x800124 <t_min>
 	t_s=24;
  228:	88 e1       	ldi	r24, 0x18	; 24
- 22a:	80 93 22 01 	sts	0x0122, r24	; 0x800122 <t_s>
+ 22a:	80 93 26 01 	sts	0x0126, r24	; 0x800126 <t_s>
 	
 	SMCR=SMCR|1<<SE;
  22e:	83 b7       	in	r24, 0x33	; 51
@@ -455,10 +455,10 @@ int main(void)
 	
 	//All is ready, let's go!
 	init_states();
- 258:	b0 d0       	rcall	.+352    	; 0x3ba <init_states>
+ 258:	b8 d0       	rcall	.+368    	; 0x3ca <init_states>
 	state_goto(1);
  25a:	81 e0       	ldi	r24, 0x01	; 1
- 25c:	9f d0       	rcall	.+318    	; 0x39c <state_goto>
+ 25c:	a7 d0       	rcall	.+334    	; 0x3ac <state_goto>
 	sei();
  25e:	78 94       	sei
     while (1) 
@@ -476,7 +476,7 @@ int main(void)
 			PORTD=0b00000000;
 			PORTC=0b00111111;
  264:	1f e3       	ldi	r17, 0x3F	; 63
- 266:	e7 e1       	ldi	r30, 0x17	; 23
+ 266:	eb e1       	ldi	r30, 0x1B	; 27
  268:	f1 e0       	ldi	r31, 0x01	; 1
 	sei();
 	
@@ -569,35 +569,35 @@ ISR(TIMER2_COMPA_vect)
  2c6:	ef 93       	push	r30
  2c8:	ff 93       	push	r31
 	if(++t_s==60)
- 2ca:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <t_s>
+ 2ca:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <t_s>
  2ce:	8f 5f       	subi	r24, 0xFF	; 255
  2d0:	8c 33       	cpi	r24, 0x3C	; 60
  2d2:	19 f0       	breq	.+6      	; 0x2da <__vector_7+0x32>
- 2d4:	80 93 22 01 	sts	0x0122, r24	; 0x800122 <t_s>
+ 2d4:	80 93 26 01 	sts	0x0126, r24	; 0x800126 <t_s>
  2d8:	16 c0       	rjmp	.+44     	; 0x306 <__stack+0x7>
 	{
 		t_s=0;
- 2da:	10 92 22 01 	sts	0x0122, r1	; 0x800122 <t_s>
+ 2da:	10 92 26 01 	sts	0x0126, r1	; 0x800126 <t_s>
 		if(++t_min==60)
- 2de:	80 91 20 01 	lds	r24, 0x0120	; 0x800120 <t_min>
+ 2de:	80 91 24 01 	lds	r24, 0x0124	; 0x800124 <t_min>
  2e2:	8f 5f       	subi	r24, 0xFF	; 255
  2e4:	8c 33       	cpi	r24, 0x3C	; 60
  2e6:	19 f0       	breq	.+6      	; 0x2ee <__vector_7+0x46>
- 2e8:	80 93 20 01 	sts	0x0120, r24	; 0x800120 <t_min>
+ 2e8:	80 93 24 01 	sts	0x0124, r24	; 0x800124 <t_min>
  2ec:	0c c0       	rjmp	.+24     	; 0x306 <__stack+0x7>
 		{
 			t_min=0;
- 2ee:	10 92 20 01 	sts	0x0120, r1	; 0x800120 <t_min>
+ 2ee:	10 92 24 01 	sts	0x0124, r1	; 0x800124 <t_min>
 			if(++t_h==24)
- 2f2:	80 91 23 01 	lds	r24, 0x0123	; 0x800123 <t_h>
+ 2f2:	80 91 27 01 	lds	r24, 0x0127	; 0x800127 <t_h>
  2f6:	8f 5f       	subi	r24, 0xFF	; 255
  2f8:	88 31       	cpi	r24, 0x18	; 24
  2fa:	19 f0       	breq	.+6      	; 0x302 <__stack+0x3>
- 2fc:	80 93 23 01 	sts	0x0123, r24	; 0x800123 <t_h>
+ 2fc:	80 93 27 01 	sts	0x0127, r24	; 0x800127 <t_h>
  300:	02 c0       	rjmp	.+4      	; 0x306 <__stack+0x7>
 			{
 				t_h=0;
- 302:	10 92 23 01 	sts	0x0123, r1	; 0x800123 <t_h>
+ 302:	10 92 27 01 	sts	0x0127, r1	; 0x800127 <t_h>
 				
 			}
 		}
@@ -692,253 +692,264 @@ void do_nothing(uint8_t arg)
  398:	0d df       	rcall	.-486    	; 0x1b4 <disp_text>
  39a:	08 95       	ret
 
-0000039c <state_goto>:
+0000039c <init7>:
+ 39c:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_start>
+ 3a0:	8f e3       	ldi	r24, 0x3F	; 63
+ 3a2:	c5 de       	rcall	.-630    	; 0x12e <disp_clear>
+ 3a4:	85 e1       	ldi	r24, 0x15	; 21
+ 3a6:	91 e0       	ldi	r25, 0x01	; 1
+ 3a8:	05 df       	rcall	.-502    	; 0x1b4 <disp_text>
+ 3aa:	08 95       	ret
+
+000003ac <state_goto>:
 	
 }
 
 void state_goto(uint8_t arg)
 {
 	if(arg!=0xff)
- 39c:	8f 3f       	cpi	r24, 0xFF	; 255
- 39e:	61 f0       	breq	.+24     	; 0x3b8 <state_goto+0x1c>
+ 3ac:	8f 3f       	cpi	r24, 0xFF	; 255
+ 3ae:	61 f0       	breq	.+24     	; 0x3c8 <state_goto+0x1c>
 	{
 		state=arg;
- 3a0:	80 93 1d 01 	sts	0x011D, r24	; 0x80011d <state>
+ 3b0:	80 93 21 01 	sts	0x0121, r24	; 0x800121 <state>
 		states[state].init();
- 3a4:	9b e0       	ldi	r25, 0x0B	; 11
- 3a6:	89 9f       	mul	r24, r25
- 3a8:	f0 01       	movw	r30, r0
- 3aa:	11 24       	eor	r1, r1
- 3ac:	ec 5d       	subi	r30, 0xDC	; 220
- 3ae:	fe 4f       	sbci	r31, 0xFE	; 254
- 3b0:	01 90       	ld	r0, Z+
- 3b2:	f0 81       	ld	r31, Z
- 3b4:	e0 2d       	mov	r30, r0
- 3b6:	09 95       	icall
- 3b8:	08 95       	ret
+ 3b4:	9b e0       	ldi	r25, 0x0B	; 11
+ 3b6:	89 9f       	mul	r24, r25
+ 3b8:	f0 01       	movw	r30, r0
+ 3ba:	11 24       	eor	r1, r1
+ 3bc:	e8 5d       	subi	r30, 0xD8	; 216
+ 3be:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3c0:	01 90       	ld	r0, Z+
+ 3c2:	f0 81       	ld	r31, Z
+ 3c4:	e0 2d       	mov	r30, r0
+ 3c6:	09 95       	icall
+ 3c8:	08 95       	ret
 
-000003ba <init_states>:
+000003ca <init_states>:
 	}
 }
 
 void init_states()
 {
- 3ba:	e4 e2       	ldi	r30, 0x24	; 36
- 3bc:	f1 e0       	ldi	r31, 0x01	; 1
- 3be:	4c e2       	ldi	r20, 0x2C	; 44
- 3c0:	52 e0       	ldi	r21, 0x02	; 2
+ 3ca:	e8 e2       	ldi	r30, 0x28	; 40
+ 3cc:	f1 e0       	ldi	r31, 0x01	; 1
+ 3ce:	40 e3       	ldi	r20, 0x30	; 48
+ 3d0:	52 e0       	ldi	r21, 0x02	; 2
 	/* First clear the whole array */
 	for(uint8_t i=0;i<STATES_NUM;i++)
 	{
 		states[i].init=&init_nothing;
- 3c2:	27 e9       	ldi	r18, 0x97	; 151
- 3c4:	31 e0       	ldi	r19, 0x01	; 1
+ 3d2:	27 e9       	ldi	r18, 0x97	; 151
+ 3d4:	31 e0       	ldi	r19, 0x01	; 1
 		
 		states[i].btn_down_next[0]=0xff;
- 3c6:	8f ef       	ldi	r24, 0xFF	; 255
+ 3d6:	8f ef       	ldi	r24, 0xFF	; 255
 void init_states()
 {
 	/* First clear the whole array */
 	for(uint8_t i=0;i<STATES_NUM;i++)
 	{
 		states[i].init=&init_nothing;
- 3c8:	31 83       	std	Z+1, r19	; 0x01
- 3ca:	20 83       	st	Z, r18
+ 3d8:	31 83       	std	Z+1, r19	; 0x01
+ 3da:	20 83       	st	Z, r18
 		
 		states[i].btn_down_next[0]=0xff;
- 3cc:	85 83       	std	Z+5, r24	; 0x05
+ 3dc:	85 83       	std	Z+5, r24	; 0x05
 		states[i].btn_down_next[1]=0xff;
- 3ce:	86 83       	std	Z+6, r24	; 0x06
+ 3de:	86 83       	std	Z+6, r24	; 0x06
 		states[i].btn_down_next[2]=0xff;
- 3d0:	87 83       	std	Z+7, r24	; 0x07
+ 3e0:	87 83       	std	Z+7, r24	; 0x07
 		
 		states[i].btn_up_next[0]=0xff;
- 3d2:	80 87       	std	Z+8, r24	; 0x08
+ 3e2:	80 87       	std	Z+8, r24	; 0x08
 		states[i].btn_up_next[1]=0xff;
- 3d4:	81 87       	std	Z+9, r24	; 0x09
+ 3e4:	81 87       	std	Z+9, r24	; 0x09
 		states[i].btn_up_next[2]=0xff;
- 3d6:	82 87       	std	Z+10, r24	; 0x0a
- 3d8:	3b 96       	adiw	r30, 0x0b	; 11
+ 3e6:	82 87       	std	Z+10, r24	; 0x0a
+ 3e8:	3b 96       	adiw	r30, 0x0b	; 11
 }
 
 void init_states()
 {
 	/* First clear the whole array */
 	for(uint8_t i=0;i<STATES_NUM;i++)
- 3da:	e4 17       	cp	r30, r20
- 3dc:	f5 07       	cpc	r31, r21
- 3de:	a1 f7       	brne	.-24     	; 0x3c8 <init_states+0xe>
+ 3ea:	e4 17       	cp	r30, r20
+ 3ec:	f5 07       	cpc	r31, r21
+ 3ee:	a1 f7       	brne	.-24     	; 0x3d8 <init_states+0xe>
 		states[i].btn_up_next[0]=0xff;
 		states[i].btn_up_next[1]=0xff;
 		states[i].btn_up_next[2]=0xff;
 	}
-	/* State 0 */
+	/* State 0 - power saver */
 	states[0].init=&init0;
- 3e0:	e4 e2       	ldi	r30, 0x24	; 36
- 3e2:	f1 e0       	ldi	r31, 0x01	; 1
- 3e4:	88 e9       	ldi	r24, 0x98	; 152
- 3e6:	91 e0       	ldi	r25, 0x01	; 1
- 3e8:	91 83       	std	Z+1, r25	; 0x01
- 3ea:	80 83       	st	Z, r24
+ 3f0:	e8 e2       	ldi	r30, 0x28	; 40
+ 3f2:	f1 e0       	ldi	r31, 0x01	; 1
+ 3f4:	88 e9       	ldi	r24, 0x98	; 152
+ 3f6:	91 e0       	ldi	r25, 0x01	; 1
+ 3f8:	91 83       	std	Z+1, r25	; 0x01
+ 3fa:	80 83       	st	Z, r24
 	
 	states[0].btn_down_next[2]=1;
- 3ec:	81 e0       	ldi	r24, 0x01	; 1
- 3ee:	87 83       	std	Z+7, r24	; 0x07
+ 3fc:	81 e0       	ldi	r24, 0x01	; 1
+ 3fe:	87 83       	std	Z+7, r24	; 0x07
 	
 	
-	/* State 1 */
+	/* State 1 - minimal mode */
 	states[1].init=&init1;
- 3f0:	20 ea       	ldi	r18, 0xA0	; 160
- 3f2:	31 e0       	ldi	r19, 0x01	; 1
- 3f4:	34 87       	std	Z+12, r19	; 0x0c
- 3f6:	23 87       	std	Z+11, r18	; 0x0b
+ 400:	20 ea       	ldi	r18, 0xA0	; 160
+ 402:	31 e0       	ldi	r19, 0x01	; 1
+ 404:	34 87       	std	Z+12, r19	; 0x0c
+ 406:	23 87       	std	Z+11, r18	; 0x0b
 	
 	states[1].btn_down_next[0]=0;
- 3f8:	10 8a       	std	Z+16, r1	; 0x10
+ 408:	10 8a       	std	Z+16, r1	; 0x10
 	states[1].btn_down_next[2]=2;
- 3fa:	92 e0       	ldi	r25, 0x02	; 2
- 3fc:	92 8b       	std	Z+18, r25	; 0x12
+ 40a:	92 e0       	ldi	r25, 0x02	; 2
+ 40c:	92 8b       	std	Z+18, r25	; 0x12
 	
 	
-	/* State 2 */
+	/* State 2 - full mode */
 	states[2].init=&init2;
- 3fe:	29 ea       	ldi	r18, 0xA9	; 169
- 400:	31 e0       	ldi	r19, 0x01	; 1
- 402:	37 8b       	std	Z+23, r19	; 0x17
- 404:	26 8b       	std	Z+22, r18	; 0x16
+ 40e:	29 ea       	ldi	r18, 0xA9	; 169
+ 410:	31 e0       	ldi	r19, 0x01	; 1
+ 412:	37 8b       	std	Z+23, r19	; 0x17
+ 414:	26 8b       	std	Z+22, r18	; 0x16
 	
 	states[2].btn_down_next[0]=1;
- 406:	83 8f       	std	Z+27, r24	; 0x1b
+ 416:	83 8f       	std	Z+27, r24	; 0x1b
 	states[2].btn_down_next[2]=3;
- 408:	83 e0       	ldi	r24, 0x03	; 3
- 40a:	85 8f       	std	Z+29, r24	; 0x1d
+ 418:	83 e0       	ldi	r24, 0x03	; 3
+ 41a:	85 8f       	std	Z+29, r24	; 0x1d
 	
 	
-	/* State 3 */
+	/* State 3 - Fun menu */
 	states[3].init=&init3;
- 40c:	2e ea       	ldi	r18, 0xAE	; 174
- 40e:	31 e0       	ldi	r19, 0x01	; 1
- 410:	32 a3       	std	Z+34, r19	; 0x22
- 412:	21 a3       	std	Z+33, r18	; 0x21
+ 41c:	2e ea       	ldi	r18, 0xAE	; 174
+ 41e:	31 e0       	ldi	r19, 0x01	; 1
+ 420:	32 a3       	std	Z+34, r19	; 0x22
+ 422:	21 a3       	std	Z+33, r18	; 0x21
 	
 	states[3].btn_down_next[0]=2;
- 414:	96 a3       	std	Z+38, r25	; 0x26
+ 424:	96 a3       	std	Z+38, r25	; 0x26
 	states[3].btn_down_next[1]=5;
- 416:	95 e0       	ldi	r25, 0x05	; 5
- 418:	97 a3       	std	Z+39, r25	; 0x27
+ 426:	95 e0       	ldi	r25, 0x05	; 5
+ 428:	97 a3       	std	Z+39, r25	; 0x27
 	states[3].btn_down_next[2]=4;
- 41a:	24 e0       	ldi	r18, 0x04	; 4
- 41c:	20 a7       	std	Z+40, r18	; 0x28
+ 42a:	24 e0       	ldi	r18, 0x04	; 4
+ 42c:	20 a7       	std	Z+40, r18	; 0x28
 	
 	
-	/* State 4 */
+	/* State 4 - Settings menu*/
 	states[4].init=&init4;
- 41e:	26 eb       	ldi	r18, 0xB6	; 182
- 420:	31 e0       	ldi	r19, 0x01	; 1
- 422:	35 a7       	std	Z+45, r19	; 0x2d
- 424:	24 a7       	std	Z+44, r18	; 0x2c
+ 42e:	26 eb       	ldi	r18, 0xB6	; 182
+ 430:	31 e0       	ldi	r19, 0x01	; 1
+ 432:	35 a7       	std	Z+45, r19	; 0x2d
+ 434:	24 a7       	std	Z+44, r18	; 0x2c
 	
 	states[4].btn_down_next[0]=3;
- 426:	81 ab       	std	Z+49, r24	; 0x31
+ 436:	81 ab       	std	Z+49, r24	; 0x31
 	//states[4].btn_down_arg[1]=4;
 	//states[4].btn_down_arg[2]=4;
 	
 	
-	/* State 5 */
+	/* State 5 - Snake menu*/
 	states[5].init=&init5;
- 428:	2e eb       	ldi	r18, 0xBE	; 190
- 42a:	31 e0       	ldi	r19, 0x01	; 1
- 42c:	30 af       	std	Z+56, r19	; 0x38
- 42e:	27 ab       	std	Z+55, r18	; 0x37
+ 438:	2e eb       	ldi	r18, 0xBE	; 190
+ 43a:	31 e0       	ldi	r19, 0x01	; 1
+ 43c:	30 af       	std	Z+56, r19	; 0x38
+ 43e:	27 ab       	std	Z+55, r18	; 0x37
 	
 	states[5].btn_down_next[0]=3;
- 430:	84 af       	std	Z+60, r24	; 0x3c
+ 440:	84 af       	std	Z+60, r24	; 0x3c
 	states[5].btn_down_next[1]=7;
- 432:	27 e0       	ldi	r18, 0x07	; 7
- 434:	25 af       	std	Z+61, r18	; 0x3d
+ 442:	27 e0       	ldi	r18, 0x07	; 7
+ 444:	25 af       	std	Z+61, r18	; 0x3d
 	states[5].btn_down_next[2]=6;
- 436:	86 e0       	ldi	r24, 0x06	; 6
- 438:	86 af       	std	Z+62, r24	; 0x3e
+ 446:	86 e0       	ldi	r24, 0x06	; 6
+ 448:	86 af       	std	Z+62, r24	; 0x3e
 	
-	/* State 6 */
+	/* State 6 - Other game menu */
 	states[6].init=&init6;
- 43a:	46 ec       	ldi	r20, 0xC6	; 198
- 43c:	51 e0       	ldi	r21, 0x01	; 1
- 43e:	50 93 67 01 	sts	0x0167, r21	; 0x800167 <states+0x43>
- 442:	40 93 66 01 	sts	0x0166, r20	; 0x800166 <states+0x42>
+ 44a:	46 ec       	ldi	r20, 0xC6	; 198
+ 44c:	51 e0       	ldi	r21, 0x01	; 1
+ 44e:	50 93 6b 01 	sts	0x016B, r21	; 0x80016b <states+0x43>
+ 452:	40 93 6a 01 	sts	0x016A, r20	; 0x80016a <states+0x42>
 	
 	states[6].btn_down_next[0]=5;
- 446:	90 93 6b 01 	sts	0x016B, r25	; 0x80016b <states+0x47>
+ 456:	90 93 6f 01 	sts	0x016F, r25	; 0x80016f <states+0x47>
 	//states[6].btn_down_arg[1]=6;
 	//states[6].btn_down_arg[2]=6;		
 	
 	
 	/* State 7 - Time menu */
-	states[7].init=&init_nothing;
- 44a:	87 e9       	ldi	r24, 0x97	; 151
- 44c:	91 e0       	ldi	r25, 0x01	; 1
- 44e:	90 93 72 01 	sts	0x0172, r25	; 0x800172 <states+0x4e>
- 452:	80 93 71 01 	sts	0x0171, r24	; 0x800171 <states+0x4d>
+	states[7].init=&init7;
+ 45a:	8e ec       	ldi	r24, 0xCE	; 206
+ 45c:	91 e0       	ldi	r25, 0x01	; 1
+ 45e:	90 93 76 01 	sts	0x0176, r25	; 0x800176 <states+0x4e>
+ 462:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <states+0x4d>
 	states[7].btn_down_next[2]=9;
- 456:	39 e0       	ldi	r19, 0x09	; 9
- 458:	30 93 78 01 	sts	0x0178, r19	; 0x800178 <states+0x54>
+ 466:	39 e0       	ldi	r19, 0x09	; 9
+ 468:	30 93 7c 01 	sts	0x017C, r19	; 0x80017c <states+0x54>
 	
 	/* State 8 - Other setting */
 	states[8].init=&init_nothing;
- 45c:	90 93 7d 01 	sts	0x017D, r25	; 0x80017d <states+0x59>
- 460:	80 93 7c 01 	sts	0x017C, r24	; 0x80017c <states+0x58>
+ 46c:	87 e9       	ldi	r24, 0x97	; 151
+ 46e:	91 e0       	ldi	r25, 0x01	; 1
+ 470:	90 93 81 01 	sts	0x0181, r25	; 0x800181 <states+0x59>
+ 474:	80 93 80 01 	sts	0x0180, r24	; 0x800180 <states+0x58>
 	states[8].btn_down_next[0]=7;
- 464:	20 93 81 01 	sts	0x0181, r18	; 0x800181 <states+0x5d>
+ 478:	20 93 85 01 	sts	0x0185, r18	; 0x800185 <states+0x5d>
 	
 	/* State 9 - Set Year */
 	states[9].init=&init_nothing;
- 468:	90 93 88 01 	sts	0x0188, r25	; 0x800188 <states+0x64>
- 46c:	80 93 87 01 	sts	0x0187, r24	; 0x800187 <states+0x63>
+ 47c:	90 93 8c 01 	sts	0x018C, r25	; 0x80018c <states+0x64>
+ 480:	80 93 8b 01 	sts	0x018B, r24	; 0x80018b <states+0x63>
 	states[9].btn_down_next[1]=9;
- 470:	30 93 8d 01 	sts	0x018D, r19	; 0x80018d <states+0x69>
+ 484:	30 93 91 01 	sts	0x0191, r19	; 0x800191 <states+0x69>
 	
 	/* State 10 - Set Month */
 	states[10].init=&init_nothing;
- 474:	90 93 93 01 	sts	0x0193, r25	; 0x800193 <states+0x6f>
- 478:	80 93 92 01 	sts	0x0192, r24	; 0x800192 <states+0x6e>
+ 488:	90 93 97 01 	sts	0x0197, r25	; 0x800197 <states+0x6f>
+ 48c:	80 93 96 01 	sts	0x0196, r24	; 0x800196 <states+0x6e>
 	states[10].btn_down_next[1]=11;
- 47c:	3b e0       	ldi	r19, 0x0B	; 11
- 47e:	30 93 98 01 	sts	0x0198, r19	; 0x800198 <states+0x74>
+ 490:	3b e0       	ldi	r19, 0x0B	; 11
+ 492:	30 93 9c 01 	sts	0x019C, r19	; 0x80019c <states+0x74>
 	
 	/* State 11 - Set Day */
 	states[11].init=&init_nothing;
- 482:	90 93 9e 01 	sts	0x019E, r25	; 0x80019e <states+0x7a>
- 486:	80 93 9d 01 	sts	0x019D, r24	; 0x80019d <states+0x79>
+ 496:	90 93 a2 01 	sts	0x01A2, r25	; 0x8001a2 <states+0x7a>
+ 49a:	80 93 a1 01 	sts	0x01A1, r24	; 0x8001a1 <states+0x79>
 	states[11].btn_down_next[1]=12;
- 48a:	3c e0       	ldi	r19, 0x0C	; 12
- 48c:	30 93 a3 01 	sts	0x01A3, r19	; 0x8001a3 <states+0x7f>
+ 49e:	3c e0       	ldi	r19, 0x0C	; 12
+ 4a0:	30 93 a7 01 	sts	0x01A7, r19	; 0x8001a7 <states+0x7f>
 	
 	/* State 12 - Set Hour */
 	states[12].init=&init_nothing;
- 490:	90 93 a9 01 	sts	0x01A9, r25	; 0x8001a9 <states+0x85>
- 494:	80 93 a8 01 	sts	0x01A8, r24	; 0x8001a8 <states+0x84>
+ 4a4:	90 93 ad 01 	sts	0x01AD, r25	; 0x8001ad <states+0x85>
+ 4a8:	80 93 ac 01 	sts	0x01AC, r24	; 0x8001ac <states+0x84>
 	states[12].btn_down_next[1]=13;
- 498:	3d e0       	ldi	r19, 0x0D	; 13
- 49a:	30 93 ae 01 	sts	0x01AE, r19	; 0x8001ae <states+0x8a>
+ 4ac:	3d e0       	ldi	r19, 0x0D	; 13
+ 4ae:	30 93 b2 01 	sts	0x01B2, r19	; 0x8001b2 <states+0x8a>
 	
 	/* State 13 - Set minute */
 	states[13].init=&init_nothing;
- 49e:	90 93 b4 01 	sts	0x01B4, r25	; 0x8001b4 <states+0x90>
- 4a2:	80 93 b3 01 	sts	0x01B3, r24	; 0x8001b3 <states+0x8f>
+ 4b2:	90 93 b8 01 	sts	0x01B8, r25	; 0x8001b8 <states+0x90>
+ 4b6:	80 93 b7 01 	sts	0x01B7, r24	; 0x8001b7 <states+0x8f>
 	states[13].btn_down_next[1]=14;
- 4a6:	3e e0       	ldi	r19, 0x0E	; 14
- 4a8:	30 93 b9 01 	sts	0x01B9, r19	; 0x8001b9 <states+0x95>
+ 4ba:	3e e0       	ldi	r19, 0x0E	; 14
+ 4bc:	30 93 bd 01 	sts	0x01BD, r19	; 0x8001bd <states+0x95>
 	
 	/* State 14 - Set seconds */
 	states[14].init=&init_nothing;
- 4ac:	90 93 bf 01 	sts	0x01BF, r25	; 0x8001bf <states+0x9b>
- 4b0:	80 93 be 01 	sts	0x01BE, r24	; 0x8001be <states+0x9a>
+ 4c0:	90 93 c3 01 	sts	0x01C3, r25	; 0x8001c3 <states+0x9b>
+ 4c4:	80 93 c2 01 	sts	0x01C2, r24	; 0x8001c2 <states+0x9a>
 	states[14].btn_down_next[1]=7; /* Back to time menu */
- 4b4:	20 93 c4 01 	sts	0x01C4, r18	; 0x8001c4 <states+0xa0>
- 4b8:	08 95       	ret
+ 4c8:	20 93 c8 01 	sts	0x01C8, r18	; 0x8001c8 <states+0xa0>
+ 4cc:	08 95       	ret
 
-000004ba <_exit>:
- 4ba:	f8 94       	cli
+000004ce <_exit>:
+ 4ce:	f8 94       	cli
 
-000004bc <__stop_program>:
- 4bc:	ff cf       	rjmp	.-2      	; 0x4bc <__stop_program>
+000004d0 <__stop_program>:
+ 4d0:	ff cf       	rjmp	.-2      	; 0x4d0 <__stop_program>

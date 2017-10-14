@@ -52,6 +52,13 @@ void init6()
 	disp_text("other");
 }
 
+void init7()
+{
+	time_mask=0b000000;
+	disp_clear(0b00111111);
+	disp_text("time");
+}
+
 
 void init_text(char* str)
 {
@@ -148,7 +155,7 @@ void init_states()
 	
 	
 	/* State 7 - Time menu */
-	states[7].init=&init_nothing;
+	states[7].init=&init7;
 	states[7].btn_down_next[2]=9;
 	
 	/* State 8 - Other setting */
