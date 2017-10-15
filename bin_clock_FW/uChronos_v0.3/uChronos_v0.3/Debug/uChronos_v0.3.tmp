@@ -1,0 +1,64 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega48PA"</DEVICE>
+ <WORKING_DIR>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m48padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\Debug\uChronos_v0.3.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>uChronos_v0.3.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>uChronos_v0.3.map</FILE>
+  <FILE>uChronos_v0.3.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>67</LINE></RESET>
+  <EXT_INT0><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>31</LINE></EXT_INT0>
+  <EXT_INT1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>32</LINE></EXT_INT1>
+  <PC_INT0><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>33</LINE></PC_INT0>
+  <PC_INT1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>34</LINE></PC_INT1>
+  <PC_INT2><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>35</LINE></PC_INT2>
+  <WDT><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>36</LINE></WDT>
+  <TIM2_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>57</LINE></TIM2_COMPA>
+  <TIM2_COMPB><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>37</LINE></TIM2_COMPB>
+  <TIM2_OVF><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>38</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>39</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>40</LINE></TIM1_COMPA>
+  <TIM1_COMPB><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>41</LINE></TIM1_COMPB>
+  <TIM1_OVF><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>42</LINE></TIM1_OVF>
+  <TIM0_COMPA><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>62</LINE></TIM0_COMPA>
+  <TIM0_COMPB><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>43</LINE></TIM0_COMPB>
+  <TIM0_OVF><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>44</LINE></TIM0_OVF>
+  <SPI_STC><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>45</LINE></SPI_STC>
+  <USART_RXC><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>46</LINE></USART_RXC>
+  <USART_UDRE><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>47</LINE></USART_UDRE>
+  <USART_TXC><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>48</LINE></USART_TXC>
+  <ADCC><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>49</LINE></ADCC>
+  <EE_RDY><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>50</LINE></EE_RDY>
+  <ANA_COMP><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>51</LINE></ANA_COMP>
+  <TWSI><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>52</LINE></TWSI>
+  <SPM_RDY><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>53</LINE></SPM_RDY>
+  <tbusy1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>89</LINE></tbusy1>
+  <tbusy2><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>100</LINE></tbusy2>
+  <tbusy3><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>108</LINE></tbusy3>
+  <LOOP><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>120</LINE></LOOP>
+  <colsloop><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>128</LINE></colsloop>
+  <rowsloop><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>137</LINE></rowsloop>
+  <reploop0><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>139</LINE></reploop0>
+  <reploop1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>141</LINE></reploop1>
+  <wait0><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>168</LINE></wait0>
+  <wait1><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>189</LINE></wait1>
+  <wait2><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>353</LINE></wait2>
+  <wait3><FILE>D:\Documents\GitHub\uChronos\bin_clock_FW\uChronos_v0.3\uChronos_v0.3\main.asm</FILE><LINE>389</LINE></wait3>
+ </LABELS>
+</ASSEMBLER_INFO>
