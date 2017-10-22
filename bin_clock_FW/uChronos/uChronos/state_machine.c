@@ -135,7 +135,7 @@ void init_states()
 	states[4].init=&init4;
 	
 	states[4].btn_down_next[0]=3;
-	//states[4].btn_down_arg[1]=4;
+	states[4].btn_down_arg[1]=7;
 	//states[4].btn_down_arg[2]=4;
 	
 	
@@ -156,6 +156,7 @@ void init_states()
 	
 	/* State 7 - Time menu */
 	states[7].init=&init7;
+	states[7].btn_down_next[1]=9;
 	states[7].btn_down_next[2]=9;
 	
 	/* State 8 - Other setting */
