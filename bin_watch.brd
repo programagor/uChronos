@@ -1104,6 +1104,7 @@ Wien</text>
 <wire x1="29.6" y1="23.5" x2="29.4" y2="23.3" width="0.06" layer="48"/>
 <wire x1="29.4" y1="23.3" x2="29.6" y2="23.3" width="0.06" layer="48"/>
 <wire x1="29.4" y1="23.3" x2="29.2" y2="23.3" width="0.06" layer="48"/>
+<rectangle x1="9.5" y1="22.85" x2="12.7" y2="26.05" layer="29"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
