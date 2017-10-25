@@ -3,31 +3,31 @@ uChronos.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000001a  00800100  000004d2  00000566  2**0
+  0 .data         0000001a  00800100  000004d8  0000056c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000004d2  00000000  00000000  00000094  2**1
+  1 .text         000004d8  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000116  0080011a  0080011a  00000580  2**0
+  2 .bss          00000116  0080011a  0080011a  00000586  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000580  2**0
+  3 .comment      00000030  00000000  00000000  00000586  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000005b0  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000005b8  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000120  00000000  00000000  000005ec  2**0
+  5 .debug_aranges 00000120  00000000  00000000  000005f4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001141  00000000  00000000  0000070c  2**0
+  6 .debug_info   00001141  00000000  00000000  00000714  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000aac  00000000  00000000  0000184d  2**0
+  7 .debug_abbrev 00000aac  00000000  00000000  00001855  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000a12  00000000  00000000  000022f9  2**0
+  8 .debug_line   00000a1e  00000000  00000000  00002301  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000021c  00000000  00000000  00002d0c  2**2
+  9 .debug_frame  0000021c  00000000  00000000  00002d20  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000004dd  00000000  00000000  00002f28  2**0
+ 10 .debug_str    000004dd  00000000  00000000  00002f3c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000472  00000000  00000000  00003405  2**0
+ 11 .debug_loc    00000472  00000000  00000000  00003419  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000d0  00000000  00000000  00003877  2**0
+ 12 .debug_ranges 000000d0  00000000  00000000  0000388b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -64,7 +64,7 @@ Disassembly of section .text:
   34:	80 c0       	rjmp	.+256    	; 0x136 <disp_clear+0x8>
   36:	88 8c       	ldd	r8, Y+24	; 0x18
   38:	84 c8       	rjmp	.-3832   	; 0xfffff142 <__eeprom_end+0xff7ef142>
-  3a:	cc c4       	rjmp	.+2456   	; 0x9d4 <__data_load_end+0x4e8>
+  3a:	cc c4       	rjmp	.+2456   	; 0x9d4 <__data_load_end+0x4e2>
   3c:	48 4c       	sbci	r20, 0xC8	; 200
   3e:	a0 e0       	ldi	r26, 0x00	; 0
   40:	a8 ac       	ldd	r10, Y+56	; 0x38
@@ -87,7 +87,7 @@ Disassembly of section .text:
   5a:	11 e0       	ldi	r17, 0x01	; 1
   5c:	a0 e0       	ldi	r26, 0x00	; 0
   5e:	b1 e0       	ldi	r27, 0x01	; 1
-  60:	e2 ed       	ldi	r30, 0xD2	; 210
+  60:	e8 ed       	ldi	r30, 0xD8	; 216
   62:	f4 e0       	ldi	r31, 0x04	; 4
   64:	02 c0       	rjmp	.+4      	; 0x6a <__do_copy_data+0x10>
   66:	05 90       	lpm	r0, Z+
@@ -110,7 +110,7 @@ Disassembly of section .text:
   7c:	b2 07       	cpc	r27, r18
   7e:	e1 f7       	brne	.-8      	; 0x78 <.do_clear_bss_loop>
   80:	ba d0       	rcall	.+372    	; 0x1f6 <main>
-  82:	25 c2       	rjmp	.+1098   	; 0x4ce <_exit>
+  82:	28 c2       	rjmp	.+1104   	; 0x4d4 <_exit>
 
 00000084 <__bad_interrupt>:
   84:	bd cf       	rjmp	.-134    	; 0x0 <__vectors>
@@ -849,107 +849,110 @@ void init_states()
 	
 	states[4].btn_down_next[0]=3;
  436:	81 ab       	std	Z+49, r24	; 0x31
-	//states[4].btn_down_arg[1]=4;
-	//states[4].btn_down_arg[2]=4;
+	states[4].btn_down_next[1]=7;
+ 438:	27 e0       	ldi	r18, 0x07	; 7
+ 43a:	22 ab       	std	Z+50, r18	; 0x32
+	//states[4].btn_down_next[2]=4;
 	
 	
 	/* State 5 - Snake menu*/
 	states[5].init=&init5;
- 438:	2e eb       	ldi	r18, 0xBE	; 190
- 43a:	31 e0       	ldi	r19, 0x01	; 1
- 43c:	30 af       	std	Z+56, r19	; 0x38
- 43e:	27 ab       	std	Z+55, r18	; 0x37
+ 43c:	4e eb       	ldi	r20, 0xBE	; 190
+ 43e:	51 e0       	ldi	r21, 0x01	; 1
+ 440:	50 af       	std	Z+56, r21	; 0x38
+ 442:	47 ab       	std	Z+55, r20	; 0x37
 	
 	states[5].btn_down_next[0]=3;
- 440:	84 af       	std	Z+60, r24	; 0x3c
+ 444:	84 af       	std	Z+60, r24	; 0x3c
 	states[5].btn_down_next[1]=7;
- 442:	27 e0       	ldi	r18, 0x07	; 7
- 444:	25 af       	std	Z+61, r18	; 0x3d
+ 446:	25 af       	std	Z+61, r18	; 0x3d
 	states[5].btn_down_next[2]=6;
- 446:	86 e0       	ldi	r24, 0x06	; 6
- 448:	86 af       	std	Z+62, r24	; 0x3e
+ 448:	86 e0       	ldi	r24, 0x06	; 6
+ 44a:	86 af       	std	Z+62, r24	; 0x3e
 	
 	/* State 6 - Other game menu */
 	states[6].init=&init6;
- 44a:	46 ec       	ldi	r20, 0xC6	; 198
- 44c:	51 e0       	ldi	r21, 0x01	; 1
- 44e:	50 93 6b 01 	sts	0x016B, r21	; 0x80016b <states+0x43>
- 452:	40 93 6a 01 	sts	0x016A, r20	; 0x80016a <states+0x42>
+ 44c:	46 ec       	ldi	r20, 0xC6	; 198
+ 44e:	51 e0       	ldi	r21, 0x01	; 1
+ 450:	50 93 6b 01 	sts	0x016B, r21	; 0x80016b <states+0x43>
+ 454:	40 93 6a 01 	sts	0x016A, r20	; 0x80016a <states+0x42>
 	
 	states[6].btn_down_next[0]=5;
- 456:	90 93 6f 01 	sts	0x016F, r25	; 0x80016f <states+0x47>
+ 458:	90 93 6f 01 	sts	0x016F, r25	; 0x80016f <states+0x47>
 	//states[6].btn_down_arg[1]=6;
 	//states[6].btn_down_arg[2]=6;		
 	
 	
 	/* State 7 - Time menu */
 	states[7].init=&init7;
- 45a:	8e ec       	ldi	r24, 0xCE	; 206
- 45c:	91 e0       	ldi	r25, 0x01	; 1
- 45e:	90 93 76 01 	sts	0x0176, r25	; 0x800176 <states+0x4e>
- 462:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <states+0x4d>
+ 45c:	8e ec       	ldi	r24, 0xCE	; 206
+ 45e:	91 e0       	ldi	r25, 0x01	; 1
+ 460:	90 93 76 01 	sts	0x0176, r25	; 0x800176 <states+0x4e>
+ 464:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <states+0x4d>
+	states[7].btn_down_next[1]=9;
+ 468:	39 e0       	ldi	r19, 0x09	; 9
+ 46a:	30 93 7b 01 	sts	0x017B, r19	; 0x80017b <states+0x53>
 	states[7].btn_down_next[2]=9;
- 466:	39 e0       	ldi	r19, 0x09	; 9
- 468:	30 93 7c 01 	sts	0x017C, r19	; 0x80017c <states+0x54>
+ 46e:	30 93 7c 01 	sts	0x017C, r19	; 0x80017c <states+0x54>
 	
 	/* State 8 - Other setting */
 	states[8].init=&init_nothing;
- 46c:	87 e9       	ldi	r24, 0x97	; 151
- 46e:	91 e0       	ldi	r25, 0x01	; 1
- 470:	90 93 81 01 	sts	0x0181, r25	; 0x800181 <states+0x59>
- 474:	80 93 80 01 	sts	0x0180, r24	; 0x800180 <states+0x58>
+ 472:	87 e9       	ldi	r24, 0x97	; 151
+ 474:	91 e0       	ldi	r25, 0x01	; 1
+ 476:	90 93 81 01 	sts	0x0181, r25	; 0x800181 <states+0x59>
+ 47a:	80 93 80 01 	sts	0x0180, r24	; 0x800180 <states+0x58>
 	states[8].btn_down_next[0]=7;
- 478:	20 93 85 01 	sts	0x0185, r18	; 0x800185 <states+0x5d>
+ 47e:	20 93 85 01 	sts	0x0185, r18	; 0x800185 <states+0x5d>
 	
 	/* State 9 - Set Year */
 	states[9].init=&init_nothing;
- 47c:	90 93 8c 01 	sts	0x018C, r25	; 0x80018c <states+0x64>
- 480:	80 93 8b 01 	sts	0x018B, r24	; 0x80018b <states+0x63>
+ 482:	90 93 8c 01 	sts	0x018C, r25	; 0x80018c <states+0x64>
+ 486:	80 93 8b 01 	sts	0x018B, r24	; 0x80018b <states+0x63>
 	states[9].btn_down_next[1]=9;
- 484:	30 93 91 01 	sts	0x0191, r19	; 0x800191 <states+0x69>
+ 48a:	30 93 91 01 	sts	0x0191, r19	; 0x800191 <states+0x69>
 	
 	/* State 10 - Set Month */
 	states[10].init=&init_nothing;
- 488:	90 93 97 01 	sts	0x0197, r25	; 0x800197 <states+0x6f>
- 48c:	80 93 96 01 	sts	0x0196, r24	; 0x800196 <states+0x6e>
+ 48e:	90 93 97 01 	sts	0x0197, r25	; 0x800197 <states+0x6f>
+ 492:	80 93 96 01 	sts	0x0196, r24	; 0x800196 <states+0x6e>
 	states[10].btn_down_next[1]=11;
- 490:	3b e0       	ldi	r19, 0x0B	; 11
- 492:	30 93 9c 01 	sts	0x019C, r19	; 0x80019c <states+0x74>
+ 496:	3b e0       	ldi	r19, 0x0B	; 11
+ 498:	30 93 9c 01 	sts	0x019C, r19	; 0x80019c <states+0x74>
 	
 	/* State 11 - Set Day */
 	states[11].init=&init_nothing;
- 496:	90 93 a2 01 	sts	0x01A2, r25	; 0x8001a2 <states+0x7a>
- 49a:	80 93 a1 01 	sts	0x01A1, r24	; 0x8001a1 <states+0x79>
+ 49c:	90 93 a2 01 	sts	0x01A2, r25	; 0x8001a2 <states+0x7a>
+ 4a0:	80 93 a1 01 	sts	0x01A1, r24	; 0x8001a1 <states+0x79>
 	states[11].btn_down_next[1]=12;
- 49e:	3c e0       	ldi	r19, 0x0C	; 12
- 4a0:	30 93 a7 01 	sts	0x01A7, r19	; 0x8001a7 <states+0x7f>
+ 4a4:	3c e0       	ldi	r19, 0x0C	; 12
+ 4a6:	30 93 a7 01 	sts	0x01A7, r19	; 0x8001a7 <states+0x7f>
 	
 	/* State 12 - Set Hour */
 	states[12].init=&init_nothing;
- 4a4:	90 93 ad 01 	sts	0x01AD, r25	; 0x8001ad <states+0x85>
- 4a8:	80 93 ac 01 	sts	0x01AC, r24	; 0x8001ac <states+0x84>
+ 4aa:	90 93 ad 01 	sts	0x01AD, r25	; 0x8001ad <states+0x85>
+ 4ae:	80 93 ac 01 	sts	0x01AC, r24	; 0x8001ac <states+0x84>
 	states[12].btn_down_next[1]=13;
- 4ac:	3d e0       	ldi	r19, 0x0D	; 13
- 4ae:	30 93 b2 01 	sts	0x01B2, r19	; 0x8001b2 <states+0x8a>
+ 4b2:	3d e0       	ldi	r19, 0x0D	; 13
+ 4b4:	30 93 b2 01 	sts	0x01B2, r19	; 0x8001b2 <states+0x8a>
 	
 	/* State 13 - Set minute */
 	states[13].init=&init_nothing;
- 4b2:	90 93 b8 01 	sts	0x01B8, r25	; 0x8001b8 <states+0x90>
- 4b6:	80 93 b7 01 	sts	0x01B7, r24	; 0x8001b7 <states+0x8f>
+ 4b8:	90 93 b8 01 	sts	0x01B8, r25	; 0x8001b8 <states+0x90>
+ 4bc:	80 93 b7 01 	sts	0x01B7, r24	; 0x8001b7 <states+0x8f>
 	states[13].btn_down_next[1]=14;
- 4ba:	3e e0       	ldi	r19, 0x0E	; 14
- 4bc:	30 93 bd 01 	sts	0x01BD, r19	; 0x8001bd <states+0x95>
+ 4c0:	3e e0       	ldi	r19, 0x0E	; 14
+ 4c2:	30 93 bd 01 	sts	0x01BD, r19	; 0x8001bd <states+0x95>
 	
 	/* State 14 - Set seconds */
 	states[14].init=&init_nothing;
- 4c0:	90 93 c3 01 	sts	0x01C3, r25	; 0x8001c3 <states+0x9b>
- 4c4:	80 93 c2 01 	sts	0x01C2, r24	; 0x8001c2 <states+0x9a>
+ 4c6:	90 93 c3 01 	sts	0x01C3, r25	; 0x8001c3 <states+0x9b>
+ 4ca:	80 93 c2 01 	sts	0x01C2, r24	; 0x8001c2 <states+0x9a>
 	states[14].btn_down_next[1]=7; /* Back to time menu */
- 4c8:	20 93 c8 01 	sts	0x01C8, r18	; 0x8001c8 <states+0xa0>
- 4cc:	08 95       	ret
+ 4ce:	20 93 c8 01 	sts	0x01C8, r18	; 0x8001c8 <states+0xa0>
+ 4d2:	08 95       	ret
 
-000004ce <_exit>:
- 4ce:	f8 94       	cli
+000004d4 <_exit>:
+ 4d4:	f8 94       	cli
 
-000004d0 <__stop_program>:
- 4d0:	ff cf       	rjmp	.-2      	; 0x4d0 <__stop_program>
+000004d6 <__stop_program>:
+ 4d6:	ff cf       	rjmp	.-2      	; 0x4d6 <__stop_program>

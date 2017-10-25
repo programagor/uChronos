@@ -135,8 +135,8 @@ void init_states()
 	states[4].init=&init4;
 	
 	states[4].btn_down_next[0]=3;
-	states[4].btn_down_arg[1]=7;
-	//states[4].btn_down_arg[2]=4;
+	states[4].btn_down_next[1]=7;
+	//states[4].btn_down_next[2]=4;
 	
 	
 	/* State 5 - Snake menu*/
