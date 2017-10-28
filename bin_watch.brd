@@ -7,10 +7,10 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.005" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.2" altunitdist="mm" altunit="mm"/>
+<grid distance="0.025" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.2" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="23" fill="1" visible="no" active="yes"/>
-<layer number="2" name="Route2" color="17" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="17" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="26" fill="1" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="26" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="59" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -570,9 +570,15 @@ much love</text>
 <wire x1="12.951" y1="19.195" x2="12.643" y2="19.085" width="0.06" layer="22"/>
 <wire x1="12.643" y1="19.085" x2="12.269" y2="18.92" width="0.06" layer="22"/>
 <wire x1="12.269" y1="18.92" x2="12.027" y2="18.788" width="0.06" layer="22"/>
-<wire x1="27.6" y1="15.15" x2="25.95" y2="16.8" width="0.1" layer="22"/>
+<wire x1="27.6" y1="15.15" x2="26.8" y2="15.95" width="0.1" layer="22"/>
+<wire x1="26.8" y1="15.95" x2="26.4" y2="16.35" width="0.1" layer="22"/>
+<wire x1="26.4" y1="16.35" x2="26" y2="16.75" width="0.1" layer="22"/>
+<wire x1="26" y1="16.75" x2="25.95" y2="16.8" width="0.1" layer="22"/>
 <wire x1="25.95" y1="16.8" x2="27.6" y2="17.5" width="0.1" layer="22" curve="-224.022493"/>
-<wire x1="27.6" y1="15.15" x2="29.25" y2="16.8" width="0.1" layer="22"/>
+<wire x1="27.6" y1="15.15" x2="28.4" y2="15.95" width="0.1" layer="22"/>
+<wire x1="28.4" y1="15.95" x2="28.8" y2="16.35" width="0.1" layer="22"/>
+<wire x1="28.8" y1="16.35" x2="29.2" y2="16.75" width="0.1" layer="22"/>
+<wire x1="29.2" y1="16.75" x2="29.25" y2="16.8" width="0.1" layer="22"/>
 <wire x1="29.25" y1="16.8" x2="27.6" y2="17.5" width="0.1" layer="22" curve="224.022493"/>
 <text x="29.95" y="23" size="0.6" layer="22" font="vector" ratio="13" rot="MR0">github/programagor/uChronos</text>
 <text x="0.3" y="37.1" size="2" layer="21" font="vector">Do not print this layer.
@@ -628,16 +634,15 @@ Instead, use layer Document for Top Silkscreen</text>
 <wire x1="14.2" y1="22.8" x2="13.5" y2="23.5" width="0.06" layer="22"/>
 <wire x1="13.5" y1="23.5" x2="12.35" y2="22.35" width="0.06" layer="22"/>
 <wire x1="12.35" y1="22.35" x2="13.05" y2="21.65" width="0.06" layer="22"/>
-<text x="31.8" y="10.65" size="0.35" layer="22" ratio="16" rot="MR0" align="bottom-right">3.243F6 A8885
-A308D 31319
-8A2E0 37073
-44A40 93822
-299F3 1D008
-2EFA9 8EC4E
-6C894 52821
-E638D 01377
-BE546 6CF34
-E90C6 CC0AC</text>
+<text x="22.8" y="1.95" size="0.35" layer="22" ratio="16" rot="MR0" align="bottom-right">3.
+243F 6A88 85A3 08D3 1319 8A2E 0370 7344 
+A409 3822 299F 31D0 082E FA98 EC4E 6C89 
+4528 21E6 38D0 1377 BE54 66CF 34E9 0C6C 
+C0AC 29B7 C97C 50DD 3F84 D5B5 B547 0917 
+9216 D5D9 8979 FB1B D131 0BA6 98DF B5AC 
+2FFD 72DB D01A DFB7 B8E1 AFED 6A26 7E96 
+BA7C 9045 F12C 7F99 24A1 9947 B391 6CF7 
+0801 F2E2 858E FC16 6369 20D8 7157 4E69 </text>
 <wire x1="1.75" y1="21.6" x2="2.05" y2="21.6" width="0.06" layer="22"/>
 <wire x1="2.05" y1="21.6" x2="2.25" y2="21.8" width="0.06" layer="22"/>
 <wire x1="2.25" y1="21.8" x2="2.45" y2="21.6" width="0.06" layer="22"/>
@@ -1654,6 +1659,100 @@ E90C6 CC0AC</text>
 <wire x1="28.345" y1="10.17" x2="28.37" y2="10.19" width="0.07" layer="22"/>
 <wire x1="28.37" y1="10.19" x2="28.43" y2="10.265" width="0.07" layer="22" curve="25.360786"/>
 <wire x1="28.43" y1="10.265" x2="28.5" y2="10.525" width="0.07" layer="22" curve="21.82117"/>
+<wire x1="26.4" y1="16.35" x2="25.05" y2="16.35" width="0.07" layer="22"/>
+<wire x1="25.5" y1="15.95" x2="26.8" y2="15.95" width="0.07" layer="22"/>
+<wire x1="25.5" y1="17.15" x2="25.7" y2="17.15" width="0.07" layer="22"/>
+<wire x1="28.4" y1="15.95" x2="29.7" y2="15.95" width="0.07" layer="22"/>
+<wire x1="29.8" y1="16.35" x2="28.8" y2="16.35" width="0.07" layer="22"/>
+<wire x1="29.2" y1="16.75" x2="29.7" y2="16.75" width="0.07" layer="22"/>
+<wire x1="29.7" y1="15.95" x2="29.9" y2="15.75" width="0.07" layer="22"/>
+<wire x1="29.9" y1="15.75" x2="29.9" y2="15.55" width="0.07" layer="22"/>
+<wire x1="29.9" y1="15.55" x2="29.75" y2="15.55" width="0.07" layer="22"/>
+<wire x1="29.9" y1="15.55" x2="30.05" y2="15.55" width="0.07" layer="22"/>
+<wire x1="30" y1="15.45" x2="29.8" y2="15.45" width="0.07" layer="22"/>
+<wire x1="29.95" y1="15.35" x2="29.85" y2="15.35" width="0.07" layer="22"/>
+<wire x1="29.8" y1="16.35" x2="30.2" y2="15.95" width="0.07" layer="22"/>
+<wire x1="30.2" y1="15.95" x2="30.4" y2="15.95" width="0.07" layer="22"/>
+<wire x1="29.8" y1="16.35" x2="30.2" y2="16.35" width="0.07" layer="22"/>
+<circle x="30.5" y="15.95" radius="0.1" width="0.07" layer="22"/>
+<wire x1="25.5" y1="17.15" x2="25.2" y2="17.45" width="0.07" layer="22"/>
+<wire x1="25.2" y1="17.45" x2="25.2" y2="17.8" width="0.07" layer="22"/>
+<wire x1="25.2" y1="17.8" x2="25.05" y2="17.65" width="0.07" layer="22"/>
+<wire x1="25.2" y1="17.8" x2="25.35" y2="17.65" width="0.07" layer="22"/>
+<wire x1="30.2" y1="16.35" x2="30.25" y2="16.4" width="0.07" layer="22"/>
+<wire x1="30.25" y1="16.4" x2="30.25" y2="16.5" width="0.07" layer="22"/>
+<wire x1="30.25" y1="16.4" x2="30.45" y2="16.4" width="0.07" layer="22"/>
+<wire x1="30.45" y1="16.4" x2="30.45" y2="16.5" width="0.07" layer="22"/>
+<wire x1="30.4" y1="16.5" x2="30.4" y2="16.6" width="0.07" layer="22"/>
+<wire x1="30.3" y1="16.5" x2="30.3" y2="16.6" width="0.07" layer="22"/>
+<wire x1="30.3" y1="16.5" x2="30.4" y2="16.5" width="0.07" layer="22"/>
+<wire x1="30.4" y1="16.6" x2="30.3" y2="16.6" width="0.07" layer="22"/>
+<wire x1="30.45" y1="16.6" x2="30.45" y2="16.7" width="0.07" layer="22"/>
+<wire x1="30.45" y1="16.7" x2="30.25" y2="16.7" width="0.07" layer="22"/>
+<wire x1="30.25" y1="16.7" x2="30.25" y2="16.6" width="0.07" layer="22"/>
+<wire x1="30.25" y1="16.7" x2="30.2" y2="16.75" width="0.07" layer="22"/>
+<wire x1="30.2" y1="16.75" x2="30.2" y2="16.85" width="0.07" layer="22"/>
+<circle x="30.2" y="16.95" radius="0.1" width="0.07" layer="22"/>
+<wire x1="29.5" y1="17.15" x2="30" y2="17.15" width="0.07" layer="22"/>
+<wire x1="30" y1="17.15" x2="30.1" y2="17.05" width="0.07" layer="22"/>
+<wire x1="25.1" y1="16.75" x2="24.6" y2="17.25" width="0.07" layer="22"/>
+<wire x1="24.6" y1="17.25" x2="24.65" y2="17.1" width="0.07" layer="22"/>
+<wire x1="24.8" y1="17.25" x2="24.8" y2="16.65" width="0.07" layer="22"/>
+<wire x1="24.8" y1="16.65" x2="24.9" y2="16.65" width="0.07" layer="22"/>
+<wire x1="24.9" y1="16.65" x2="25" y2="16.65" width="0.07" layer="22"/>
+<wire x1="25" y1="16.65" x2="25" y2="17.25" width="0.07" layer="22"/>
+<wire x1="25" y1="17.25" x2="24.9" y2="17.25" width="0.07" layer="22"/>
+<wire x1="24.9" y1="17.25" x2="24.8" y2="17.25" width="0.07" layer="22"/>
+<wire x1="24.6" y1="17.25" x2="24.75" y2="17.2" width="0.07" layer="22"/>
+<wire x1="25.2" y1="17.45" x2="25" y2="17.45" width="0.07" layer="22"/>
+<wire x1="24.9" y1="17.25" x2="24.9" y2="17.35" width="0.07" layer="22"/>
+<wire x1="24.9" y1="17.35" x2="25" y2="17.45" width="0.07" layer="22"/>
+<wire x1="25.35" y1="17.65" x2="25.05" y2="17.65" width="0.07" layer="22"/>
+<wire x1="24.9" y1="16.65" x2="24.9" y2="16.5" width="0.07" layer="22"/>
+<wire x1="24.9" y1="16.5" x2="25.05" y2="16.35" width="0.07" layer="22"/>
+<circle x="29.8" y="16.75" radius="0.1" width="0.07" layer="22"/>
+<wire x1="25.5" y1="16.05" x2="25.5" y2="15.95" width="0.07" layer="22"/>
+<wire x1="25.5" y1="15.95" x2="25.5" y2="15.85" width="0.07" layer="22"/>
+<wire x1="25.4" y1="15.9" x2="25.4" y2="15.95" width="0.07" layer="22"/>
+<wire x1="25.4" y1="15.95" x2="25.4" y2="16" width="0.07" layer="22"/>
+<wire x1="25.4" y1="16.1" x2="25.4" y2="16.15" width="0.07" layer="22"/>
+<wire x1="25.4" y1="16.15" x2="25.4" y2="16.2" width="0.07" layer="22"/>
+<wire x1="25.4" y1="15.8" x2="25.4" y2="15.75" width="0.07" layer="22"/>
+<wire x1="25.4" y1="15.75" x2="25.4" y2="15.7" width="0.07" layer="22"/>
+<wire x1="25.4" y1="15.95" x2="25.3" y2="15.95" width="0.07" layer="22"/>
+<wire x1="25.3" y1="15.95" x2="25.1" y2="15.95" width="0.07" layer="22"/>
+<wire x1="25.3" y1="15.95" x2="25.2" y2="16" width="0.07" layer="22"/>
+<wire x1="25.3" y1="15.95" x2="25.2" y2="15.9" width="0.07" layer="22"/>
+<wire x1="25.4" y1="16.15" x2="25.1" y2="16.15" width="0.07" layer="22"/>
+<wire x1="25.4" y1="15.75" x2="25.1" y2="15.75" width="0.07" layer="22"/>
+<wire x1="25.1" y1="15.95" x2="25.1" y2="15.75" width="0.07" layer="22"/>
+<wire x1="25.1" y1="15.75" x2="25.1" y2="15.35" width="0.07" layer="22"/>
+<wire x1="25.1" y1="15.35" x2="25.25" y2="15.35" width="0.07" layer="22"/>
+<wire x1="25.1" y1="15.35" x2="24.95" y2="15.35" width="0.07" layer="22"/>
+<wire x1="25.2" y1="15.25" x2="25" y2="15.25" width="0.07" layer="22"/>
+<wire x1="25.15" y1="15.15" x2="25.05" y2="15.15" width="0.07" layer="22"/>
+<wire x1="25.1" y1="16.15" x2="25.05" y2="16.2" width="0.07" layer="22"/>
+<wire x1="25.05" y1="16.2" x2="25.05" y2="16.35" width="0.07" layer="22"/>
+<circle x="25.45" y="16.75" radius="0.1" width="0.07" layer="22"/>
+<wire x1="25.1" y1="16.75" x2="25.35" y2="16.75" width="0.07" layer="22"/>
+<wire x1="25.55" y1="16.75" x2="26" y2="16.75" width="0.07" layer="22"/>
+<wire x1="29.5" y1="20.5" x2="29.65" y2="20.35" width="0.075" layer="22"/>
+<wire x1="29.65" y1="20.35" x2="29.8" y2="20.5" width="0.075" layer="22"/>
+<wire x1="25.35" y1="20.5" x2="25.5" y2="20.35" width="0.075" layer="22"/>
+<wire x1="25.5" y1="20.35" x2="25.65" y2="20.5" width="0.075" layer="22"/>
+<wire x1="26" y1="20.35" x2="25.85" y2="20.5" width="0.075" layer="22"/>
+<wire x1="23.925" y1="6.175" x2="23.875" y2="6.225" width="0.0508" layer="22"/>
+<wire x1="23.875" y1="6.225" x2="23.875" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.875" y1="6.325" x2="23.925" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.875" y1="6.325" x2="23.8" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.8" y1="6.325" x2="23.75" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.8" y1="6.325" x2="23.8" y2="6.225" width="0.0508" layer="22"/>
+<wire x1="23.8" y1="6.225" x2="23.75" y2="6.175" width="0.0508" layer="22"/>
+<wire x1="23.75" y1="6.325" x2="23.725" y2="6.35" width="0.0508" layer="22"/>
+<wire x1="23.925" y1="6.325" x2="23.95" y2="6.3" width="0.0508" layer="22"/>
+<wire x1="23.6" y1="6.225" x2="23.4" y2="6.225" width="0.0508" layer="22"/>
+<wire x1="23.6" y1="6.3" x2="23.4" y2="6.3" width="0.0508" layer="22"/>
+<circle x="23.5" y="6.4" radius="0.025" width="0.0508" layer="22"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -4165,10 +4264,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="14" y1="27.2" x2="14" y2="28.8" width="0.2" layer="16"/>
 <via x="14" y="28.8" extent="1-16" drill="0.5" shape="square"/>
 <wire x1="14" y1="28.8" x2="14" y2="28.2" width="0.2" layer="15"/>
-<wire x1="14" y1="28.2" x2="15.4" y2="26.8" width="0.2" layer="15"/>
-<wire x1="15.4" y1="26.8" x2="15.4" y2="23.4" width="0.2" layer="15"/>
-<wire x1="15.4" y1="23.4" x2="19.6" y2="19.2" width="0.2" layer="15"/>
-<wire x1="19.6" y1="19.2" x2="19.6" y2="14.8" width="0.2" layer="15"/>
+<wire x1="14" y1="28.2" x2="19.6" y2="22.6" width="0.2" layer="15"/>
+<wire x1="19.6" y1="22.6" x2="19.6" y2="14.8" width="0.2" layer="15"/>
 <wire x1="19.6" y1="14.8" x2="17.5" y2="12.7" width="0.2" layer="15"/>
 </signal>
 <signal name="BLOCK5" class="3">
@@ -4200,13 +4297,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="15.5" y1="27.2" x2="15.5" y2="28.8" width="0.2" layer="16"/>
 <via x="15.5" y="28.8" extent="1-16" drill="0.5" shape="square"/>
 <wire x1="15.5" y1="28.8" x2="15.5" y2="27.85" width="0.2" layer="15"/>
-<wire x1="15.5" y1="27.85" x2="16.2" y2="27.15" width="0.2" layer="15"/>
-<wire x1="16.2" y1="27.15" x2="16.2" y2="23.9" width="0.2" layer="15"/>
-<wire x1="18.3" y1="21.8" x2="24" y2="21.8" width="0.2" layer="15"/>
-<wire x1="24" y1="21.8" x2="27.6" y2="18.2" width="0.2" layer="15"/>
+<wire x1="15.5" y1="27.85" x2="19.85" y2="23.5" width="0.2" layer="15"/>
+<wire x1="19.85" y1="23.5" x2="22.3" y2="23.5" width="0.2" layer="15"/>
+<wire x1="22.3" y1="23.5" x2="27.6" y2="18.2" width="0.2" layer="15"/>
 <wire x1="27.6" y1="18.2" x2="27.6" y2="14.8" width="0.2" layer="15"/>
 <wire x1="27.6" y1="14.8" x2="25.5" y2="12.7" width="0.2" layer="15"/>
-<wire x1="16.2" y1="23.9" x2="18.3" y2="21.8" width="0.2" layer="15"/>
 </signal>
 <signal name="BLOCK1" class="3">
 <contactref element="D9" pad="P$1"/>
@@ -4336,7 +4431,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="32" y1="12.6" x2="32" y2="13.7" width="0.16" layer="16"/>
 <wire x1="32" y1="13.7" x2="32.6" y2="14.3" width="0.16" layer="16"/>
 <wire x1="32.6" y1="14.3" x2="32.6" y2="18.1" width="0.16" layer="16"/>
-<wire x1="32.6" y1="18.1" x2="32.8" y2="18.3" width="0.16" layer="16"/>
+<wire x1="32.8" y1="18.3" x2="32.6" y2="18.1" width="0.16" layer="16"/>
 <via x="32.8" y="18.3" extent="1-16" drill="0.35"/>
 <wire x1="32.8" y1="18.3" x2="31.2" y2="16.7" width="0.16" layer="1"/>
 <wire x1="31.2" y1="16.7" x2="31.2" y2="16.2" width="0.16" layer="1"/>
