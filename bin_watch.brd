@@ -7,10 +7,10 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.2" altunitdist="mm" altunit="mm"/>
+<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="23" fill="1" visible="no" active="yes"/>
-<layer number="2" name="Route2" color="17" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="23" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="17" fill="1" visible="yes" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="26" fill="1" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="26" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="59" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -56,7 +56,7 @@
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -181,9 +181,9 @@
 </polygon>
 <text x="24.3" y="20.2" size="1.1" layer="48" font="vector" ratio="14">with
 much love</text>
-<text x="14" y="21.85" size="1.1" layer="48" ratio="14">from Jiri</text>
+<text x="14" y="20.85" size="1.1" layer="48" ratio="14">from Jiri</text>
 <text x="35.65" y="20.7" size="2.8" layer="22" ratio="14" rot="MR0">μChronos</text>
-<text x="16.15" y="20.5" size="0.6" layer="22" ratio="13" rot="MR0">v0.6.2</text>
+<text x="16.15" y="20.5" size="0.6" layer="22" ratio="13" rot="MR0">v0.6.3</text>
 <text x="34.6" y="19.8" size="0.6" layer="22" ratio="13" rot="MR0">Author: Jiri Bednar</text>
 <text x="38.6" y="26" size="3" layer="22" ratio="20" rot="MR0">+</text>
 <text x="34.8" y="26" size="3" layer="22" ratio="20" rot="MR0">-</text>
@@ -595,7 +595,6 @@ Instead, use layer Document for Top Silkscreen</text>
 <wire x1="25.95" y1="30.1" x2="24.95" y2="29.1" width="0.1" layer="20" curve="-90"/>
 <wire x1="23.35" y1="27.7" x2="24.15" y2="27.7" width="0.1" layer="20" curve="180"/>
 <wire x1="18.35" y1="27.7" x2="19.15" y2="27.7" width="0.1" layer="20" curve="180"/>
-<text x="11.85" y="20.2" size="1.1" layer="48" ratio="14">for Felicity</text>
 <wire x1="22.9" y1="20.95" x2="22.15" y2="21.7" width="0.8" layer="48"/>
 <wire x1="22.9" y1="20.95" x2="23.6" y2="21.7" width="0.8" layer="48"/>
 <wire x1="22.35" y1="21.95" x2="22.9" y2="21.4" width="0.8" layer="48"/>
@@ -1741,18 +1740,89 @@ BA7C 9045 F12C 7F99 24A1 9947 B391 6CF7
 <wire x1="25.35" y1="20.5" x2="25.5" y2="20.35" width="0.075" layer="22"/>
 <wire x1="25.5" y1="20.35" x2="25.65" y2="20.5" width="0.075" layer="22"/>
 <wire x1="26" y1="20.35" x2="25.85" y2="20.5" width="0.075" layer="22"/>
-<wire x1="23.925" y1="6.175" x2="23.875" y2="6.225" width="0.0508" layer="22"/>
-<wire x1="23.875" y1="6.225" x2="23.875" y2="6.325" width="0.0508" layer="22"/>
-<wire x1="23.875" y1="6.325" x2="23.925" y2="6.325" width="0.0508" layer="22"/>
-<wire x1="23.875" y1="6.325" x2="23.8" y2="6.325" width="0.0508" layer="22"/>
-<wire x1="23.8" y1="6.325" x2="23.75" y2="6.325" width="0.0508" layer="22"/>
-<wire x1="23.8" y1="6.325" x2="23.8" y2="6.225" width="0.0508" layer="22"/>
-<wire x1="23.8" y1="6.225" x2="23.75" y2="6.175" width="0.0508" layer="22"/>
-<wire x1="23.75" y1="6.325" x2="23.725" y2="6.35" width="0.0508" layer="22"/>
-<wire x1="23.925" y1="6.325" x2="23.95" y2="6.3" width="0.0508" layer="22"/>
-<wire x1="23.6" y1="6.225" x2="23.4" y2="6.225" width="0.0508" layer="22"/>
-<wire x1="23.6" y1="6.3" x2="23.4" y2="6.3" width="0.0508" layer="22"/>
-<circle x="23.5" y="6.4" radius="0.025" width="0.0508" layer="22"/>
+<wire x1="23.9" y1="6.175" x2="23.85" y2="6.225" width="0.0508" layer="22"/>
+<wire x1="23.85" y1="6.225" x2="23.85" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.85" y1="6.325" x2="23.9" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.85" y1="6.325" x2="23.775" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.775" y1="6.325" x2="23.725" y2="6.325" width="0.0508" layer="22"/>
+<wire x1="23.775" y1="6.325" x2="23.775" y2="6.225" width="0.0508" layer="22"/>
+<wire x1="23.775" y1="6.225" x2="23.725" y2="6.175" width="0.0508" layer="22"/>
+<wire x1="23.725" y1="6.325" x2="23.7" y2="6.35" width="0.0508" layer="22"/>
+<wire x1="23.9" y1="6.325" x2="23.925" y2="6.3" width="0.0508" layer="22"/>
+<wire x1="23.55" y1="6.225" x2="23.4" y2="6.225" width="0.0508" layer="22"/>
+<wire x1="23.55" y1="6.3" x2="23.4" y2="6.3" width="0.0508" layer="22"/>
+<circle x="23.475" y="6.4" radius="0.025" width="0.0508" layer="22"/>
+<polygon width="0.254" layer="22">
+<vertex x="6.0579" y="9.779"/>
+<vertex x="5.715" y="9.779"/>
+<vertex x="5.715" y="12.0015"/>
+<vertex x="6.0579" y="12.0015"/>
+</polygon>
+<polygon width="0.254" layer="22">
+<vertex x="6.7564" y="10.9093"/>
+<vertex x="5.0292" y="10.9093"/>
+<vertex x="5.0292" y="10.5156"/>
+<vertex x="6.7564" y="10.5156"/>
+</polygon>
+<circle x="5.8801" y="13.7668" radius="1.79829375" width="0.635" layer="22"/>
+<polygon width="0.1" layer="22">
+<vertex x="5.4" y="12.15"/>
+<vertex x="5.55" y="13"/>
+<vertex x="4.85" y="13.8"/>
+<vertex x="5.32" y="14.45"/>
+<vertex x="5.9" y="14.15"/>
+<vertex x="5.9" y="14.05"/>
+<vertex x="5.8" y="14"/>
+<vertex x="5.6" y="14"/>
+<vertex x="5.4" y="14.2"/>
+<vertex x="5.4" y="13.95"/>
+<vertex x="5.25" y="13.8"/>
+<vertex x="5.6" y="13.75"/>
+<vertex x="5.975" y="13.125"/>
+<vertex x="5.8" y="12.95"/>
+<vertex x="5.975" y="12.955"/>
+<vertex x="6.05" y="12.8"/>
+<vertex x="6.125" y="12.96"/>
+<vertex x="6.3" y="12.95"/>
+<vertex x="6.15" y="13.1"/>
+<vertex x="5.82" y="13.67"/>
+<vertex x="6.175" y="13.575"/>
+<vertex x="6.41" y="13.35"/>
+<vertex x="6.65" y="13.55"/>
+<vertex x="6.6" y="13.2"/>
+<vertex x="6.34" y="12.905"/>
+<vertex x="6.35" y="12.2"/>
+</polygon>
+<polygon width="0.1" layer="22">
+<vertex x="5.675" y="14.87"/>
+<vertex x="5.475" y="14.555"/>
+<vertex x="5.725" y="14.435"/>
+<vertex x="5.91" y="14.71"/>
+</polygon>
+<polygon width="0.1" layer="22">
+<vertex x="6.05" y="14.6"/>
+<vertex x="5.88" y="14.355"/>
+<vertex x="6.1" y="14.2"/>
+<vertex x="6.295" y="14.475"/>
+</polygon>
+<polygon width="0.1" layer="22">
+<vertex x="6.405" y="14.325"/>
+<vertex x="6" y="13.8"/>
+<vertex x="6.205" y="13.73"/>
+<vertex x="6.58" y="14.15"/>
+</polygon>
+<polygon width="0.1" layer="22">
+<vertex x="6.815" y="13.88"/>
+<vertex x="6.74" y="14.005"/>
+<vertex x="6.665" y="14.02"/>
+<vertex x="6.31" y="13.635"/>
+<vertex x="6.4" y="13.55"/>
+</polygon>
+<circle x="33.5" y="13.5" radius="2" width="0.2" layer="22"/>
+<wire x1="33.5" y1="15.5" x2="33.5" y2="13.5" width="0.2" layer="22"/>
+<wire x1="33.5" y1="13.5" x2="33.5" y2="11.5" width="0.2" layer="22"/>
+<wire x1="33.5" y1="13.5" x2="32.15" y2="12.15" width="0.2" layer="22"/>
+<wire x1="33.5" y1="13.5" x2="34.85" y2="12.15" width="0.2" layer="22"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -5461,6 +5531,25 @@ Please make sure your boards conform to these design rules.</description>
 <approved hash="19 16 e177294979b4b672"/>
 <approved hash="19 16 8f7711426ebfe572"/>
 <approved hash="19 16 9d4f5d17a7d25c4a"/>
+<approved hash="3	16	1715815581ee17ae"/>
+<approved hash="19	1	38c3aeedac143a3a"/>
+<approved hash="19	1	82e1a2e12301a100"/>
+<approved hash="19	1	2cc4d2ead0132e3d"/>
+<approved hash="19	1	1826f846f9001960"/>
+<approved hash="19	1	1822384239071967"/>
+<approved hash="19	1	195ef93efc381c58"/>
+<approved hash="19	1	a76f0447346385a9"/>
+<approved hash="19	1	195a393a3c3f1c5f"/>
+<approved hash="19	1	86dd02e50136850e"/>
+<approved hash="19	1	e76c044bddaba86f"/>
+<approved hash="19	1	a16025c01b271c83"/>
+<approved hash="19	1	1ee089ef7b2c1ec0"/>
+<approved hash="19	16	9f76cd30dccc9b72"/>
+<approved hash="19	16	9f772d284cd50b72"/>
+<approved hash="19	16	8f7711426ebfe572"/>
+<approved hash="19	16	9d4f5d17a7d25c4a"/>
+<approved hash="19	16	e177294979b4b672"/>
+<approved hash="19	16	8177092129dca672"/>
 </errors>
 </board>
 </drawing>
