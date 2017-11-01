@@ -10,7 +10,7 @@
 <grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="23" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="17" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="17" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="26" fill="1" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="26" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="59" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -31,7 +31,7 @@
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -56,7 +56,7 @@
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -3577,8 +3577,8 @@ Please make sure your boards conform to these design rules.</description>
 <param name="mvCreamFrame" value="0"/>
 <param name="mlMinStopFrame" value="2.5mil"/>
 <param name="mlMaxStopFrame" value="2.5mil"/>
-<param name="mlMinCreamFrame" value="0mil"/>
-<param name="mlMaxCreamFrame" value="0mil"/>
+<param name="mlMinCreamFrame" value="1mil"/>
+<param name="mlMaxCreamFrame" value="2.5mil"/>
 <param name="mlViaStopLimit" value="0.35mm"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
@@ -3967,6 +3967,10 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="C5" pad="2"/>
 <contactref element="R25" pad="1"/>
 <via x="37" y="20.5" extent="1-16" drill="0.35"/>
+<wire x1="32.0896" y1="26.4396" x2="31.0414" y2="26.4396" width="0.2" layer="1"/>
+<wire x1="32.0896" y1="26.4396" x2="32.2" y2="26.55" width="0.2" layer="1"/>
+<wire x1="31.0414" y1="26.4396" x2="30.0604" y2="26.4396" width="0.2" layer="1"/>
+<wire x1="30.0604" y1="26.4396" x2="30" y2="26.5" width="0.2" layer="1"/>
 </signal>
 <signal name="XTAL_N" class="4">
 <contactref element="Q1" pad="2"/>
@@ -5531,25 +5535,25 @@ Please make sure your boards conform to these design rules.</description>
 <approved hash="19 16 e177294979b4b672"/>
 <approved hash="19 16 8f7711426ebfe572"/>
 <approved hash="19 16 9d4f5d17a7d25c4a"/>
-<approved hash="3	16	1715815581ee17ae"/>
-<approved hash="19	1	38c3aeedac143a3a"/>
-<approved hash="19	1	82e1a2e12301a100"/>
-<approved hash="19	1	2cc4d2ead0132e3d"/>
-<approved hash="19	1	1826f846f9001960"/>
-<approved hash="19	1	1822384239071967"/>
-<approved hash="19	1	195ef93efc381c58"/>
-<approved hash="19	1	a76f0447346385a9"/>
-<approved hash="19	1	195a393a3c3f1c5f"/>
-<approved hash="19	1	86dd02e50136850e"/>
-<approved hash="19	1	e76c044bddaba86f"/>
-<approved hash="19	1	a16025c01b271c83"/>
-<approved hash="19	1	1ee089ef7b2c1ec0"/>
-<approved hash="19	16	9f76cd30dccc9b72"/>
-<approved hash="19	16	9f772d284cd50b72"/>
-<approved hash="19	16	8f7711426ebfe572"/>
-<approved hash="19	16	9d4f5d17a7d25c4a"/>
-<approved hash="19	16	e177294979b4b672"/>
-<approved hash="19	16	8177092129dca672"/>
+<approved hash="3 16 1715815581ee17ae"/>
+<approved hash="19 1 38c3aeedac143a3a"/>
+<approved hash="19 1 82e1a2e12301a100"/>
+<approved hash="19 1 2cc4d2ead0132e3d"/>
+<approved hash="19 1 1826f846f9001960"/>
+<approved hash="19 1 1822384239071967"/>
+<approved hash="19 1 195ef93efc381c58"/>
+<approved hash="19 1 a76f0447346385a9"/>
+<approved hash="19 1 195a393a3c3f1c5f"/>
+<approved hash="19 1 86dd02e50136850e"/>
+<approved hash="19 1 e76c044bddaba86f"/>
+<approved hash="19 1 a16025c01b271c83"/>
+<approved hash="19 1 1ee089ef7b2c1ec0"/>
+<approved hash="19 16 9f76cd30dccc9b72"/>
+<approved hash="19 16 9f772d284cd50b72"/>
+<approved hash="19 16 8f7711426ebfe572"/>
+<approved hash="19 16 9d4f5d17a7d25c4a"/>
+<approved hash="19 16 e177294979b4b672"/>
+<approved hash="19 16 8177092129dca672"/>
 </errors>
 </board>
 </drawing>
