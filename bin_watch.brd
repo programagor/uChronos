@@ -31,14 +31,14 @@
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="25" fill="11" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="11" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="25" fill="11" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="11" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="50" fill="10" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -57,9 +57,9 @@
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -118,7 +118,7 @@
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="yes"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="yes"/>
-<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="no" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="no" active="yes"/>
 <layer number="202" name="202bmp" color="3" fill="10" visible="no" active="yes"/>
 <layer number="203" name="203bmp" color="4" fill="10" visible="no" active="yes"/>
@@ -1105,7 +1105,6 @@ BA7C 9045 F12C 7F99 24A1 9947 B391 6CF7
 <wire x1="29.6" y1="23.5" x2="29.4" y2="23.3" width="0.06" layer="48"/>
 <wire x1="29.4" y1="23.3" x2="29.6" y2="23.3" width="0.06" layer="48"/>
 <wire x1="29.4" y1="23.3" x2="29.2" y2="23.3" width="0.06" layer="48"/>
-<rectangle x1="9.5" y1="22.85" x2="12.7" y2="26.05" layer="29"/>
 <wire x1="29.32" y1="7.18" x2="25.81" y2="7.18" width="0.12" layer="22"/>
 <wire x1="29.31" y1="8.535" x2="29.31" y2="7.755" width="0.12" layer="22"/>
 <wire x1="29.31" y1="7.755" x2="29.015" y2="7.46" width="0.12" layer="22" curve="-90"/>
@@ -5037,8 +5036,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="4.6" y1="16.7" x2="3.8" y2="17.5" width="0.13" layer="16"/>
 <wire x1="3.8" y1="17.5" x2="3.8" y2="17.8" width="0.13" layer="16"/>
 <contactref element="U4" pad="28"/>
-<wire x1="4.6" y1="23.9" x2="6.4558" y2="25.7558" width="0.13" layer="1"/>
-<wire x1="6.4558" y1="25.7558" x2="10.3538" y2="25.7558" width="0.13" layer="1"/>
+<wire x1="4.6" y1="23.9" x2="5.95" y2="25.25" width="0.13" layer="1"/>
+<wire x1="5.95" y1="25.25" x2="9.05" y2="25.25" width="0.13" layer="1"/>
+<wire x1="9.05" y1="25.25" x2="9.55" y2="25.75" width="0.13" layer="1"/>
+<wire x1="9.55" y1="25.75" x2="10.348" y2="25.75" width="0.13" layer="1"/>
+<wire x1="10.348" y1="25.75" x2="10.3538" y2="25.7558" width="0.13" layer="1"/>
 </signal>
 <signal name="G_LIGHT5" class="4">
 <contactref element="T3" pad="5"/>
@@ -5057,10 +5059,12 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="4.3" y1="9.6" x2="4.3" y2="16.6" width="0.13" layer="16"/>
 <wire x1="4.3" y1="16.6" x2="3.1" y2="17.8" width="0.13" layer="16"/>
 <contactref element="U4" pad="27"/>
-<wire x1="4.3" y1="24" x2="6.65" y2="26.35" width="0.13" layer="1"/>
-<wire x1="10.7" y1="26.35" x2="10.811" y2="26.239" width="0.13" layer="1"/>
+<wire x1="4.3" y1="24" x2="5.85" y2="25.55" width="0.13" layer="1"/>
+<wire x1="10.65" y1="26.4" x2="10.811" y2="26.239" width="0.13" layer="1"/>
 <wire x1="10.811" y1="26.239" x2="10.811" y2="25.7558" width="0.13" layer="1"/>
-<wire x1="6.65" y1="26.35" x2="10.7" y2="26.35" width="0.13" layer="1"/>
+<wire x1="5.85" y1="25.55" x2="8.95" y2="25.55" width="0.13" layer="1"/>
+<wire x1="8.95" y1="25.55" x2="9.8" y2="26.4" width="0.13" layer="1"/>
+<wire x1="9.8" y1="26.4" x2="10.65" y2="26.4" width="0.13" layer="1"/>
 </signal>
 <signal name="G_LIGHT6" class="4">
 <contactref element="T4" pad="2"/>
@@ -5077,8 +5081,10 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="7.3" y1="8.1" x2="5.2" y2="10.2" width="0.13" layer="16"/>
 <wire x1="5.2" y1="10.2" x2="5.2" y2="17.8" width="0.13" layer="16"/>
 <contactref element="U4" pad="2"/>
-<wire x1="5.2" y1="23.7" x2="6.189" y2="24.689" width="0.13" layer="1"/>
-<wire x1="6.189" y1="24.689" x2="9.7442" y2="24.689" width="0.13" layer="1"/>
+<wire x1="5.2" y1="23.7" x2="5.45" y2="23.95" width="0.13" layer="1"/>
+<wire x1="5.45" y1="23.95" x2="7.95" y2="23.95" width="0.13" layer="1"/>
+<wire x1="7.95" y1="23.95" x2="8.689" y2="24.689" width="0.13" layer="1"/>
+<wire x1="8.689" y1="24.689" x2="9.7442" y2="24.689" width="0.13" layer="1"/>
 </signal>
 <signal name="G_LIGHT7" class="4">
 <contactref element="T4" pad="5"/>
@@ -5100,8 +5106,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="4.9" y1="16.8" x2="4.5" y2="17.2" width="0.13" layer="16"/>
 <wire x1="4.5" y1="17.2" x2="4.5" y2="17.8" width="0.13" layer="16"/>
 <contactref element="U4" pad="1"/>
-<wire x1="4.9" y1="23.8" x2="6.2462" y2="25.1462" width="0.13" layer="1"/>
-<wire x1="6.2462" y1="25.1462" x2="9.7442" y2="25.1462" width="0.13" layer="1"/>
+<wire x1="4.9" y1="23.8" x2="6.05" y2="24.95" width="0.13" layer="1"/>
+<wire x1="6.05" y1="24.95" x2="9.15" y2="24.95" width="0.13" layer="1"/>
+<wire x1="9.15" y1="24.95" x2="9.3" y2="25.1" width="0.13" layer="1"/>
+<wire x1="9.3" y1="25.1" x2="9.7" y2="25.1" width="0.13" layer="1"/>
+<wire x1="9.7" y1="25.1" x2="9.7442" y2="25.1462" width="0.13" layer="1"/>
 </signal>
 <signal name="VBUS" class="1">
 <contactref element="U1" pad="4"/>
