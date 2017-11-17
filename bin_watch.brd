@@ -3821,7 +3821,7 @@ Please make sure your boards conform to these design rules.</description>
 <element name="D8" library="standardparts" package="0603.LED" value="RG" x="13.4" y="19.4"/>
 <element name="D13" library="standardparts" package="0603.LED" value="RG" x="21.4" y="15.2"/>
 <element name="IC1" library="avr-5" package="MLF32" value="MEGA48/88/168-MU" x="11.1" y="24.45" rot="R270"/>
-<element name="Q1" library="crystal-geyer_V1_0" library_urn="urn:adsk.eagle:library:203" package="3.2X1.5" value="32.768kHz" x="4.95" y="26.9" rot="R180"/>
+<element name="Q1" library="crystal-geyer_V1_0" library_urn="urn:adsk.eagle:library:203" package="3.2X1.5" value="32.768kHz" x="5.3" y="26.85" rot="R180"/>
 <element name="S1" library="SparkFun-Switches" library_urn="urn:adsk.eagle:library:535" package="TACTILE_SWITCH_SMD_5.2MM" value="select" x="11.7" y="3.2">
 <attribute name="PROD_ID" value="SWCH-08247" x="11.7" y="3.2" size="1.778" layer="27" display="off"/>
 <attribute name="SF_SKU" value="COM-08720" x="11.7" y="3.2" size="1.778" layer="27" display="off"/>
@@ -3923,11 +3923,11 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="XTAL_P" class="4">
 <contactref element="Q1" pad="1"/>
 <contactref element="IC1" pad="7"/>
-<wire x1="6.7" y1="27.75" x2="9.35" y2="27.75" width="0.13" layer="1"/>
+<wire x1="7.05" y1="27.75" x2="9.35" y2="27.75" width="0.13" layer="1"/>
 <wire x1="9.35" y1="27.75" x2="9.85" y2="27.25" width="0.13" layer="1"/>
 <wire x1="9.85" y1="27.25" x2="9.85" y2="26.8" width="0.13" layer="1"/>
-<wire x1="6.2" y1="26.9" x2="6.2" y2="27.25" width="0.13" layer="1"/>
-<wire x1="6.2" y1="27.25" x2="6.7" y2="27.75" width="0.13" layer="1"/>
+<wire x1="6.55" y1="26.85" x2="6.55" y2="27.25" width="0.13" layer="1"/>
+<wire x1="6.55" y1="27.25" x2="7.05" y2="27.75" width="0.13" layer="1"/>
 </signal>
 <signal name="GND" class="1">
 <contactref element="C1" pad="2"/>
@@ -4119,8 +4119,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="9.25" y1="27.3" x2="8.7" y2="27.3" width="0.13" layer="1"/>
 <wire x1="7" y1="25.6" x2="5.6" y2="25.6" width="0.13" layer="1"/>
 <wire x1="7" y1="25.6" x2="8.7" y2="27.3" width="0.13" layer="1"/>
-<wire x1="3.7" y1="26.9" x2="4.3" y2="26.9" width="0.13" layer="1"/>
-<wire x1="4.3" y1="26.9" x2="5.6" y2="25.6" width="0.13" layer="1"/>
+<wire x1="4.05" y1="26.85" x2="4.35" y2="26.85" width="0.13" layer="1"/>
+<wire x1="4.35" y1="26.85" x2="5.6" y2="25.6" width="0.13" layer="1"/>
 <wire x1="5.6" y1="25.6" x2="5.6" y2="25.35" width="0.13" layer="1"/>
 <wire x1="5.6" y1="25.35" x2="5" y2="24.75" width="0.13" layer="1"/>
 </signal>
