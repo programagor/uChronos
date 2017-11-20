@@ -5,4 +5,4 @@ extern uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
 
 void tick10ms();
 
-#endif H_TIME_UTILS
+#endif

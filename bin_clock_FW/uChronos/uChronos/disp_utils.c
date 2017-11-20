@@ -7,6 +7,7 @@
 
 uint8_t disp_mem[6]={0};
 
+static uint8_t disp_ctr=0;
 
 uint8_t time_mask=0b111111;
 
@@ -39,6 +40,17 @@ const char alphabet[] PROGMEM =
 	0b10101110,
 	0b10100110
 };
+
+void disp_refresh()
+{
+	PORTD=0b00000000;
+	PORTC=0b00111111;
+	
+	PORTC=0b00111111^(1<<disp_ctr);
+	PORTD=disp_mem[disp_ctr];
+	disp_ctr=(disp_ctr+1)%6;
+
+}
 
 void disp_fill(uint8_t mask)
 {

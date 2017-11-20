@@ -43,11 +43,11 @@ int main(void)
 	
 	//Default time
 	t_y=17;
-	t_mth=9;
-	t_d=29;
-	t_h=2;
-	t_min=27;
-	t_s=24;
+	t_mth=11;
+	t_d=20;
+	t_h=19;
+	t_min=05;
+	t_s=35;
 	
 	SMCR=SMCR|1<<SE;
 	
@@ -63,10 +63,10 @@ int main(void)
 	}
 	else
 	{
-		OCR2A=220;
+		OCR2A=38;
 		TIMSK2=TIMSK2|1<<OCIE2A;
 		TCCR2A=TCCR2A|1<<WGM21;
-		TCCR2B=TCCR2B|1<<CS22|1<<CS21|1<<CS20;
+		TCCR2B=TCCR2B|1<<CS22|1<<CS21;
 	}
 	
 	
@@ -80,19 +80,14 @@ int main(void)
 		
 		for(int c=0;c<6;c++)
 		{
-			PORTC=0b00111111&~(1<<c);
-			//PORTD=(cntr>>(8*(5-c)))&0xff;
-			PORTD=disp_mem[c];
-			
-			//PORTD=cntr&&0xff;
 			for(uint16_t i=5*4;--i;);
-			PORTD=0b00000000;
-			PORTC=0b00111111;
-			for(uint16_t i=5*4*1;--i;);
+			disp_refresh();
+			
+			
+			
 			
 			
 		}
-		btn_read();
 		
 		
 		
@@ -107,6 +102,6 @@ int main(void)
 ISR(TIMER2_COMPA_vect)
 {
 	tick10ms();
-
+	btn_read();
 	disp_time(time_mask);
 }
