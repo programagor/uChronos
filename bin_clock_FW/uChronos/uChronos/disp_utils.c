@@ -6,7 +6,7 @@
 #include "bin_utils.h"
 
 uint8_t disp_mem[6]={0};
-uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
+
 
 uint8_t time_mask=0b111111;
 

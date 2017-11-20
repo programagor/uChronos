@@ -14,6 +14,7 @@
 #include "disp_utils.h"
 #include "btn_utils.h"
 #include "state_machine.h"
+#include "time_utils.h"
 
 /* Definitions */
 #define USE_ASYNC 0
@@ -96,29 +97,16 @@ int main(void)
 		
 		
 		
-/* main() must never end! */
-    }
-}
-/* Keep these two brackets together */
+    }	/* main() must never end! */
+}		/* Keep these two brackets together */
+
 
 
 
 
 ISR(TIMER2_COMPA_vect)
 {
-	if(++t_s==60)
-	{
-		t_s=0;
-		if(++t_min==60)
-		{
-			t_min=0;
-			if(++t_h==24)
-			{
-				t_h=0;
-				
-			}
-		}
-	}
+	tick10ms();
 
 	disp_time(time_mask);
 }

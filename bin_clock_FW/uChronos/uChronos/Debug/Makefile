@@ -41,7 +41,8 @@ C_SRCS +=  \
 ../btn_utils.c \
 ../disp_utils.c \
 ../main.c \
-../state_machine.c
+../state_machine.c \
+../time_utils.c
 
 
 PREPROCESSING_SRCS += 
@@ -55,28 +56,32 @@ bin_utils.o \
 btn_utils.o \
 disp_utils.o \
 main.o \
-state_machine.o
+state_machine.o \
+time_utils.o
 
 OBJS_AS_ARGS +=  \
 bin_utils.o \
 btn_utils.o \
 disp_utils.o \
 main.o \
-state_machine.o
+state_machine.o \
+time_utils.o
 
 C_DEPS +=  \
 bin_utils.d \
 btn_utils.d \
 disp_utils.d \
 main.d \
-state_machine.d
+state_machine.d \
+time_utils.d
 
 C_DEPS_AS_ARGS +=  \
 bin_utils.d \
 btn_utils.d \
 disp_utils.d \
 main.d \
-state_machine.d
+state_machine.d \
+time_utils.d
 
 OUTPUT_FILE_PATH +=uChronos.elf
 
@@ -92,6 +97,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
