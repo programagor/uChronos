@@ -44,14 +44,14 @@ int main(void)
 	//Default time
 	t_y=17;
 	t_mth=11;
-	t_d=20;
-	t_h=19;
-	t_min=05;
-	t_s=35;
+	t_d=21;
+	t_h=02;
+	t_min=03;
+	t_s=00;
 	
 	SMCR=SMCR|1<<SE;
 	
-	//Now, set up the 1s timer
+	//Now, set up the 10ms timer
 	if(USE_ASYNC)
 	{
 		
@@ -63,16 +63,16 @@ int main(void)
 	}
 	else
 	{
-		OCR2A=38;
+		OCR2A=155;
 		TIMSK2=TIMSK2|1<<OCIE2A;
 		TCCR2A=TCCR2A|1<<WGM21;
-		TCCR2B=TCCR2B|1<<CS22|1<<CS21;
+		TCCR2B=TCCR2B|1<<CS22;
 	}
 	
 	
 	//All is ready, let's go!
 	init_states();
-	state_goto(1);
+	state_goto(3);
 	sei();
 	
     while (1) 
@@ -103,5 +103,4 @@ ISR(TIMER2_COMPA_vect)
 {
 	tick10ms();
 	btn_read();
-	disp_time(time_mask);
 }

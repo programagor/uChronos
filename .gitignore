@@ -1,3 +1,8 @@
 
 Thumbs.db
 bin_watch.?#?
+*.o
+*.lss
+*.d
+*.map
+*.srec

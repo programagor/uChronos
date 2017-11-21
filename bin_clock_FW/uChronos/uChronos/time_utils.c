@@ -1,5 +1,8 @@
 #include <avr/io.h>
 
+#include "disp_utils.h"
+
+
 uint8_t t_y,t_mth,t_d,t_h,t_min,t_s;
 
 static uint8_t t_10ms=0;
@@ -22,5 +25,7 @@ void tick10ms(){
 				}
 			}
 		}
+		
+		disp_time(time_mask); /* Displayed time needs to be refreshed every second */
 	}
 }

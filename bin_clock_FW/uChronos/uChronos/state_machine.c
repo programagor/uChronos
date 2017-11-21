@@ -6,7 +6,7 @@
 
 
 States states[STATES_NUM];
-uint8_t state=0;
+uint8_t state;
 
 
 /* Init functions*/
@@ -124,8 +124,9 @@ void init_states()
 	
 	
 	/* State 3 - Fun menu */
-	states[3].init=&init3;
-	
+	//states[3].init=&init3;
+	states[3].init=&init_text;
+	states[3].init_arg_str="aaaaa";
 	states[3].btn_down_next[0]=2;
 	states[3].btn_down_next[1]=5;
 	states[3].btn_down_next[2]=4;
@@ -141,7 +142,6 @@ void init_states()
 	
 	/* State 5 - Snake menu*/
 	states[5].init=&init5;
-	
 	states[5].btn_down_next[0]=3;
 	states[5].btn_down_next[1]=7;
 	states[5].btn_down_next[2]=6;
@@ -156,8 +156,8 @@ void init_states()
 	
 	/* State 7 - Time menu */
 	states[7].init=&init7;
+	states[7].btn_down_next[0]=4;
 	states[7].btn_down_next[1]=9;
-	states[7].btn_down_next[2]=9;
 	
 	/* State 8 - Other setting */
 	states[8].init=&init_nothing;
@@ -165,7 +165,7 @@ void init_states()
 	
 	/* State 9 - Set Year */
 	states[9].init=&init_nothing;
-	states[9].btn_down_next[1]=9;
+	states[9].btn_down_next[1]=10;
 	
 	/* State 10 - Set Month */
 	states[10].init=&init_nothing;
