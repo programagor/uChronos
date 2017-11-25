@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.1">
+<eagle version="8.4.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10294,7 +10294,7 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/2535S.pdf</description
 <class number="1" name="supply" width="0.2" drill="0.35">
 <clearance class="1" value="0.2"/>
 </class>
-<class number="2" name="clock" width="0.16" drill="0.3">
+<class number="2" name="clock" width="0.15" drill="0.254">
 <clearance class="2" value="0.2"/>
 </class>
 <class number="3" name="pwr" width="0.2" drill="0.35">
@@ -10612,7 +10612,7 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/2535S.pdf</description
 <busses>
 </busses>
 <nets>
-<net name="XTAL_P" class="4">
+<net name="XTAL_P" class="2">
 <segment>
 <wire x1="-55.88" y1="78.74" x2="-55.88" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="1"/>
@@ -10800,7 +10800,7 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/2535S.pdf</description
 <pinref part="SUPPLY32" gate="GND" pin="GND"/>
 </segment>
 </net>
-<net name="XTAL_N" class="4">
+<net name="XTAL_N" class="2">
 <segment>
 <pinref part="Q1" gate="G$1" pin="2"/>
 <pinref part="C1" gate="G$1" pin="1"/>
