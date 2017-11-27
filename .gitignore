@@ -1,8 +1,6 @@
 
 Thumbs.db
 bin_watch.?#?
-*.o
-*.lss
-*.d
-*.map
-*.srec
+
+bin_clock_FW/uChronos/uChronos/Debug/*
+!bin_clock_FW/uChronos/uChronos/Debug/uChronos.hex
