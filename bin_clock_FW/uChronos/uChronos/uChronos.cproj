@@ -158,6 +158,14 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="snake.c">
+      <SubType>compile</SubType>
+      <Link>snake.c</Link>
+    </Compile>
+    <Compile Include="snake.h">
+      <SubType>compile</SubType>
+      <Link>snake.h</Link>
+    </Compile>
     <Compile Include="state_machine.c">
       <SubType>compile</SubType>
       <Link>state_machine.c</Link>

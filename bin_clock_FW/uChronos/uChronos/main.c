@@ -72,7 +72,7 @@ int main(void)
 	
 	//All is ready, let's go!
 	init_states();
-	state_goto(3);
+	state_goto(2);
 	sei();
 	
     while (1) 
