@@ -20,4 +20,6 @@ typedef struct
 extern States states[STATES_NUM];
 extern uint8_t state;
 
+extern uint8_t disable_tick;
+
 #endif

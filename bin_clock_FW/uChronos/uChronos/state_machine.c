@@ -5,12 +5,14 @@
 #include "state_machine.h"
 
 #include "disp_utils.h"
+#include "time_utils.h"
 
 
 
 States states[STATES_NUM];
 uint8_t state;
 
+uint8_t disable_tick=0;
 
 /* Init functions*/
 void init_powersave()
@@ -31,6 +33,60 @@ void init_fullmode()
 	disp_time(time_mask);
 }
 
+
+static uint8_t timeset_ctr=0;
+void init_time_hub()
+{
+	if(timeset_ctr++<6)
+	{
+		disp_clear(0b111111);
+		time_mask=1<<(6-timeset_ctr);
+		disp_time(time_mask);
+		
+		/* stop time */
+		disable_tick=1;
+		
+		state_goto(10);
+	}
+	else
+	{
+		timeset_ctr=0;
+		
+		/* start time */
+		disable_tick=0;
+		
+		state_goto(7);
+	}
+	
+}
+void time_decrement()
+{
+	switch (timeset_ctr)
+	{
+		case 1: dec1y(); break;
+		case 2: dec1mth(); break;
+		case 3: dec1d(); break;
+		case 4: dec1h(); break;
+		case 5: dec1min(); break;
+		case 6: dec1s(); break;
+		default: break;
+	}
+	disp_time(time_mask);
+}
+void time_increment()
+{
+	switch (timeset_ctr)
+	{
+		case 1: inc1y(); break;
+		case 2: inc1mth(); break;
+		case 3: inc1d(); break;
+		case 4: inc1h(); break;
+		case 5: inc1min(); break;
+		case 6: inc1s(); break;
+		default: break;
+	}
+	disp_time(time_mask);
+}
 
 
 void init_text(char* str)
@@ -142,25 +198,23 @@ void init_states()
 	
 	states[8].btn_down_next[0]=7;
 	
-	/* State 9 - Set Year */
-	states[9].init=&do_nothing;
-	states[9].btn_down_next[1]=10;
+	/* State 9 - Set time hub */
+	states[9].init=&init_time_hub;
 	
-	/* State 10 - Set Month */
+	/* State 10 - Set time */
 	states[10].init=&do_nothing;
-	states[10].btn_down_next[1]=11;
+	states[10].btn_down_next[0]=11;
+	states[10].btn_down_next[1]=9;
+	states[10].btn_down_next[2]=12;
 	
-	/* State 11 - Set Day */
-	states[11].init=&do_nothing;
-	states[11].btn_down_next[1]=12;
+	/* State 11 - Decrement time */
+	states[11].init=&time_decrement;
+	states[11].btn_up_next[0]=10;
 	
-	/* State 12 - Set Hour */
-	states[12].init=&do_nothing;
-	states[12].btn_down_next[1]=13;
+	/* State 12 - Increment time */
+	states[12].init=&time_increment;
+	states[12].btn_up_next[2]=10;
 	
-	/* State 13 - Set minute */
-	states[13].init=&do_nothing;
-	states[13].btn_down_next[1]=14;
 	
 	/* State 14 - Set seconds */
 	states[14].init=&do_nothing;
