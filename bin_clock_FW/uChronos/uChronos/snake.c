@@ -23,7 +23,7 @@ void snake_draw()
 
 void snake_init()
 {
-	snake_idx=1;
+	snake_idx=0;
 	snake_area[42]=8;
 	snake_area[43]=9;
 	snake_area[44]=10;
@@ -31,8 +31,8 @@ void snake_init()
 	snake_area[46]=5;
 	snake_area[47]=4;
 	snake_area[0]=3;
-	snake_area[1]=2;
-	snake_len=8;
+	//snake_area[1]=2;
+	snake_len=7;
 	snake_dir=3;
 	state_goto(SNAKE_SLOT+1);
 }
@@ -84,11 +84,11 @@ void snake_advance()
 				next=snake_area[snake_idx]-1;
 				break;
 		}
-		snake_area[snake_idx=(snake_idx+1)%48]=next%48;
+		snake_area[snake_idx=(snake_idx+1)%48]=(next+48)%48;
 		
 		for(uint8_t i=1;i<snake_len;i++) /* did we hit the tail? */
 		{
-			if(snake_area[snake_idx]==snake_area[snake_idx-i])
+			if(snake_area[snake_idx]==snake_area[(snake_idx-i+48)%48])
 			{
 				state_goto(SNAKE_SLOT+4);
 				return;
