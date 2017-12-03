@@ -15,7 +15,7 @@ void snake_draw()
 	disp_clear(0b111111);
 	for(uint8_t i=0;i<snake_len;i++)
 	{
-		uint8_t s=snake_area[(snake_idx-i)%48];
+		uint8_t s=snake_area[(snake_idx-i+48)%48];
 		uint8_t p=1<<(3-(s%24)/6);
 		disp_mem[s<24?(s/2)%3:((s-24)/2)%3+3]|=s%2?p:p<<4;
 	}
@@ -24,16 +24,22 @@ void snake_draw()
 void snake_init()
 {
 	snake_idx=1;
-	snake_area[0]=27;
-	snake_area[1]=28;
-	snake_len=2;
-	snake_dir=0;
+	snake_area[42]=8;
+	snake_area[43]=9;
+	snake_area[44]=10;
+	snake_area[45]=11;
+	snake_area[46]=5;
+	snake_area[47]=4;
+	snake_area[0]=3;
+	snake_area[1]=2;
+	snake_len=8;
+	snake_dir=3;
 	state_goto(SNAKE_SLOT+1);
 }
 
 void snake_left()
 {
-	snake_dir=(snake_dir-1)%4;
+	snake_dir=(snake_dir-1+4)%4;
 	state_goto(SNAKE_SLOT+1);
 }
 
@@ -73,6 +79,7 @@ void snake_advance()
 			case 2:
 				next=snake_area[snake_idx]+6;
 				break;
+			case 3:
 			default:
 				next=snake_area[snake_idx]-1;
 				break;
