@@ -6,6 +6,7 @@
 
 #include "disp_utils.h"
 #include "time_utils.h"
+#include "snake.h"
 
 
 
@@ -113,6 +114,10 @@ void state_goto(uint8_t arg)
 	}
 }
 
+void state_tick()
+{
+	states[state].tick();
+}
 
 void init_states()
 {
@@ -120,6 +125,7 @@ void init_states()
 	for(uint8_t i=0;i<STATES_NUM;i++)
 	{
 		states[i].init=&do_nothing;
+		states[i].tick=&do_nothing;
 		
 		states[i].btn_down_next[0]=0xff;
 		states[i].btn_down_next[1]=0xff;
@@ -172,8 +178,9 @@ void init_states()
 	states[5].init_arg_str="snake";
 	
 	states[5].btn_down_next[0]=3;
-	states[5].btn_down_next[1]=7;
+	states[5].btn_down_next[1]=SNAKE_SLOT;
 	states[5].btn_down_next[2]=6;
+	init_states_snake();
 	
 	/* State 6 - Other game menu */
 	states[6].init=&init_text;
@@ -216,9 +223,6 @@ void init_states()
 	states[12].btn_up_next[2]=10;
 	
 	
-	/* State 14 - Set seconds */
-	states[14].init=&do_nothing;
-	states[14].btn_down_next[1]=7; /* Back to time menu */
 	
 	
 	

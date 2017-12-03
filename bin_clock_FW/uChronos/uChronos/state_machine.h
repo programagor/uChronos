@@ -7,6 +7,10 @@ void state_goto(uint8_t arg);
 
 void init_states();
 
+void state_tick();
+
+void init_text();
+
 typedef struct
 {
 	void (*init)();

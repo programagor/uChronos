@@ -72,7 +72,7 @@ int main(void)
 	
 	//All is ready, let's go!
 	init_states();
-	state_goto(2);
+	state_goto(13);
 	sei();
 	
     while (1) 
@@ -103,4 +103,5 @@ ISR(TIMER2_COMPA_vect)
 {
 	tick10ms();
 	btn_read();
+	state_tick();
 }
