@@ -15,9 +15,9 @@ void snake_draw()
 	disp_clear(0b111111);
 	for(uint8_t i=0;i<snake_len;i++)
 	{
+		/* this code goes through all segments of the tail, and writes them onto display */
 		uint8_t s=snake_area[(snake_idx-i+48)%48];
-		uint8_t p=1<<(3-(s%24)/6);
-		disp_mem[s<24?(s/2)%3:((s-24)/2)%3+3]|=s%2?p:p<<4;
+		disp_mem[s<24?(s/2)%3:((s-24)/2)%3+3]|=1<<(3-(s%24)/6)<<(s%2?0:4);
 	}
 }
 
