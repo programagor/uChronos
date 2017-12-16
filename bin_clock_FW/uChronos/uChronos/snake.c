@@ -15,7 +15,27 @@ void snake_draw()
 	disp_clear(0b111111);
 	for(uint8_t i=0;i<snake_len;i++)
 	{
-		/* this code goes through all segments of the tail, and writes them onto display */
+		/* this code goes through all segments of the tail, and writes them onto display 
+		
+		
+		Sequence number    ->    Display memory
+		 0  1  2  3  4  5        a7 a3 b7 b3 c7 c3
+		 6  7  8  9 10 11        a6 a2 b6 b2 c6 c2
+		12 13 14 15 16 17        a5 a1 b5 b1 c5 c1
+		18 19 20 21 22 23        a4 a0 b4 b0 c4 c0
+
+		24 25 26 27 28 29        d7 d3 e7 e3 f7 f3
+		30 31 32 33 34 35        d6 d2 e6 e2 f6 f2
+		36 37 38 39 40 41        d5 d1 e5 e1 f5 f1
+		42 43 44 45 46 47        d4 d0 e4 e0 f4 f0
+
+		disp_mem[0]=a
+		..
+		disp_mem[5]=f
+
+		
+		*/
+		
 		uint8_t s=snake_area[(snake_idx-i+48)%48];
 		disp_mem[s<24?(s/2)%3:((s-24)/2)%3+3]|=1<<(3-(s%24)/6)<<(s%2?0:4);
 	}
