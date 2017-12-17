@@ -4,3 +4,5 @@ bin_watch.?#?
 
 bin_clock_FW/uChronos/uChronos/Debug/*
 !bin_clock_FW/uChronos/uChronos/Debug/uChronos.hex
+bin_clock_FW/uChronos/uChronos/Release/*
+!bin_clock_FW/uChronos/uChronos/Release/uChronos.hex
